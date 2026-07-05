@@ -130,12 +130,6 @@
             background: var(--secondary-light);
         }
 
-        .btn-sm {
-            padding: 10px 24px;
-            font-size: 0.85rem;
-        }
-
-        /* WhatsApp button specific */
         .btn-whatsapp {
             background: #25D366;
             color: var(--white);
@@ -303,6 +297,7 @@
             overflow: hidden;
         }
 
+        /* Dynamic structural animation background */
         .hero-bg {
             position: absolute;
             inset: 0;
@@ -311,14 +306,102 @@
                 radial-gradient(ellipse at 20% 50%, rgba(45, 109, 168, 0.25) 0%, transparent 60%),
                 radial-gradient(ellipse at 80% 20%, rgba(212, 168, 67, 0.15) 0%, transparent 50%),
                 linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            overflow: hidden;
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(212, 168, 67, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(212, 168, 67, 0.05) 1px, transparent 1px);
+            background-size: 60px 60px;
+            animation: gridMove 20s linear infinite;
+            opacity: 0.6;
         }
 
         .hero-bg::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.5;
+            background: radial-gradient(circle at 30% 40%, rgba(45, 109, 168, 0.1) 0%, transparent 60%);
+            animation: pulseGlow 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes gridMove {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(60px, 60px);
+            }
+        }
+
+        @keyframes pulseGlow {
+            0% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0.8;
+                transform: scale(1.2);
+            }
+        }
+
+        /* Floating structural nodes (dots) */
+        .hero-bg .node {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            opacity: 0.2;
+            animation: floatNode 15s infinite alternate ease-in-out;
+        }
+        .hero-bg .node:nth-child(1) {
+            top: 15%;
+            left: 10%;
+            animation-duration: 18s;
+        }
+        .hero-bg .node:nth-child(2) {
+            top: 70%;
+            left: 85%;
+            animation-duration: 22s;
+            animation-delay: 2s;
+        }
+        .hero-bg .node:nth-child(3) {
+            top: 40%;
+            left: 75%;
+            animation-duration: 20s;
+            animation-delay: 4s;
+        }
+        .hero-bg .node:nth-child(4) {
+            top: 80%;
+            left: 20%;
+            animation-duration: 16s;
+            animation-delay: 1s;
+        }
+        .hero-bg .node:nth-child(5) {
+            top: 25%;
+            left: 55%;
+            animation-duration: 24s;
+            animation-delay: 3s;
+        }
+
+        @keyframes floatNode {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.2;
+            }
+            50% {
+                transform: translate(40px, -30px) scale(1.8);
+                opacity: 0.6;
+            }
+            100% {
+                transform: translate(-20px, 20px) scale(1);
+                opacity: 0.2;
+            }
         }
 
         .hero .container {
@@ -355,7 +438,7 @@
             font-weight: 900;
             line-height: 1.12;
             letter-spacing: -1.5px;
-            margin-bottom: 16px;
+            margin-bottom: 8px;
         }
 
         .hero h1 .highlight {
@@ -363,6 +446,27 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+
+        /* Typing animation for dynamic text */
+        .hero .typing-wrapper {
+            display: inline-block;
+            font-size: clamp(1.2rem, 2vw, 1.8rem);
+            font-weight: 600;
+            color: var(--accent);
+            min-height: 2.4rem;
+            margin-bottom: 12px;
+        }
+        .hero .typing-wrapper .typed-text {
+            display: inline-block;
+            border-right: 3px solid var(--accent);
+            padding-right: 6px;
+            animation: blink 0.8s step-end infinite;
+        }
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
         }
 
         .hero p {
@@ -1153,7 +1257,7 @@
             transform: translateY(0);
         }
 
-        /* ===== FLOATING BADGES ===== */
+        /* ===== FLOATING BADGES (ROUND) ===== */
         .floating-badge {
             position: fixed;
             z-index: 999;
@@ -1219,7 +1323,7 @@
         <div class="container">
             <a href="#" class="nav-logo">
                 <img src="pic/logo.png" alt="Unity Structural Solution Logo" />
-                <span>Unity</span> Structural
+                <span>Unity</span> Structural Solution
             </a>
 
             <ul class="nav-links" id="navLinks" role="menubar">
@@ -1240,7 +1344,14 @@
 
     <!-- ===== HERO ===== -->
     <header class="hero" id="home">
-        <div class="hero-bg"></div>
+        <div class="hero-bg">
+            <!-- Floating nodes for dynamic effect -->
+            <div class="node"></div>
+            <div class="node"></div>
+            <div class="node"></div>
+            <div class="node"></div>
+            <div class="node"></div>
+        </div>
         <div class="container">
             <div class="hero-content">
                 <div class="hero-badge"><i class="fas fa-hard-hat"></i> &nbsp;Engineering with Precision</div>
@@ -1248,6 +1359,9 @@
                     Building <br />
                     <span class="highlight">Structural Excellence</span>
                 </h1>
+                <div class="typing-wrapper">
+                    <span class="typed-text" id="typedText"></span>
+                </div>
                 <p>
                     Professional RCC &amp; Steel Structure Engineering — Design, Detailing,
                     Estimation &amp; Consultancy with 15+ years of industry experience.
@@ -1301,14 +1415,14 @@
                     <p>
                         <strong>Unity Structural Solution</strong> is a professional engineering consultancy
                         specializing in <strong>RCC</strong> and <strong>Steel Structure</strong> design,
-                        detailing, estimation, and project support. We are two civil engineers with a
+                        detailing, estimation, and project support. Our team of civil engineers brings a
                         combined <strong>22+ years</strong> of industry experience, dedicated to delivering
                         safe, economical, and practical solutions.
                     </p>
                     <p class="bangla">
                         <strong>Unity Structural Solution</strong> একটি পেশাদার ইঞ্জিনিয়ারিং কনসালটেন্সি প্রতিষ্ঠান।
                         আমরা <strong>আরসিসি</strong> ও <strong>স্টিল স্ট্রাকচার</strong> ডিজাইন, ডিটেইলিং,
-                        ইস্টিমেশন ও প্রজেক্ট সাপোর্ট সেবা প্রদান করি। আমাদের দুই সিভিল ইঞ্জিনিয়ারের
+                        ইস্টিমেশন ও প্রজেক্ট সাপোর্ট সেবা প্রদান করি। আমাদের সিভিল ইঞ্জিনিয়ারদের
                         সম্মিলিত <strong>২২+ বছর</strong> শিল্প অভিজ্ঞতা রয়েছে, যা নিরাপদ, সাশ্রয়ী
                         ও কার্যকর সমাধান প্রদানে প্রতিশ্রুতিবদ্ধ।
                     </p>
@@ -1411,12 +1525,12 @@
             <div class="section-header animate-on-scroll">
                 <div class="tag">Our Team</div>
                 <h2>Meet the <span>Engineers</span></h2>
-                <p>Two brothers, one vision — delivering structural excellence with integrity.</p>
-                <p class="bangla">দুই ভাই, এক লক্ষ্য — পেশাদারি ও নিষ্ঠার সাথে স্ট্রাকচারাল শ্রেষ্ঠত্ব প্রদান।</p>
+                <p>Passionate professionals dedicated to delivering structural excellence with integrity.</p>
+                <p class="bangla">পেশাদারিত্ব ও নিষ্ঠার সাথে স্ট্রাকচারাল শ্রেষ্ঠত্ব প্রদানে প্রতিশ্রুতিবদ্ধ টিম।</p>
             </div>
 
             <div class="team-grid">
-                <!-- Brother 1: Senior -->
+                <!-- Senior Engineer -->
                 <div class="team-card animate-on-scroll">
                     <div class="avatar">MH</div>
                     <h4>Engr. Md Munna Hossain</h4>
@@ -1433,7 +1547,7 @@
                     <div class="badge"><i class="fas fa-star"></i> Tekla Expert</div>
                 </div>
 
-                <!-- Brother 2: Junior -->
+                <!-- Design & Estimation Engineer -->
                 <div class="team-card animate-on-scroll">
                     <div class="avatar">SH</div>
                     <h4>Engr. Md S Hossen</h4>
@@ -1612,6 +1726,38 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
 
+            // ---- TYPING ANIMATION ----
+            const typedText = document.getElementById('typedText');
+            const phrases = ['RCC Structures', 'Steel Structures', 'PEB Engineering'];
+            let phraseIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+
+            function typeEffect() {
+                const currentPhrase = phrases[phraseIndex];
+                if (isDeleting) {
+                    typedText.textContent = currentPhrase.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    typedText.textContent = currentPhrase.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+
+                if (!isDeleting && charIndex === currentPhrase.length) {
+                    isDeleting = true;
+                    setTimeout(typeEffect, 2000);
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    setTimeout(typeEffect, 500);
+                } else {
+                    const speed = isDeleting ? 50 : 100;
+                    setTimeout(typeEffect, speed);
+                }
+            }
+
+            typeEffect();
+
             // ---- NAVBAR TOGGLE ----
             const toggle = document.getElementById('navToggle');
             const navLinks = document.getElementById('navLinks');
@@ -1622,7 +1768,6 @@
                 toggle.setAttribute('aria-expanded', isOpen);
             });
 
-            // Close nav on link click (mobile)
             document.querySelectorAll('.nav-links a').forEach(link => {
                 link.addEventListener('click', function() {
                     navLinks.classList.remove('open');
@@ -1633,8 +1778,6 @@
 
             // ---- NAVBAR SCROLL EFFECT ----
             const navbar = document.getElementById('navbar');
-            let lastScroll = 0;
-
             window.addEventListener('scroll', function() {
                 const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
                 if (currentScroll > 60) {
@@ -1642,26 +1785,20 @@
                 } else {
                     navbar.classList.remove('scrolled');
                 }
-                lastScroll = currentScroll;
             });
 
-            // ---- SCROLL ANIMATION (Intersection Observer) ----
+            // ---- SCROLL ANIMATION ----
             const animatedElements = document.querySelectorAll('.animate-on-scroll');
-
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
                     }
                 });
-            }, {
-                threshold: 0.12,
-                rootMargin: '0px 0px -30px 0px'
-            });
-
+            }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
             animatedElements.forEach(el => observer.observe(el));
 
-            // ---- COUNTER ANIMATION (Years) ----
+            // ---- COUNTER ANIMATION ----
             const yearsEl = document.getElementById('yearsCount');
             if (yearsEl) {
                 let counted = false;
@@ -1685,11 +1822,10 @@
                         }
                     });
                 }, { threshold: 0.5 });
-
                 counterObserver.observe(yearsEl);
             }
 
-            // ---- SMOOTH SCROLL FOR ANCHOR LINKS ----
+            // ---- SMOOTH SCROLL ----
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     const targetId = this.getAttribute('href');
@@ -1697,24 +1833,19 @@
                     const targetEl = document.querySelector(targetId);
                     if (targetEl) {
                         e.preventDefault();
-                        const offsetTop = targetEl.getBoundingClientRect().top + window.pageYOffset -
-                            80;
-                        window.scrollTo({
-                            top: offsetTop,
-                            behavior: 'smooth'
-                        });
+                        const offsetTop = targetEl.getBoundingClientRect().top + window.pageYOffset - 80;
+                        window.scrollTo({ top: offsetTop, behavior: 'smooth' });
                     }
                 });
             });
 
-            // ---- ACTIVE NAV LINK HIGHLIGHT ----
+            // ---- ACTIVE NAV ----
             const sections = document.querySelectorAll('section[id]');
             const navAnchors = document.querySelectorAll('.nav-links a:not(.btn-nav)');
 
             function highlightNav() {
                 let current = '';
                 const scrollPos = window.pageYOffset + 120;
-
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
                     const sectionHeight = section.offsetHeight;
@@ -1722,7 +1853,6 @@
                         current = section.getAttribute('id');
                     }
                 });
-
                 navAnchors.forEach(link => {
                     link.classList.remove('active');
                     if (link.getAttribute('href') === '#' + current) {
@@ -1730,11 +1860,9 @@
                     }
                 });
             }
-
             window.addEventListener('scroll', highlightNav);
             highlightNav();
 
-            // ---- CONSOLE WELCOME ----
             console.log('🏗️ Unity Structural Solution');
             console.log('Engineering with Accuracy • Detailing with Precision • Building with Confidence');
             console.log('📍 https://www.facebook.com/UnityStructuralSolution');
