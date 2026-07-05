@@ -135,6 +135,18 @@
             font-size: 0.85rem;
         }
 
+        /* WhatsApp button specific */
+        .btn-whatsapp {
+            background: #25D366;
+            color: var(--white);
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+        }
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+            background: #20b85a;
+        }
+
         /* ===== NAVIGATION ===== */
         .navbar {
             position: fixed;
@@ -377,26 +389,6 @@
             object-fit: cover;
         }
 
-        .hero-image .cover-wrapper .placeholder-cover {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--primary-light), var(--secondary));
-            color: rgba(255, 255, 255, 0.7);
-            font-weight: 500;
-            font-size: 1.1rem;
-            gap: 8px;
-        }
-
-        .hero-image .cover-wrapper .placeholder-cover i {
-            font-size: 3rem;
-            color: var(--accent);
-            opacity: 0.6;
-        }
-
         /* ===== SECTION COMMON ===== */
         section {
             padding: 80px 0;
@@ -508,26 +500,6 @@
             height: 100%;
             object-fit: contain;
             padding: 20px;
-        }
-
-        .about-image .logo-wrapper .placeholder-logo {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: var(--white);
-            font-weight: 700;
-            font-size: 1.4rem;
-            gap: 8px;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .about-image .logo-wrapper .placeholder-logo span {
-            color: var(--accent);
         }
 
         /* ===== SERVICES ===== */
@@ -1102,6 +1074,16 @@
             font-size: 1.1rem;
         }
 
+        .floating-badge.whatsapp {
+            background: #25D366;
+            color: var(--white);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+            right: 120px;
+        }
+        .floating-badge.whatsapp:hover {
+            box-shadow: 0 12px 40px rgba(37, 211, 102, 0.5);
+        }
+
         @media (max-width: 480px) {
             .floating-badge {
                 bottom: 16px;
@@ -1115,6 +1097,10 @@
             .floating-badge i {
                 font-size: 1.3rem;
             }
+            .floating-badge.whatsapp {
+                right: 16px;
+                bottom: 80px;
+            }
         }
     </style>
 </head>
@@ -1125,8 +1111,7 @@
     <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
         <div class="container">
             <a href="#" class="nav-logo">
-                <!-- Replace src with your actual logo -->
-                <img src="https://via.placeholder.com/500x500/0f1a3a/d4a843?text=Unity" alt="Unity Structural Solution Logo" />
+                <img src="pic/logo.png" alt="Unity Structural Solution Logo" />
                 <span>Unity</span> Structural
             </a>
 
@@ -1186,17 +1171,7 @@
 
             <div class="hero-image">
                 <div class="cover-wrapper">
-                    <!-- Replace src with your actual cover image (720x280) -->
-                    <img
-                    src="https://via.placeholder.com/720x280/1a2d5a/d4a843?text=Unity+Structural+Solution"
-                    alt="Unity Structural Solution Cover"
-                    />
-                    <!-- If image fails, fallback -->
-                    <!-- <div class="placeholder-cover">
-                        <i class="fas fa-building"></i>
-                        <span>Unity Structural Solution</span>
-                        <small style="font-weight:300;opacity:0.6;">Cover Image 720×280</small>
-                    </div> -->
+                    <img src="pic/cover.png" alt="Unity Structural Solution Cover" />
                 </div>
             </div>
         </div>
@@ -1233,17 +1208,7 @@
 
                 <div class="about-image animate-on-scroll">
                     <div class="logo-wrapper">
-                        <!-- Replace src with your actual logo (500x500) -->
-                        <img
-                        src="https://via.placeholder.com/500x500/0f1a3a/d4a843?text=Unity"
-                        alt="Unity Structural Solution Logo"
-                        />
-                        <!-- Fallback if image fails -->
-                        <!-- <div class="placeholder-logo">
-                            <span>Unity</span>
-                            Structural Solution
-                            <small style="font-weight:300;font-size:0.7rem;opacity:0.6;">Logo 500×500</small>
-                        </div> -->
+                        <img src="pic/logo.png" alt="Unity Structural Solution Logo" />
                     </div>
                 </div>
             </div>
@@ -1324,8 +1289,8 @@
             <div class="team-grid">
                 <!-- Brother 1: Senior -->
                 <div class="team-card animate-on-scroll">
-                    <div class="avatar">ME</div>
-                    <h4>Md. Ershad</h4>
+                    <div class="avatar">MH</div>
+                    <h4>Engr. Md Munna Hossain</h4>
                     <div class="role">Senior Structural Engineer</div>
                     <div class="exp"><i class="fas fa-calendar-alt" style="color:var(--accent);"></i> 15+ Years Experience</div>
                     <p class="bio">
@@ -1338,8 +1303,8 @@
 
                 <!-- Brother 2: Junior -->
                 <div class="team-card animate-on-scroll">
-                    <div class="avatar">ME</div>
-                    <h4>Md. Emon</h4>
+                    <div class="avatar">SH</div>
+                    <h4>Engr. Md S Hossen</h4>
                     <div class="role">Estimation &amp; Design Engineer</div>
                     <div class="exp"><i class="fas fa-calendar-alt" style="color:var(--accent);"></i> 7 Years Experience</div>
                     <p class="bio">
@@ -1434,6 +1399,9 @@
                 <a href="https://www.facebook.com/UnityStructuralSolution" target="_blank" class="btn btn-primary">
                     <i class="fab fa-facebook-messenger"></i> Message on Facebook
                 </a>
+                <a href="https://wa.me/8801234567890?text=Hi%2C%20I%20want%20to%20know%20about%20your%20services" target="_blank" class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
                 <a href="https://www.facebook.com/UnityStructuralSolution" target="_blank" class="btn btn-secondary">
                     <i class="fab fa-facebook-f"></i> Visit Our Page
                 </a>
@@ -1443,9 +1411,11 @@
                 <a href="https://www.facebook.com/UnityStructuralSolution" target="_blank" aria-label="Facebook">
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                <!-- Add other social links if needed -->
                 <a href="https://www.facebook.com/UnityStructuralSolution" target="_blank" aria-label="Messenger">
                     <i class="fab fa-facebook-messenger"></i>
+                </a>
+                <a href="https://wa.me/8801234567890?text=Hi%2C%20I%20want%20to%20know%20about%20your%20services" target="_blank" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
                 </a>
                 <a href="#" aria-label="Email">
                     <i class="fas fa-envelope"></i>
@@ -1461,8 +1431,7 @@
     <footer class="footer">
         <div class="container">
             <div class="brand">
-                <!-- Replace with actual logo small -->
-                <img src="https://via.placeholder.com/500x500/0f1a3a/d4a843?text=U" alt="Unity" style="height:32px;width:auto;border-radius:6px;" />
+                <img src="pic/logo.png" alt="Unity" style="height:32px;width:auto;border-radius:6px;" />
                 <span>Unity</span> Structural Solution
             </div>
             <p>&copy; 2026 Unity Structural Solution. All rights reserved.</p>
@@ -1473,14 +1442,21 @@
                 <a href="https://www.facebook.com/UnityStructuralSolution" target="_blank" aria-label="Messenger">
                     <i class="fab fa-facebook-messenger"></i>
                 </a>
+                <a href="https://wa.me/8801234567890?text=Hi%2C%20I%20want%20to%20know%20about%20your%20services" target="_blank" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
             </div>
         </div>
     </footer>
 
-    <!-- ===== FLOATING BADGE ===== -->
-    <a href="https://www.facebook.com/UnityStructuralSolution" target="_blank" class="floating-badge" aria-label="Contact us on Facebook">
+    <!-- ===== FLOATING BADGES ===== -->
+    <a href="https://www.facebook.com/UnityStructuralSolution" target="_blank" class="floating-badge" aria-label="Contact us on Facebook Messenger">
         <i class="fab fa-facebook-messenger"></i>
-        <span>Contact Us</span>
+        <span>Message Us</span>
+    </a>
+    <a href="https://wa.me/8801234567890?text=Hi%2C%20I%20want%20to%20know%20about%20your%20services" target="_blank" class="floating-badge whatsapp" aria-label="Contact us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span>WhatsApp</span>
     </a>
 
     <!-- ===== SCRIPTS ===== -->
@@ -1527,8 +1503,6 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
-                        // Optionally unobserve after animation
-                        // observer.unobserve(entry.target);
                     }
                 });
             }, {
@@ -1541,8 +1515,6 @@
             // ---- COUNTER ANIMATION (Years) ----
             const yearsEl = document.getElementById('yearsCount');
             if (yearsEl) {
-                // Just ensure it says "15+" — we keep it static but add a subtle pulse
-                // or we can animate it on scroll
                 let counted = false;
                 const counterObserver = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
