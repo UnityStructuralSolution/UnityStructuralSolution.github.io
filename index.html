@@ -476,53 +476,77 @@
             font-weight: 400;
         }
 
-        /* Hero right - 3D container */
-        .hero-3d {
+        /* Hero right - Image container */
+        .hero-image-container {
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 420px;
+            min-height: 400px;
         }
-        .hero-3d .glass-card {
+        .hero-image-container .glass-card {
             position: relative;
             width: 100%;
             max-width: 580px;
-            aspect-ratio: 4/3;
+            aspect-ratio: 1536 / 743;
             border-radius: var(--radius);
             overflow: hidden;
             background: var(--glass);
             backdrop-filter: blur(12px);
             border: 1px solid var(--glass-border);
             box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .hero-3d .glass-card .card-shine {
+        .hero-image-container .glass-card .card-shine {
             position: absolute;
             inset: 0;
             background: radial-gradient(ellipse at 30% 20%, rgba(255, 255, 255, 0.06), transparent 70%);
             pointer-events: none;
             z-index: 2;
         }
-        .hero-3d .glass-card .card-label {
+        .hero-image-container .glass-card .card-label {
             position: absolute;
             bottom: 20px;
             left: 24px;
             z-index: 3;
-            color: rgba(255, 255, 255, 0.4);
+            color: rgba(255, 255, 255, 0.5);
             font-size: 0.7rem;
             font-weight: 500;
             letter-spacing: 2px;
             text-transform: uppercase;
         }
-        .hero-3d .glass-card .card-label i {
+        .hero-image-container .glass-card .card-label i {
             color: var(--accent);
             margin-right: 6px;
         }
-        #three-container {
+        .hero-image-container .glass-card img {
             width: 100%;
             height: 100%;
-            position: relative;
-            z-index: 1;
+            object-fit: cover;
+            display: block;
+        }
+        .hero-image-container .glass-card .placeholder-text {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 20px;
+            gap: 8px;
+        }
+        .hero-image-container .glass-card .placeholder-text i {
+            font-size: 3rem;
+            color: var(--accent);
+            opacity: 0.3;
+        }
+        .hero-image-container .glass-card .placeholder-text strong {
+            color: rgba(255, 255, 255, 0.5);
         }
 
         /* ============================================================
@@ -1445,9 +1469,9 @@
             .hero-stats {
                 justify-content: center;
             }
-            .hero-3d .glass-card {
+            .hero-image-container .glass-card {
                 max-width: 100%;
-                aspect-ratio: 4/3;
+                aspect-ratio: 1536 / 743;
             }
             .about-grid {
                 grid-template-columns: 1fr;
@@ -1579,9 +1603,9 @@
             .hero .container {
                 gap: 20px;
             }
-            .hero-3d .glass-card {
-                aspect-ratio: 1/1;
-                min-height: 300px;
+            .hero-image-container .glass-card {
+                aspect-ratio: 4/3;
+                min-height: 200px;
             }
             .team-card {
                 padding: 24px 18px;
@@ -1669,11 +1693,17 @@
                     <div class="stat"><h3>100%</h3><p>Client Satisfaction</p></div>
                 </div>
             </div>
-            <div class="hero-3d">
+            <div class="hero-image-container">
                 <div class="glass-card">
                     <div class="card-shine"></div>
-                    <div id="three-container"></div>
-                    <div class="card-label"><i class="fas fa-warehouse"></i> 3D Industrial Shed — Interactive</div>
+                    <img src="pic/shed-structure.jpg" alt="3D Steel Shed Structure - Components" onerror="this.style.display='none'; document.querySelector('.placeholder-text').style.display='flex'" />
+                    <div class="placeholder-text" style="display:none;">
+                        <i class="fas fa-warehouse"></i>
+                        <div><strong>Steel Shed Structure</strong></div>
+                        <div style="font-size:0.75rem;opacity:0.6;">Upload your 1536×743 image as <strong>pic/shed-structure.jpg</strong></div>
+                        <div style="font-size:0.65rem;opacity:0.4;margin-top:8px;">Columns · Rafters · Purlins · Girts · Bracing</div>
+                    </div>
+                    <div class="card-label"><i class="fas fa-cube"></i> 3D Steel Shed — Components</div>
                 </div>
             </div>
         </div>
@@ -1833,7 +1863,7 @@
                 <h2>Featured <span>Projects</span></h2>
                 <p>Showcasing our engineering excellence across RCC and steel structures.</p>
                 <p class="bangla" style="font-size:0.85rem;color:var(--gray);margin-top:8px;">
-                    📸 প্রতিটি প্রজেক্টের জন্য আপনার ইমেজ আপলোড করুন: <strong>project-1.jpg, project-2.jpg ... project-6.jpg</strong> 
+                    📸 প্রতিটি প্রজেক্টের জন্য আপনার ইমেজ আপলোড করুন: <strong>project-1.jpg, project-2.jpg ... project-6.jpg</strong>
                     (আকার: 600×450px, ফোল্ডার: <strong>pic/projects/</strong>)
                 </p>
             </div>
@@ -2145,450 +2175,6 @@
     <a href="https://wa.me/8801602105447?text=Hi%2C%20I%20want%20to%20know%20about%20your%20services" target="_blank" class="floating-badge whatsapp" aria-label="WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
-
-    <!-- ============================================================
-    THREE.JS - 3D INDUSTRIAL SHED STRUCTURE
-    ============================================================ -->
-    <script type="importmap">
-        {
-            "imports": {
-                "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
-                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
-            }
-        }
-    </script>
-
-    <script type="module">
-        import * as THREE from 'three';
-        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-
-        const container = document.getElementById('three-container');
-
-        // === SCENE ===
-        const scene = new THREE.Scene();
-        scene.background = null;
-
-        // === CAMERA ===
-        const camera = new THREE.PerspectiveCamera(35, container.clientWidth / container.clientHeight, 0.1, 100);
-        camera.position.set(12, 8, 14);
-        camera.lookAt(0, 2.5, 0);
-
-        // === RENDERER ===
-        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-        renderer.setSize(container.clientWidth, container.clientHeight);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        renderer.shadowMap.enabled = true;
-        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-        renderer.toneMapping = THREE.ACESFilmicToneMapping;
-        renderer.toneMappingExposure = 1.2;
-        container.appendChild(renderer.domElement);
-
-        // === CONTROLS ===
-        const controls = new OrbitControls(camera, renderer.domElement);
-        controls.enableDamping = true;
-        controls.dampingFactor = 0.05;
-        controls.autoRotate = true;
-        controls.autoRotateSpeed = 0.5;
-        controls.minDistance = 8;
-        controls.maxDistance = 30;
-        controls.maxPolarAngle = Math.PI / 2.3;
-        controls.target.set(0, 2.8, 0);
-        controls.update();
-
-        // === LIGHTS ===
-        const ambient = new THREE.AmbientLight(0x446688, 0.5);
-        scene.add(ambient);
-
-        const dirLight = new THREE.DirectionalLight(0xffeedd, 2.0);
-        dirLight.position.set(10, 18, 12);
-        dirLight.castShadow = true;
-        dirLight.shadow.mapSize.width = 1024;
-        dirLight.shadow.mapSize.height = 1024;
-        dirLight.shadow.camera.near = 0.1;
-        dirLight.shadow.camera.far = 50;
-        dirLight.shadow.camera.left = -20;
-        dirLight.shadow.camera.right = 20;
-        dirLight.shadow.camera.top = 20;
-        dirLight.shadow.camera.bottom = -20;
-        scene.add(dirLight);
-
-        const fillLight = new THREE.DirectionalLight(0x88aadd, 0.5);
-        fillLight.position.set(-6, 6, -10);
-        scene.add(fillLight);
-
-        const rimLight = new THREE.DirectionalLight(0xd6a136, 0.3);
-        rimLight.position.set(-4, 6, 12);
-        scene.add(rimLight);
-
-        // === MATERIALS ===
-        const steelMat = new THREE.MeshStandardMaterial({
-            color: 0x8a9aaa,
-            metalness: 0.7,
-            roughness: 0.3,
-            envMapIntensity: 0.6,
-        });
-        const steelDarkMat = new THREE.MeshStandardMaterial({
-            color: 0x6a7a8a,
-            metalness: 0.65,
-            roughness: 0.35,
-        });
-        const columnMat = new THREE.MeshStandardMaterial({
-            color: 0x7a8a9a,
-            metalness: 0.65,
-            roughness: 0.35,
-        });
-        const trussMat = new THREE.MeshStandardMaterial({
-            color: 0x9aabbb,
-            metalness: 0.6,
-            roughness: 0.4,
-        });
-        const purlinMat = new THREE.MeshStandardMaterial({
-            color: 0x8a9aaa,
-            metalness: 0.5,
-            roughness: 0.5,
-        });
-        const nodeMat = new THREE.MeshStandardMaterial({
-            color: 0xd6a136,
-            metalness: 0.4,
-            roughness: 0.3,
-            emissive: 0xd6a136,
-            emissiveIntensity: 0.2,
-        });
-        const nodeGlowMat = new THREE.MeshStandardMaterial({
-            color: 0xd6a136,
-            metalness: 0.2,
-            roughness: 0.2,
-            emissive: 0xd6a136,
-            emissiveIntensity: 0.9,
-        });
-        const roofMat = new THREE.MeshStandardMaterial({
-            color: 0x2a4a6a,
-            metalness: 0.3,
-            roughness: 0.7,
-            transparent: true,
-            opacity: 0.15,
-            side: THREE.DoubleSide,
-        });
-
-        // === BUILDING GROUP ===
-        const building = new THREE.Group();
-        scene.add(building);
-
-        // === SHED PARAMETERS ===
-        const shedLength = 6.0;
-        const shedWidth = 3.6;
-        const shedHeight = 3.2;
-        const roofPitch = 0.35;
-        const numBays = 3;
-        const baySpacing = shedLength / numBays;
-
-        // === HELPER FUNCTIONS ===
-        function createBeam(w, h, d, colorMat = steelMat, pos = [0, 0, 0], rot = [0, 0, 0]) {
-            const geo = new THREE.BoxGeometry(w, h, d);
-            const mesh = new THREE.Mesh(geo, colorMat);
-            mesh.position.set(pos[0], pos[1], pos[2]);
-            mesh.rotation.set(rot[0], rot[1], rot[2]);
-            mesh.castShadow = true;
-            mesh.receiveShadow = true;
-            return mesh;
-        }
-
-        function createCylBeam(radius, height, pos, colorMat = steelMat) {
-            const geo = new THREE.CylinderGeometry(radius, radius, height, 8);
-            const mesh = new THREE.Mesh(geo, colorMat);
-            mesh.position.set(pos[0], pos[1], pos[2]);
-            mesh.castShadow = true;
-            mesh.receiveShadow = true;
-            return mesh;
-        }
-
-        function createNode(pos, size = 0.12, glow = false) {
-            const geo = new THREE.SphereGeometry(size, 12, 12);
-            const mat = glow ? nodeGlowMat : nodeMat;
-            const mesh = new THREE.Mesh(geo, mat);
-            mesh.position.set(pos[0], pos[1], pos[2]);
-            mesh.castShadow = true;
-            return mesh;
-        }
-
-        function createTrussMember(x1, y1, z1, x2, y2, z2, colorMat = trussMat, radius = 0.035) {
-            const dx = x2 - x1,
-                dy = y2 - y1,
-                dz = z2 - z1;
-            const len = Math.sqrt(dx * dx + dy * dy + dz * dz);
-            if (len < 0.05) return null;
-            const midX = (x1 + x2) / 2,
-                midY = (y1 + y2) / 2,
-                midZ = (z1 + z2) / 2;
-            const geo = new THREE.CylinderGeometry(radius, radius, len, 5);
-            const mesh = new THREE.Mesh(geo, colorMat);
-            mesh.position.set(midX, midY, midZ);
-            const dir = new THREE.Vector3(dx, dy, dz).normalize();
-            const up = new THREE.Vector3(0, 1, 0);
-            const quat = new THREE.Quaternion().setFromUnitVectors(up, dir);
-            mesh.quaternion.copy(quat);
-            mesh.castShadow = true;
-            mesh.receiveShadow = true;
-            return mesh;
-        }
-
-        // === 1. MAIN COLUMNS ===
-        const columnPositions = [];
-        for (let i = 0; i <= numBays; i++) {
-            const x = -shedLength / 2 + i * baySpacing;
-            for (let z of [-shedWidth / 2, shedWidth / 2]) {
-                const pos = [x, shedHeight / 2, z];
-                columnPositions.push(pos);
-                const col = createCylBeam(0.12, shedHeight, pos, columnMat);
-                building.add(col);
-                // Base plate
-                const plate = createBeam(0.3, 0.05, 0.3, steelDarkMat, [x, 0.03, z]);
-                building.add(plate);
-                // Base node
-                building.add(createNode([x, 0.05, z], 0.08));
-                // Top node
-                building.add(createNode([x, shedHeight, z], 0.08));
-            }
-        }
-
-        // === 2. PORTAL FRAME (Rafter with haunch) ===
-        const ridgeHeight = shedHeight + roofPitch * (shedWidth / 2);
-
-        for (let i = 0; i <= numBays; i++) {
-            const x = -shedLength / 2 + i * baySpacing;
-            for (let z of [-shedWidth / 2, shedWidth / 2]) {
-                const zSign = z < 0 ? -1 : 1;
-                const h1 = shedHeight + roofPitch * (z + shedWidth / 2);
-                const h2 = shedHeight + roofPitch * (z + shedWidth / 2 + 0.15);
-                const dx = 0.15;
-                const dy = roofPitch * dx;
-                const len = Math.sqrt(dx * dx + dy * dy);
-                const angle = Math.atan2(dy, dx);
-
-                // Left rafter
-                const rafterL = createBeam(0.07, 0.08, len, steelMat,
-                    [x, h1 + dy / 2 - 0.02, z - dx / 2 * zSign],
-                    [0, 0, -angle * zSign]
-                );
-                building.add(rafterL);
-                // Right rafter
-                const rafterR = createBeam(0.07, 0.08, len, steelMat,
-                    [x, h1 + dy / 2 - 0.02, z + dx / 2 * zSign],
-                    [0, 0, angle * zSign]
-                );
-                building.add(rafterR);
-                // Nodes at rafter connections
-                building.add(createNode([x, h1, z - dx * zSign], 0.07));
-                building.add(createNode([x, h1, z + dx * zSign], 0.07));
-            }
-        }
-
-        // === 3. RIDGE BEAM ===
-        for (let i = 0; i <= numBays; i++) {
-            const x = -shedLength / 2 + i * baySpacing;
-            const ridge = createBeam(0.08, 0.09, 0.1, steelMat, [x, ridgeHeight, 0]);
-            building.add(ridge);
-            building.add(createNode([x, ridgeHeight, 0], 0.1, true));
-        }
-
-        // === 4. ROOF TRUSS (Zig-zag bracing in roof plane) ===
-        for (let i = 0; i < numBays; i++) {
-            const x1 = -shedLength / 2 + i * baySpacing;
-            const x2 = -shedLength / 2 + (i + 1) * baySpacing;
-            const midX = (x1 + x2) / 2;
-            for (let z of [-shedWidth / 2 + 0.2, shedWidth / 2 - 0.2]) {
-                const h1 = shedHeight + roofPitch * (z + shedWidth / 2);
-                const h2 = shedHeight + roofPitch * (z + shedWidth / 2);
-                // Diagonal bracing in roof plane
-                const brace1 = createTrussMember(x1, h1, z, x2, h2, z + 0.5, trussMat, 0.03);
-                if (brace1) building.add(brace1);
-                const brace2 = createTrussMember(x1, h1, z + 0.5, x2, h2, z, trussMat, 0.03);
-                if (brace2) building.add(brace2);
-            }
-        }
-
-        // === 5. ROOF PURLINS ===
-        const numPurlins = 7;
-        for (let p = 0; p < numPurlins; p++) {
-            const t = (p + 0.5) / numPurlins;
-            const z = -shedWidth / 2 + t * shedWidth;
-            const h = shedHeight + roofPitch * (z + shedWidth / 2);
-            const purlin = createBeam(shedLength + 0.2, 0.04, 0.05, purlinMat, [0, h, z]);
-            building.add(purlin);
-        }
-
-        // === 6. WALL GIRTS ===
-        for (let level = 1; level < 3; level++) {
-            const y = shedHeight * (level / 3);
-            for (let z of [-shedWidth / 2, shedWidth / 2]) {
-                const girt = createBeam(shedLength + 0.4, 0.04, 0.05, purlinMat, [0, y, z]);
-                building.add(girt);
-            }
-            for (let x of [-shedLength / 2, shedLength / 2]) {
-                const girt = createBeam(0.04, 0.05, shedWidth + 0.4, purlinMat, [x, y, 0]);
-                building.add(girt);
-            }
-        }
-
-        // === 7. CROSS BRACING (X-bracing in end bays) ===
-        for (let bayIdx of [0, numBays - 1]) {
-            const x = -shedLength / 2 + bayIdx * baySpacing + baySpacing / 2;
-            for (let z of [-shedWidth / 2, shedWidth / 2]) {
-                const zOffset = z === -shedWidth / 2 ? 0.3 : -0.3;
-                const b1 = createTrussMember(x - 0.4, 0.15, z + zOffset, x + 0.4, shedHeight * 0.85, z - zOffset,
-                    steelDarkMat, 0.03);
-                if (b1) building.add(b1);
-                const b2 = createTrussMember(x + 0.4, 0.15, z + zOffset, x - 0.4, shedHeight * 0.85, z - zOffset,
-                    steelDarkMat, 0.03);
-                if (b2) building.add(b2);
-                // Nodes at brace ends
-                building.add(createNode([x - 0.4, 0.15, z + zOffset], 0.05));
-                building.add(createNode([x + 0.4, shedHeight * 0.85, z - zOffset], 0.05));
-                building.add(createNode([x + 0.4, 0.15, z + zOffset], 0.05));
-                building.add(createNode([x - 0.4, shedHeight * 0.85, z - zOffset], 0.05));
-            }
-        }
-
-        // === 8. ROOF CROSS BRACING ===
-        for (let bayIdx of [0, numBays - 1]) {
-            const x = -shedLength / 2 + bayIdx * baySpacing + baySpacing / 2;
-            const h1 = shedHeight + roofPitch * (-shedWidth / 2 + 0.3 + shedWidth / 2);
-            const h2 = shedHeight + roofPitch * (shedWidth / 2 - 0.3 + shedWidth / 2);
-            const b1 = createTrussMember(x - 0.5, h1, -shedWidth / 2 + 0.3, x + 0.5, h2, shedWidth / 2 - 0.3,
-                steelDarkMat, 0.025);
-            if (b1) building.add(b1);
-            const b2 = createTrussMember(x + 0.5, h2, -shedWidth / 2 + 0.3, x - 0.5, h1, shedWidth / 2 - 0.3,
-                steelDarkMat, 0.025);
-            if (b2) building.add(b2);
-        }
-
-        // === 9. END WALL FRAME ===
-        for (let z of [-shedWidth / 2, shedWidth / 2]) {
-            const zPos = z;
-            // End columns
-            for (let x of [-shedLength / 2, shedLength / 2]) {
-                building.add(createCylBeam(0.09, shedHeight, [x, shedHeight / 2, zPos], columnMat));
-            }
-            // End rafter
-            const hL = shedHeight + roofPitch * 0;
-            const hR = shedHeight + roofPitch * shedWidth;
-            const len = Math.sqrt(shedWidth * shedWidth + (hR - hL) * (hR - hL));
-            const angle = Math.atan2(hR - hL, shedWidth);
-            const rafter = createBeam(0.06, 0.07, len, steelMat,
-                [0, (hL + hR) / 2, zPos],
-                [0, 0, angle]
-            );
-            building.add(rafter);
-            building.add(createNode([-shedWidth / 2, hL, zPos], 0.07));
-            building.add(createNode([shedWidth / 2, hR, zPos], 0.07));
-            building.add(createNode([0, ridgeHeight, zPos], 0.08, true));
-
-            // End wall cross bracing
-            const b1 = createTrussMember(-shedWidth / 2 + 0.2, 0.2, zPos, shedWidth / 2 - 0.2, shedHeight * 0.85,
-                zPos, steelDarkMat, 0.025);
-            if (b1) building.add(b1);
-            const b2 = createTrussMember(shedWidth / 2 - 0.2, 0.2, zPos, -shedWidth / 2 + 0.2, shedHeight * 0.85,
-                zPos, steelDarkMat, 0.025);
-            if (b2) building.add(b2);
-        }
-
-        // === 10. FLOOR / FOOTPRINT ===
-        const floorMat2 = new THREE.MeshStandardMaterial({
-            color: 0x1a2a4a,
-            metalness: 0.2,
-            roughness: 0.8,
-            transparent: true,
-            opacity: 0.2,
-            side: THREE.DoubleSide,
-        });
-        const floor = new THREE.Mesh(new THREE.PlaneGeometry(shedLength + 1.0, shedWidth + 1.0), floorMat2);
-        floor.rotation.x = -Math.PI / 2;
-        floor.position.set(0, 0.01, 0);
-        floor.receiveShadow = true;
-        building.add(floor);
-
-        // === 11. GLOW NODES (highlighting key connections) ===
-        const glowPositions2 = [
-            [0, ridgeHeight, 0],
-            [-shedLength / 2, shedHeight, 0],
-            [shedLength / 2, shedHeight, 0],
-            [0, shedHeight, -shedWidth / 2],
-            [0, shedHeight, shedWidth / 2],
-            [-shedLength / 2, ridgeHeight, 0],
-            [shedLength / 2, ridgeHeight, 0],
-        ];
-        for (const pos of glowPositions2) {
-            building.add(createNode(pos, 0.14, true));
-        }
-
-        // === 12. GROUND GRID ===
-        const gridHelper = new THREE.GridHelper(20, 20, 0xd6a136, 0x235ea7);
-        gridHelper.position.y = 0.02;
-        gridHelper.material.transparent = true;
-        gridHelper.material.opacity = 0.12;
-        building.add(gridHelper);
-
-        // === ANIMATION LOOP ===
-        let time2 = 0;
-
-        function animate2() {
-            requestAnimationFrame(animate2);
-            time2 += 0.01;
-
-            // Slow floating motion
-            const floatY = Math.sin(time2 * 0.25) * 0.035;
-            building.position.y = floatY;
-            building.rotation.z = Math.sin(time2 * 0.12) * 0.0015;
-
-            // Pulse glow nodes
-            const pulse2 = 0.5 + Math.sin(time2 * 1.3) * 0.5;
-            nodeGlowMat.emissiveIntensity = pulse2 * 0.8;
-
-            controls.update();
-            renderer.render(scene, camera);
-        }
-
-        animate2();
-
-        // === RESIZE ===
-        function resize2() {
-            const w = container.clientWidth;
-            const h = container.clientHeight;
-            camera.aspect = w / h;
-            camera.updateProjectionMatrix();
-            renderer.setSize(w, h);
-        }
-        window.addEventListener('resize', resize2);
-
-        // === MOUSE PARALLAX ===
-        let mouseX2 = 0,
-            mouseY2 = 0;
-        let targetRotX2 = 0,
-            targetRotY2 = 0;
-
-        document.addEventListener('mousemove', (e) => {
-            const rect = container.getBoundingClientRect();
-            const x = (e.clientX - rect.left) / rect.width - 0.5;
-            const y = (e.clientY - rect.top) / rect.height - 0.5;
-            mouseX2 = x * 0.3;
-            mouseY2 = y * 0.15;
-        });
-
-        setInterval(() => {
-            targetRotX2 += (mouseX2 - targetRotX2) * 0.05;
-            targetRotY2 += (mouseY2 - targetRotY2) * 0.05;
-            controls.target.x = targetRotX2 * 0.5;
-            controls.target.y = 2.8 + targetRotY2 * 0.3;
-        }, 16);
-
-        // === HANDLE VISIBILITY ===
-        const observer2 = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                controls.autoRotate = entry.isIntersecting;
-            });
-        }, { threshold: 0.2 });
-        observer2.observe(container);
-    </script>
 
     <!-- ============================================================
     MAIN SCRIPTS
