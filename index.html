@@ -2303,12 +2303,9 @@
                 colPositions.push(pos);
                 const col = createCylBeam(0.12, height, pos, columnMat);
                 building.add(col);
-                // Base plate
                 const plate = createBeam(0.3, 0.06, 0.3, steelDarkMat, [x, 0.04, z]);
                 building.add(plate);
-                // Node at bottom
                 building.add(createNode([x, 0.06, z], 0.1));
-                // Node at top
                 building.add(createNode([x, height, z], 0.1));
             }
         }
@@ -2324,19 +2321,16 @@
                 const dy = roofPitch * dx;
                 const len = Math.sqrt(dx * dx + dy * dy);
                 const angle = Math.atan2(dy, dx);
-                // Left rafter
                 const rafterL = createBeam(0.08, 0.08, len, steelMat,
                     [x - dx / 2, h1 + dy / 2, z],
                     [0, 0, angle]
                 );
                 building.add(rafterL);
-                // Right rafter
                 const rafterR = createBeam(0.08, 0.08, len, steelMat,
                     [x + dx / 2, h1 + dy / 2, z],
                     [0, 0, -angle]
                 );
                 building.add(rafterR);
-                // Nodes at rafter ends
                 building.add(createNode([x - dx, h1, z], 0.08));
                 building.add(createNode([x + dx, h1, z], 0.08));
             }
@@ -2393,18 +2387,14 @@
             return mesh;
         }
 
-        // X-bracing in first and last bay
         for (let bayIdx of [0, bays - 1]) {
             const x = -totalWidth / 2 + bayIdx * bayWidth + bayWidth / 2;
             for (let z of [-depth / 2, depth / 2]) {
                 const zOffset = z === -depth / 2 ? 0.3 : -0.3;
-                // Diagonal 1: bottom-left to top-right
                 const b1 = createBrace(x - 0.5, 0.2, z + zOffset, x + 0.5, height * 0.85, z - zOffset);
                 if (b1) building.add(b1);
-                // Diagonal 2: bottom-right to top-left
                 const b2 = createBrace(x + 0.5, 0.2, z + zOffset, x - 0.5, height * 0.85, z - zOffset);
                 if (b2) building.add(b2);
-                // Nodes at brace ends
                 building.add(createNode([x - 0.5, 0.2, z + zOffset], 0.06));
                 building.add(createNode([x + 0.5, height * 0.85, z - zOffset], 0.06));
                 building.add(createNode([x + 0.5, 0.2, z + zOffset], 0.06));
@@ -2412,7 +2402,7 @@
             }
         }
 
-        // === 7. ROOF BRACING (X-bracing on roof) ===
+        // === 7. ROOF BRACING ===
         for (let bayIdx of [0, bays - 1]) {
             const x = -totalWidth / 2 + bayIdx * bayWidth + bayWidth / 2;
             const h1 = height + roofPitch * (x - 0.8 + totalWidth / 2);
@@ -2423,14 +2413,12 @@
             if (b2) building.add(b2);
         }
 
-        // === 8. END FRAME (gable end) ===
+        // === 8. END FRAME ===
         for (let z of [-depth / 2, depth / 2]) {
             const zPos = z;
-            // Vertical columns at ends
             for (let x of [-totalWidth / 2, totalWidth / 2]) {
                 building.add(createCylBeam(0.08, height, [x, height / 2, zPos], columnMat));
             }
-            // Rafter on gable end
             const hL = height + roofPitch * 0;
             const hR = height + roofPitch * totalWidth;
             const len = Math.sqrt(totalWidth * totalWidth + (hR - hL) * (hR - hL));
@@ -2440,7 +2428,6 @@
                 [0, 0, angle]
             );
             building.add(rafter);
-            // Nodes on gable
             building.add(createNode([-totalWidth / 2, hL, zPos], 0.08));
             building.add(createNode([totalWidth / 2, hR, zPos], 0.08));
             building.add(createNode([0, ridgeHeight, zPos], 0.08, true));
@@ -2461,7 +2448,7 @@
         floor.receiveShadow = true;
         building.add(floor);
 
-        // === 10. GLOW NODES (extra emphasis) ===
+        // === 10. GLOW NODES ===
         const glowPositions = [
             [0, ridgeHeight, 0],
             [-totalWidth / 2, height, 0],
@@ -2473,7 +2460,7 @@
             building.add(createNode(pos, 0.14, true));
         }
 
-        // === 11. GROUND GRID (blueprint feel) ===
+        // === 11. GROUND GRID ===
         const gridHelper = new THREE.GridHelper(18, 18, 0xd6a136, 0x235ea7);
         gridHelper.position.y = 0.02;
         gridHelper.material.transparent = true;
@@ -2487,14 +2474,10 @@
             requestAnimationFrame(animate);
             time += 0.01;
 
-            // Slow floating motion
             const floatY = Math.sin(time * 0.3) * 0.04;
             building.position.y = floatY;
-
-            // Slight rotation wobble
             building.rotation.z = Math.sin(time * 0.15) * 0.002;
 
-            // Glow node pulse
             const pulse = 0.6 + Math.sin(time * 1.5) * 0.4;
             nodeGlowMat.emissiveIntensity = pulse * 0.8;
 
@@ -2528,11 +2511,9 @@
             mouseY = y * 0.15;
         });
 
-        // Update controls target offset based on mouse
         setInterval(() => {
             targetRotX += (mouseX - targetRotX) * 0.05;
             targetRotY += (mouseY - targetRotY) * 0.05;
-            // Subtle parallax - move camera target slightly
             controls.target.x = targetRotX * 0.5;
             controls.target.y = 2.5 + targetRotY * 0.3;
         }, 16);
@@ -2540,11 +2521,7 @@
         // === HANDLE VISIBILITY ===
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    controls.autoRotate = true;
-                } else {
-                    controls.autoRotate = false;
-                }
+                controls.autoRotate = entry.isIntersecting;
             });
         }, { threshold: 0.2 });
         observer.observe(container);
