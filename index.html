@@ -218,6 +218,8 @@
             width: auto;
             border-radius: 8px;
             object-fit: contain;
+            background: #ffffff;
+            padding: 2px;
         }
 
         .nav-logo span {
@@ -314,19 +316,11 @@
             position: absolute;
             inset: 0;
             background-image:
-                linear-gradient(rgba(212, 168, 67, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(212, 168, 67, 0.05) 1px, transparent 1px);
+                linear-gradient(rgba(212, 168, 67, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(212, 168, 67, 0.04) 1px, transparent 1px);
             background-size: 60px 60px;
             animation: gridMove 20s linear infinite;
-            opacity: 0.6;
-        }
-
-        .hero-bg::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 30% 40%, rgba(45, 109, 168, 0.1) 0%, transparent 60%);
-            animation: pulseGlow 8s ease-in-out infinite alternate;
+            opacity: 0.5;
         }
 
         @keyframes gridMove {
@@ -338,25 +332,124 @@
             }
         }
 
-        @keyframes pulseGlow {
-            0% {
-                opacity: 0.3;
-                transform: scale(1);
-            }
-            100% {
-                opacity: 0.8;
-                transform: scale(1.2);
+        /* ===== ANIMATED PEB STRUCTURE SVG ===== */
+        .peb-structure {
+            position: absolute;
+            right: 5%;
+            bottom: 10%;
+            width: 45%;
+            max-width: 520px;
+            height: auto;
+            z-index: 1;
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .peb-structure svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Stroke animation for structural elements */
+        .peb-structure .draw-line {
+            fill: none;
+            stroke: var(--accent);
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 800;
+            stroke-dashoffset: 800;
+            animation: drawLine 3s ease forwards;
+        }
+
+        .peb-structure .draw-line-delay1 {
+            animation-delay: 0.2s;
+        }
+        .peb-structure .draw-line-delay2 {
+            animation-delay: 0.6s;
+        }
+        .peb-structure .draw-line-delay3 {
+            animation-delay: 1.0s;
+        }
+        .peb-structure .draw-line-delay4 {
+            animation-delay: 1.4s;
+        }
+        .peb-structure .draw-line-delay5 {
+            animation-delay: 1.8s;
+        }
+        .peb-structure .draw-line-delay6 {
+            animation-delay: 2.2s;
+        }
+
+        .peb-structure .draw-line-thin {
+            stroke-width: 1.2;
+            stroke: rgba(212, 168, 67, 0.4);
+        }
+
+        .peb-structure .glow-node {
+            fill: var(--accent);
+            opacity: 0;
+            animation: glowNode 2s ease-in-out infinite alternate;
+        }
+
+        .peb-structure .glow-node-delay1 {
+            animation-delay: 0.5s;
+        }
+        .peb-structure .glow-node-delay2 {
+            animation-delay: 1.0s;
+        }
+        .peb-structure .glow-node-delay3 {
+            animation-delay: 1.5s;
+        }
+        .peb-structure .glow-node-delay4 {
+            animation-delay: 2.0s;
+        }
+
+        @keyframes drawLine {
+            to {
+                stroke-dashoffset: 0;
             }
         }
 
-        /* Floating structural nodes (dots) */
+        @keyframes glowNode {
+            0% {
+                opacity: 0.2;
+                r: 3;
+            }
+            100% {
+                opacity: 0.9;
+                r: 6;
+            }
+        }
+
+        /* Pulse glow behind structure */
+        .peb-structure .pulse-glow {
+            fill: none;
+            stroke: rgba(212, 168, 67, 0.05);
+            stroke-width: 20;
+            animation: pulseGlow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% {
+                opacity: 0.3;
+                stroke-width: 15;
+            }
+            100% {
+                opacity: 0.8;
+                stroke-width: 35;
+            }
+        }
+
+        /* Floating nodes in background */
         .hero-bg .node {
             position: absolute;
             width: 6px;
             height: 6px;
             background: var(--accent);
             border-radius: 50%;
-            opacity: 0.2;
+            opacity: 0.15;
             animation: floatNode 15s infinite alternate ease-in-out;
         }
         .hero-bg .node:nth-child(1) {
@@ -392,21 +485,21 @@
         @keyframes floatNode {
             0% {
                 transform: translate(0, 0) scale(1);
-                opacity: 0.2;
+                opacity: 0.15;
             }
             50% {
                 transform: translate(40px, -30px) scale(1.8);
-                opacity: 0.6;
+                opacity: 0.5;
             }
             100% {
                 transform: translate(-20px, 20px) scale(1);
-                opacity: 0.2;
+                opacity: 0.15;
             }
         }
 
         .hero .container {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
@@ -448,7 +541,6 @@
             background-clip: text;
         }
 
-        /* Typing animation for dynamic text */
         .hero .typing-wrapper {
             display: inline-block;
             font-size: clamp(1.2rem, 2vw, 1.8rem);
@@ -519,6 +611,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
+            z-index: 2;
         }
 
         .hero-image .cover-wrapper {
@@ -664,6 +758,7 @@
             height: 100%;
             object-fit: contain;
             padding: 20px;
+            background: #ffffff;
         }
 
         /* ===== SERVICES ===== */
@@ -1044,6 +1139,8 @@
             height: 32px;
             width: auto;
             border-radius: 6px;
+            background: #ffffff;
+            padding: 2px;
         }
 
         .footer p {
@@ -1093,6 +1190,10 @@
 
             .hero-image .cover-wrapper {
                 max-width: 100%;
+            }
+
+            .peb-structure {
+                display: none;
             }
 
             .about-grid {
@@ -1189,6 +1290,10 @@
                 width: 48px;
                 height: 48px;
                 font-size: 1.2rem;
+            }
+
+            .peb-structure {
+                display: none;
             }
         }
 
@@ -1352,6 +1457,58 @@
             <div class="node"></div>
             <div class="node"></div>
         </div>
+
+        <!-- ===== ANIMATED PEB STRUCTURE ===== -->
+        <div class="peb-structure" aria-hidden="true">
+            <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Pulse glow background -->
+                <rect x="60" y="40" width="280" height="200" rx="8" class="pulse-glow" />
+
+                <!-- Base plates -->
+                <line x1="70" y1="235" x2="130" y2="235" class="draw-line draw-line-delay1" stroke="#d4a843" stroke-width="3" />
+                <line x1="270" y1="235" x2="330" y2="235" class="draw-line draw-line-delay1" stroke="#d4a843" stroke-width="3" />
+
+                <!-- Columns -->
+                <line x1="100" y1="235" x2="100" y2="55" class="draw-line draw-line-delay2" stroke="#d4a843" stroke-width="3" />
+                <line x1="300" y1="235" x2="300" y2="55" class="draw-line draw-line-delay2" stroke="#d4a843" stroke-width="3" />
+
+                <!-- Rafter / Roof beam -->
+                <polyline points="100,55 200,25 300,55" class="draw-line draw-line-delay3" stroke="#d4a843" stroke-width="3.5" />
+
+                <!-- Purlins (roof bracing) -->
+                <line x1="125" y1="46" x2="150" y2="35" class="draw-line draw-line-thin draw-line-delay4" />
+                <line x1="150" y1="35" x2="175" y2="30" class="draw-line draw-line-thin draw-line-delay4" />
+                <line x1="175" y1="30" x2="200" y2="29" class="draw-line draw-line-thin draw-line-delay4" />
+                <line x1="225" y1="30" x2="250" y2="35" class="draw-line draw-line-thin draw-line-delay4" />
+                <line x1="250" y1="35" x2="275" y2="46" class="draw-line draw-line-thin draw-line-delay4" />
+
+                <!-- Cross bracing (X) -->
+                <line x1="100" y1="55" x2="300" y2="235" class="draw-line draw-line-delay5" stroke="#d4a843" stroke-width="1.5" stroke-dasharray="8,4" />
+                <line x1="300" y1="55" x2="100" y2="235" class="draw-line draw-line-delay6" stroke="#d4a843" stroke-width="1.5" stroke-dasharray="8,4" />
+
+                <!-- Horizontal brace -->
+                <line x1="130" y1="170" x2="270" y2="170" class="draw-line draw-line-thin draw-line-delay5" />
+
+                <!-- Glowing nodes at connection points -->
+                <circle cx="100" cy="235" r="3" fill="#d4a843" class="glow-node glow-node-delay1" />
+                <circle cx="300" cy="235" r="3" fill="#d4a843" class="glow-node glow-node-delay1" />
+                <circle cx="100" cy="55" r="3" fill="#d4a843" class="glow-node glow-node-delay2" />
+                <circle cx="300" cy="55" r="3" fill="#d4a843" class="glow-node glow-node-delay2" />
+                <circle cx="200" cy="25" r="3" fill="#d4a843" class="glow-node glow-node-delay3" />
+                <circle cx="130" cy="170" r="2.5" fill="#d4a843" class="glow-node glow-node-delay4" />
+                <circle cx="270" cy="170" r="2.5" fill="#d4a843" class="glow-node glow-node-delay4" />
+
+                <!-- Base plate bolts -->
+                <circle cx="80" cy="235" r="2" fill="rgba(212,168,67,0.4)" class="glow-node glow-node-delay1" />
+                <circle cx="120" cy="235" r="2" fill="rgba(212,168,67,0.4)" class="glow-node glow-node-delay1" />
+                <circle cx="280" cy="235" r="2" fill="rgba(212,168,67,0.4)" class="glow-node glow-node-delay1" />
+                <circle cx="320" cy="235" r="2" fill="rgba(212,168,67,0.4)" class="glow-node glow-node-delay1" />
+
+                <!-- Small label text -->
+                <text x="200" y="280" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="rgba(212,168,67,0.3)" letter-spacing="2" font-weight="600">PEB FRAME</text>
+            </svg>
+        </div>
+
         <div class="container">
             <div class="hero-content">
                 <div class="hero-badge"><i class="fas fa-hard-hat"></i> &nbsp;Engineering with Precision</div>
@@ -1459,56 +1616,48 @@
             </div>
 
             <div class="services-grid">
-                <!-- Card 1 -->
                 <div class="service-card animate-on-scroll">
                     <div class="icon"><i class="fas fa-drafting-compass"></i></div>
                     <h4>RCC Structural Design</h4>
                     <p>Low-rise to mid-rise RCC buildings using ETABS, STAAD.Pro &amp; manual verification.</p>
                     <p class="bangla">ETABS, STAAD.Pro ও ম্যানুয়াল ভেরিফিকেশনের মাধ্যমে আরসিসি ডিজাইন।</p>
                 </div>
-                <!-- Card 2 -->
                 <div class="service-card animate-on-scroll">
                     <div class="icon"><i class="fas fa-ruler-combined"></i></div>
                     <h4>RCC Structural Detailing</h4>
                     <p>Detailed reinforcement drawings, schedules, and bar bending schedules (BBS).</p>
                     <p class="bangla">রিইনফোর্সমেন্ট ড্রইং, সিডিউল ও বার বেন্ডিং স্কিডিউল (BBS)।</p>
                 </div>
-                <!-- Card 3 -->
                 <div class="service-card animate-on-scroll">
                     <div class="icon"><i class="fas fa-cubes"></i></div>
                     <h4>Steel Structure Design</h4>
                     <p>Sheds, mezzanines, PEB, and industrial structures designed in STAAD.Pro.</p>
                     <p class="bangla">শেড, মেজানাইন, PEB ও শিল্প কাঠামো STAAD.Pro-তে ডিজাইন করা হয়।</p>
                 </div>
-                <!-- Card 4 -->
                 <div class="service-card animate-on-scroll">
                     <div class="icon"><i class="fas fa-cogs"></i></div>
                     <h4>Steel Detailing (Tekla)</h4>
                     <p>Professional 3D detailing, GA, assembly &amp; single-part drawings with Tekla Structures.</p>
                     <p class="bangla">Tekla Structures-এ পেশাদার ৩D ডিটেইলিং, GA, অ্যাসেম্বলি ও সিঙ্গল-পার্ট ড্রইং।</p>
                 </div>
-                <!-- Card 5 -->
                 <div class="service-card animate-on-scroll">
                     <div class="icon"><i class="fas fa-calculator"></i></div>
                     <h4>Quantity Estimation &amp; BOQ</h4>
                     <p>Accurate material take-off (MTO), BOQ, and cost estimation for RCC &amp; steel.</p>
                     <p class="bangla">আরসিসি ও স্টিলের জন্য সঠিক ম্যাটেরিয়াল টেক-অফ (MTO), BOQ ও কস্ট ইস্টিমেশন।</p>
                 </div>
-                <!-- Card 6 -->
                 <div class="service-card animate-on-scroll">
                     <div class="icon"><i class="fas fa-file-invoice"></i></div>
                     <h4>Proposal &amp; Tender Support</h4>
                     <p>Professional proposal quotations, tender estimation, and bid documentation.</p>
                     <p class="bangla">পেশাদার প্রপোজাল কোয়োটেশন, টেন্ডার ইস্টিমেশন ও বিড ডকুমেন্টেশন।</p>
                 </div>
-                <!-- Card 7 -->
                 <div class="service-card animate-on-scroll">
                     <div class="icon"><i class="fas fa-hard-hat"></i></div>
                     <h4>Shop &amp; Fabrication Drawings</h4>
                     <p>Detailed shop drawings and fabrication-ready documentation for steel structures.</p>
                     <p class="bangla">স্টিল কাঠামোর জন্য বিস্তারিত শপ ড্রইং ও ফেব্রিকেশন-রেডি ডকুমেন্টেশন।</p>
                 </div>
-                <!-- Card 8 -->
                 <div class="service-card animate-on-scroll">
                     <div class="icon"><i class="fas fa-chart-line"></i></div>
                     <h4>PEB Engineering Support</h4>
@@ -1530,7 +1679,6 @@
             </div>
 
             <div class="team-grid">
-                <!-- Senior Engineer -->
                 <div class="team-card animate-on-scroll">
                     <div class="avatar">MH</div>
                     <h4>Engr. Md Munna Hossain</h4>
@@ -1547,7 +1695,6 @@
                     <div class="badge"><i class="fas fa-star"></i> Tekla Expert</div>
                 </div>
 
-                <!-- Design & Estimation Engineer -->
                 <div class="team-card animate-on-scroll">
                     <div class="avatar">SH</div>
                     <h4>Engr. Md S Hossen</h4>
@@ -1696,7 +1843,7 @@
     <footer class="footer">
         <div class="container">
             <div class="brand">
-                <img src="pic/logo.png" alt="Unity" style="height:32px;width:auto;border-radius:6px;" />
+                <img src="pic/logo.png" alt="Unity" style="height:32px;width:auto;border-radius:6px;background:#ffffff;padding:2px;" />
                 <span>Unity</span> Structural Solution
             </div>
             <p>&copy; 2026 Unity Structural Solution. All rights reserved.</p>
