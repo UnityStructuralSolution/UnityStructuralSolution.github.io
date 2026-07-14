@@ -3,33 +3,21 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Unity Structural Solution | Engineering with Precision</title>
-    
+    <title>Unity Structural Solution — Engineering with Precision</title>
+
+    <!-- ===== SEO & META ===== -->
+    <meta name="description" content="Unity Structural Solution – Premium RCC & Steel Structure Engineering, PEB Consultancy, Tekla Detailing, and Engineering Training in Bangladesh." />
+    <meta property="og:title" content="Unity Structural Solution – Engineering with Precision" />
+    <meta property="og:description" content="Structural Engineering, PEB Consultancy, Tekla Detailing & Training in Bangladesh." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
     <!-- ===== FAVICON ===== -->
     <link rel="icon" href="pic/logo.png" type="image/png" />
     <link rel="shortcut icon" href="pic/logo.png" type="image/png" />
-    <link rel="apple-touch-icon" href="pic/logo.png" />
-    
-    <meta name="description" content="Unity Structural Solution - Professional RCC & Steel Structure Engineering, Design, Detailing, Estimation & Tekla Training." />
-    <meta property="og:title" content="Unity Structural Solution | Engineering with Precision" />
-    <meta property="og:description" content="Professional structural engineering consultancy specializing in RCC and Steel structures." />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "EngineeringOrganization",
-            "name": "Unity Structural Solution",
-            "description": "Professional RCC and Steel Structure Engineering Consultancy",
-            "address": { "@type": "PostalAddress", "addressCountry": "BD" },
-            "url": "https://unitystructuralsolution.github.io",
-            "telephone": "+8801602105447"
-        }
-    </script>
 
-    <!-- Font Awesome -->
+    <!-- ===== FONTS & ICONS ===== -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
     <style>
@@ -45,26 +33,27 @@
         }
 
         :root {
-            --primary: #0f1a3a;
-            --secondary: #235ea7;
-            --accent: #d6a136;
+            --primary: #0b1a33;
+            --primary-light: #142a5a;
+            --secondary: #1e5ca6;
+            --accent: #d4a02b;
             --accent-light: #e8c06a;
             --bg: #ffffff;
-            --light: #f5f8fc;
-            --gray: #6b7a8f;
-            --dark: #0a1228;
-            --shadow: 0 8px 40px rgba(15, 26, 58, 0.08);
-            --shadow-hover: 0 20px 60px rgba(15, 26, 58, 0.18);
-            --radius: 16px;
-            --glass: rgba(255, 255, 255, 0.12);
-            --glass-border: rgba(255, 255, 255, 0.15);
+            --light: #f4f7fc;
+            --gray: #6b7f94;
+            --dark: #080f1f;
+            --shadow: 0 8px 40px rgba(11, 26, 51, 0.06);
+            --shadow-hover: 0 24px 64px rgba(11, 26, 51, 0.14);
+            --radius: 18px;
+            --radius-sm: 12px;
             --transition: 0.5s cubic-bezier(0.22, 1, 0.36, 1);
             --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --nav-height: 72px;
         }
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 80px;
+            scroll-padding-top: var(--nav-height);
         }
         body {
             font-family: var(--font);
@@ -88,7 +77,7 @@
             padding: 0 24px;
         }
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 6px;
         }
         ::-webkit-scrollbar-track {
             background: var(--light);
@@ -96,9 +85,6 @@
         ::-webkit-scrollbar-thumb {
             background: var(--secondary);
             border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary);
         }
 
         /* ============================================================
@@ -108,26 +94,26 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 14px 36px;
+            padding: 14px 34px;
             border-radius: 60px;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             border: none;
             cursor: pointer;
             transition: var(--transition);
-            letter-spacing: 0.3px;
+            letter-spacing: 0.2px;
             position: relative;
             overflow: hidden;
             background: var(--accent);
             color: var(--dark);
-            box-shadow: 0 4px 24px rgba(214, 161, 54, 0.35);
+            box-shadow: 0 4px 20px rgba(212, 160, 43, 0.3);
         }
         .btn::after {
             content: '';
             position: absolute;
             inset: 0;
             border-radius: 60px;
-            background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.3), transparent 70%);
+            background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.25), transparent 70%);
             opacity: 0;
             transition: opacity 0.4s;
             pointer-events: none;
@@ -137,49 +123,60 @@
         }
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 36px rgba(214, 161, 54, 0.5);
+            box-shadow: 0 8px 32px rgba(212, 160, 43, 0.45);
             background: var(--accent-light);
         }
         .btn-secondary {
             background: var(--secondary);
             color: #fff;
-            box-shadow: 0 4px 24px rgba(35, 94, 167, 0.35);
+            box-shadow: 0 4px 20px rgba(30, 92, 166, 0.3);
         }
         .btn-secondary:hover {
-            background: #2a6fc7;
-            box-shadow: 0 8px 36px rgba(35, 94, 167, 0.5);
+            background: #2770c4;
+            box-shadow: 0 8px 32px rgba(30, 92, 166, 0.45);
         }
         .btn-outline {
             background: transparent;
             color: #fff;
-            border: 2px solid rgba(255, 255, 255, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.3);
             box-shadow: none;
         }
         .btn-outline:hover {
             background: rgba(255, 255, 255, 0.08);
             border-color: #fff;
             transform: translateY(-3px);
-            box-shadow: 0 8px 36px rgba(255, 255, 255, 0.08);
         }
         .btn-white {
             background: #fff;
             color: var(--primary);
-            box-shadow: 0 4px 24px rgba(255, 255, 255, 0.25);
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
         }
         .btn-white:hover {
             background: var(--light);
             transform: translateY(-3px);
-            box-shadow: 0 8px 36px rgba(255, 255, 255, 0.35);
+            box-shadow: 0 8px 32px rgba(255, 255, 255, 0.3);
         }
         .btn-whatsapp {
             background: #25d366;
             color: #fff;
-            box-shadow: 0 4px 24px rgba(37, 211, 102, 0.35);
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
         }
         .btn-whatsapp:hover {
             background: #1da851;
             transform: translateY(-3px);
-            box-shadow: 0 8px 36px rgba(37, 211, 102, 0.5);
+            box-shadow: 0 8px 32px rgba(37, 211, 102, 0.45);
+        }
+        .btn-ghost {
+            background: transparent;
+            color: var(--secondary);
+            border: 1.5px solid var(--secondary);
+            box-shadow: none;
+        }
+        .btn-ghost:hover {
+            background: var(--secondary);
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 32px rgba(30, 92, 166, 0.2);
         }
 
         /* ============================================================
@@ -191,14 +188,14 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            padding: 18px 0;
+            padding: 16px 0;
             transition: var(--transition);
             background: transparent;
         }
         .navbar.scrolled {
-            background: rgba(15, 26, 58, 0.92);
-            backdrop-filter: blur(20px);
-            box-shadow: 0 4px 40px rgba(0, 0, 0, 0.15);
+            background: rgba(11, 26, 51, 0.92);
+            backdrop-filter: blur(18px);
+            box-shadow: 0 4px 40px rgba(0, 0, 0, 0.12);
             padding: 10px 0;
         }
         .navbar .container {
@@ -209,14 +206,14 @@
         .nav-logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             color: #fff;
             font-weight: 800;
-            font-size: 1.15rem;
-            letter-spacing: -0.5px;
+            font-size: 1.05rem;
+            letter-spacing: -0.3px;
         }
         .nav-logo img {
-            height: 42px;
+            height: 38px;
             width: auto;
             border-radius: 8px;
             background: #fff;
@@ -229,33 +226,17 @@
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 2px;
             list-style: none;
         }
         .nav-links a {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.75);
             font-weight: 500;
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             padding: 8px 18px;
             border-radius: 40px;
             transition: var(--transition);
             position: relative;
-        }
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 4px;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: var(--transition);
-            transform: translateX(-50%);
-            border-radius: 4px;
-        }
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 60%;
         }
         .nav-links a:hover,
         .nav-links a.active {
@@ -269,15 +250,11 @@
             font-weight: 600;
             border-radius: 40px;
         }
-        .nav-links .btn-nav::after {
-            display: none;
-        }
         .nav-links .btn-nav:hover {
             background: var(--accent-light);
             transform: translateY(-2px);
             color: var(--dark);
         }
-
         .nav-toggle {
             display: none;
             flex-direction: column;
@@ -290,7 +267,7 @@
         }
         .nav-toggle span {
             display: block;
-            width: 28px;
+            width: 26px;
             height: 2.5px;
             background: #fff;
             border-radius: 4px;
@@ -315,40 +292,27 @@
             align-items: center;
             position: relative;
             background: var(--primary);
-            padding-top: 80px;
+            padding-top: var(--nav-height);
             overflow: hidden;
         }
-        
-        /* Hero background with 3D canvas */
         .hero-bg {
             position: absolute;
             inset: 0;
             z-index: 0;
             background:
-                radial-gradient(ellipse at 20% 40%, rgba(35, 94, 167, 0.25) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 60%, rgba(214, 161, 54, 0.12) 0%, transparent 50%),
-                linear-gradient(145deg, var(--primary) 0%, #142a5a 100%);
+                radial-gradient(ellipse at 20% 30%, rgba(30, 92, 166, 0.2) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 70%, rgba(212, 160, 43, 0.08) 0%, transparent 50%),
+                linear-gradient(145deg, var(--primary) 0%, #0d2145 100%);
             overflow: hidden;
         }
-        
-        #hero-canvas {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            opacity: 0.3;
-            pointer-events: none;
-        }
-        
         .hero-bg .grid-overlay {
             position: absolute;
             inset: 0;
-            z-index: 2;
+            z-index: 1;
             background-image:
-                linear-gradient(rgba(214, 161, 54, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(214, 161, 54, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
+                linear-gradient(rgba(212, 160, 43, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(212, 160, 43, 0.03) 1px, transparent 1px);
+            background-size: 48px 48px;
             animation: gridMove 30s linear infinite;
             pointer-events: none;
         }
@@ -357,50 +321,43 @@
                 transform: translate(0, 0);
             }
             100% {
-                transform: translate(50px, 50px);
+                transform: translate(48px, 48px);
             }
         }
-        
-        .hero-bg .particle {
+        .hero-bg .glow-orb {
             position: absolute;
-            z-index: 2;
             border-radius: 50%;
-            background: var(--accent);
-            opacity: 0.06;
-            animation: floatParticle 20s infinite alternate ease-in-out;
+            filter: blur(80px);
             pointer-events: none;
+            z-index: 1;
         }
-        .hero-bg .particle:nth-child(2) {
-            width: 120px;
-            height: 120px;
-            top: 10%;
-            right: 15%;
-            animation-duration: 25s;
+        .hero-bg .glow-orb:nth-child(2) {
+            width: 300px;
+            height: 300px;
+            top: -10%;
+            right: -5%;
+            background: rgba(212, 160, 43, 0.06);
         }
-        .hero-bg .particle:nth-child(3) {
-            width: 80px;
-            height: 80px;
-            bottom: 20%;
-            left: 10%;
-            animation-duration: 18s;
-            animation-delay: 3s;
-        }
-        .hero-bg .particle:nth-child(4) {
-            width: 200px;
-            height: 200px;
-            bottom: -10%;
-            right: 30%;
-            animation-duration: 30s;
-            animation-delay: 5s;
+        .hero-bg .glow-orb:nth-child(3) {
+            width: 400px;
+            height: 400px;
+            bottom: -20%;
+            left: -10%;
+            background: rgba(30, 92, 166, 0.05);
         }
 
-        @keyframes floatParticle {
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
-            100% {
-                transform: translate(60px, -40px) scale(1.3);
-            }
+        /* Canvas container */
+        #hero-canvas-wrap {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+        #hero-canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
         }
 
         .hero .container {
@@ -419,24 +376,24 @@
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            background: rgba(214, 161, 54, 0.15);
-            border: 1px solid rgba(214, 161, 54, 0.25);
+            gap: 8px;
+            background: rgba(212, 160, 43, 0.12);
+            border: 1px solid rgba(212, 160, 43, 0.2);
             color: var(--accent);
-            padding: 6px 20px;
+            padding: 5px 18px;
             border-radius: 50px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
-            letter-spacing: 1px;
+            letter-spacing: 1.2px;
             text-transform: uppercase;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
         .hero h1 {
-            font-size: clamp(2.8rem, 5.5vw, 4.4rem);
+            font-size: clamp(2.6rem, 5vw, 4.2rem);
             font-weight: 900;
-            line-height: 1.08;
+            line-height: 1.06;
             letter-spacing: -1.5px;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
         .hero h1 .highlight {
             background: linear-gradient(135deg, var(--accent), #f0d080);
@@ -446,10 +403,10 @@
         }
         .hero .typing-wrap {
             display: inline-block;
-            font-size: clamp(1.1rem, 1.8vw, 1.6rem);
+            font-size: clamp(1rem, 1.6vw, 1.4rem);
             font-weight: 600;
             color: var(--accent);
-            min-height: 2.4rem;
+            min-height: 2.2rem;
             margin-bottom: 10px;
         }
         .hero .typing-wrap .typed {
@@ -463,63 +420,61 @@
             }
         }
         .hero p {
-            font-size: 1.05rem;
-            color: rgba(255, 255, 255, 0.75);
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
             max-width: 520px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             line-height: 1.8;
         }
         .hero p.bangla {
-            font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.45);
             max-width: 520px;
             margin-bottom: 28px;
-            line-height: 1.8;
         }
         .hero-buttons {
             display: flex;
             flex-wrap: wrap;
-            gap: 14px;
-            margin-bottom: 40px;
+            gap: 12px;
+            margin-bottom: 36px;
         }
         .hero-stats {
             display: flex;
-            gap: 48px;
-            padding-top: 28px;
+            gap: 44px;
+            padding-top: 24px;
             border-top: 1px solid rgba(255, 255, 255, 0.06);
         }
         .hero-stats .stat h3 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 800;
             color: var(--accent);
             line-height: 1;
         }
         .hero-stats .stat p {
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.45);
             margin: 0;
             font-weight: 400;
         }
 
-        /* Hero right - Image container */
         .hero-image-container {
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 400px;
+            min-height: 380px;
         }
         .hero-image-container .glass-card {
             position: relative;
             width: 100%;
-            max-width: 580px;
+            max-width: 560px;
             aspect-ratio: 1536 / 743;
             border-radius: var(--radius);
             overflow: hidden;
-            background: var(--glass);
+            background: rgba(255, 255, 255, 0.04);
             backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -527,24 +482,9 @@
         .hero-image-container .glass-card .card-shine {
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse at 30% 20%, rgba(255, 255, 255, 0.06), transparent 70%);
+            background: radial-gradient(ellipse at 30% 20%, rgba(255, 255, 255, 0.05), transparent 70%);
             pointer-events: none;
             z-index: 2;
-        }
-        .hero-image-container .glass-card .card-label {
-            position: absolute;
-            bottom: 20px;
-            left: 24px;
-            z-index: 3;
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.7rem;
-            font-weight: 500;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-        .hero-image-container .glass-card .card-label i {
-            color: var(--accent);
-            margin-right: 6px;
         }
         .hero-image-container .glass-card img {
             width: 100%;
@@ -555,141 +495,110 @@
         .hero-image-container .glass-card .placeholder-text {
             position: absolute;
             inset: 0;
-            display: flex;
+            display: none;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: rgba(255, 255, 255, 0.3);
-            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.25);
+            font-size: 0.85rem;
             text-align: center;
             padding: 20px;
-            gap: 8px;
+            gap: 6px;
+            z-index: 1;
         }
         .hero-image-container .glass-card .placeholder-text i {
             font-size: 3rem;
             color: var(--accent);
             opacity: 0.3;
         }
-        .hero-image-container .glass-card .placeholder-text strong {
-            color: rgba(255, 255, 255, 0.5);
+        .hero-image-container .glass-card .card-label {
+            position: absolute;
+            bottom: 16px;
+            left: 20px;
+            z-index: 3;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .hero-image-container .glass-card .card-label i {
+            color: var(--accent);
+            margin-right: 6px;
         }
 
         /* ============================================================
            SECTIONS
            ============================================================ */
         section {
-            padding: 100px 0;
+            padding: 90px 0;
             position: relative;
         }
         .section-header {
             text-align: center;
-            max-width: 720px;
-            margin: 0 auto 56px;
+            max-width: 700px;
+            margin: 0 auto 48px;
         }
         .section-header .tag {
             display: inline-block;
-            background: rgba(35, 94, 167, 0.08);
+            background: rgba(30, 92, 166, 0.07);
             color: var(--secondary);
-            padding: 4px 20px;
+            padding: 4px 18px;
             border-radius: 50px;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 600;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         .section-header h2 {
-            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-size: clamp(1.8rem, 3.2vw, 2.6rem);
             font-weight: 800;
-            letter-spacing: -1px;
+            letter-spacing: -0.8px;
             color: var(--primary);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         .section-header h2 span {
             color: var(--secondary);
         }
         .section-header p {
             color: var(--gray);
-            font-size: 1.05rem;
+            font-size: 1rem;
         }
         .section-header p.bangla {
             color: var(--gray);
-            font-size: 0.92rem;
-            margin-top: 6px;
+            font-size: 0.88rem;
+            margin-top: 4px;
             font-weight: 400;
         }
 
         /* ============================================================
-           ABOUT
+           TRUST / STATS
            ============================================================ */
-        .about {
+        .trust-section {
             background: var(--light);
+            padding: 60px 0;
         }
-        .about-grid {
+        .trust-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-        .about-text h3 {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 16px;
-        }
-        .about-text p {
-            color: var(--gray);
-            margin-bottom: 14px;
-            font-size: 1rem;
-        }
-        .about-text p.bangla {
-            font-size: 0.92rem;
-            line-height: 1.8;
-        }
-        .about-text .highlight-list {
-            list-style: none;
-            margin-top: 20px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6px 16px;
-        }
-        .about-text .highlight-list li {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 6px 0;
-            font-weight: 500;
-            color: var(--primary);
-            font-size: 0.92rem;
-        }
-        .about-text .highlight-list li i {
-            color: var(--accent);
-            font-size: 1rem;
-            width: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 24px;
             text-align: center;
         }
-        .about-image {
-            display: flex;
-            justify-content: center;
+        .trust-item .num {
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: var(--secondary);
+            line-height: 1.1;
         }
-        .about-image .logo-wrap {
-            width: 100%;
-            max-width: 380px;
-            aspect-ratio: 1;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            background: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            padding: 24px;
+        .trust-item .num .plus {
+            color: var(--accent);
         }
-        .about-image .logo-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
+        .trust-item p {
+            font-size: 0.85rem;
+            color: var(--gray);
+            font-weight: 500;
+            margin-top: 2px;
         }
 
         /* ============================================================
@@ -701,12 +610,12 @@
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 28px;
+            gap: 24px;
         }
         .service-card {
             background: #fff;
             border-radius: var(--radius);
-            padding: 32px 28px;
+            padding: 30px 24px;
             box-shadow: var(--shadow);
             border: 1px solid rgba(0, 0, 0, 0.03);
             transition: var(--transition);
@@ -729,21 +638,21 @@
             opacity: 1;
         }
         .service-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-6px);
             box-shadow: var(--shadow-hover);
             border-color: transparent;
         }
         .service-card .icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 14px;
-            background: rgba(35, 94, 167, 0.06);
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(30, 92, 166, 0.06);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: var(--secondary);
-            margin-bottom: 14px;
+            margin-bottom: 12px;
             transition: var(--transition);
         }
         .service-card:hover .icon {
@@ -751,71 +660,20 @@
             color: #fff;
         }
         .service-card h4 {
-            font-size: 1.05rem;
+            font-size: 1rem;
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
         .service-card p {
             color: var(--gray);
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             margin-bottom: 0;
         }
         .service-card p.bangla {
             color: var(--gray);
-            font-size: 0.82rem;
-            margin-top: 4px;
-        }
-
-        /* ============================================================
-           WHY CHOOSE US
-           ============================================================ */
-        .why-choose {
-            background: var(--primary);
-            color: #fff;
-        }
-        .why-choose .section-header h2 {
-            color: #fff;
-        }
-        .why-choose .section-header h2 span {
-            color: var(--accent);
-        }
-        .why-choose .section-header p {
-            color: rgba(255, 255, 255, 0.6);
-        }
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 30px;
-        }
-        .why-item {
-            text-align: center;
-            padding: 30px 20px;
-            border-radius: var(--radius);
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: var(--transition);
-        }
-        .why-item:hover {
-            background: rgba(255, 255, 255, 0.06);
-            transform: translateY(-4px);
-        }
-        .why-item .num {
-            font-size: 2.8rem;
-            font-weight: 900;
-            color: var(--accent);
-            line-height: 1;
-            margin-bottom: 6px;
-        }
-        .why-item h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-        .why-item p {
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.5);
-            margin: 0;
+            font-size: 0.8rem;
+            margin-top: 3px;
         }
 
         /* ============================================================
@@ -827,7 +685,7 @@
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
+            gap: 22px;
         }
         .project-item {
             position: relative;
@@ -845,31 +703,21 @@
             transition: var(--transition);
         }
         .project-item:hover img {
-            transform: scale(1.05);
+            transform: scale(1.04);
         }
         .project-item .overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(0deg, rgba(15, 26, 58, 0.85) 0%, transparent 60%);
+            background: linear-gradient(0deg, rgba(11, 26, 51, 0.82) 0%, transparent 55%);
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 24px;
+            padding: 22px;
             opacity: 0;
             transition: var(--transition);
         }
         .project-item:hover .overlay {
             opacity: 1;
-        }
-        .project-item .overlay h4 {
-            color: #fff;
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 2px;
-        }
-        .project-item .overlay p {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.85rem;
         }
         .project-item .overlay .badge {
             display: inline-block;
@@ -877,32 +725,43 @@
             color: var(--dark);
             padding: 2px 14px;
             border-radius: 20px;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 600;
-            margin-bottom: 8px;
             align-self: flex-start;
+            margin-bottom: 6px;
+        }
+        .project-item .overlay h4 {
+            color: #fff;
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+        .project-item .overlay p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.82rem;
         }
 
         /* ============================================================
            SOFTWARE
            ============================================================ */
-        .software {
+        .software-section {
             background: #fff;
+            padding: 60px 0;
         }
         .software-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 24px 40px;
+            gap: 16px 28px;
         }
         .software-item {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: var(--primary);
-            padding: 10px 24px;
+            padding: 8px 22px;
             border-radius: 50px;
             background: var(--light);
             border: 1px solid rgba(0, 0, 0, 0.04);
@@ -911,11 +770,11 @@
         .software-item:hover {
             background: var(--primary);
             color: #fff;
-            transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(15, 26, 58, 0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 28px rgba(11, 26, 51, 0.12);
         }
         .software-item i {
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: var(--accent);
         }
         .software-item:hover i {
@@ -925,59 +784,48 @@
         /* ============================================================
            WORKFLOW
            ============================================================ */
-        .workflow {
+        .workflow-section {
             background: var(--light);
         }
         .workflow-steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 18px;
             position: relative;
-        }
-        .workflow-steps::before {
-            content: '';
-            position: absolute;
-            top: 40px;
-            left: 10%;
-            right: 10%;
-            height: 2px;
-            background: linear-gradient(90deg, var(--secondary), var(--accent), var(--secondary));
-            opacity: 0.2;
         }
         .workflow-step {
             text-align: center;
-            padding: 20px 16px;
+            padding: 20px 14px;
             background: #fff;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             border: 1px solid rgba(0, 0, 0, 0.03);
-            position: relative;
             transition: var(--transition);
         }
         .workflow-step:hover {
-            transform: translateY(-6px);
+            transform: translateY(-4px);
             box-shadow: var(--shadow-hover);
         }
         .workflow-step .num {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 48px;
-            height: 48px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
             background: var(--secondary);
             color: #fff;
             font-weight: 800;
-            font-size: 1.1rem;
-            margin-bottom: 12px;
+            font-size: 1rem;
+            margin-bottom: 10px;
         }
         .workflow-step h4 {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 700;
             color: var(--primary);
         }
         .workflow-step p {
-            font-size: 0.82rem;
+            font-size: 0.78rem;
             color: var(--gray);
             margin: 0;
         }
@@ -1001,136 +849,69 @@
         .training-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 48px;
             align-items: center;
         }
         .training-content ul {
             list-style: none;
-            margin-top: 16px;
+            margin-top: 14px;
         }
         .training-content ul li {
             display: flex;
             align-items: center;
-            gap: 14px;
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.8);
+            gap: 12px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.75);
         }
         .training-content ul li i {
             color: var(--accent);
-            font-size: 1rem;
-            width: 22px;
+            font-size: 0.9rem;
+            width: 20px;
             text-align: center;
         }
         .training-content ul li:last-child {
             border-bottom: none;
         }
-        .training-content p.bangla {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
-            margin-top: 4px;
-        }
         .training-cta {
-            margin-top: 24px;
+            margin-top: 20px;
         }
         .training-card {
             background: rgba(255, 255, 255, 0.04);
             backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: var(--radius);
-            padding: 36px 32px;
+            padding: 32px 28px;
             text-align: center;
         }
         .training-card .big-icon {
-            font-size: 3.6rem;
+            font-size: 3rem;
             color: var(--accent);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         .training-card h4 {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 700;
             margin-bottom: 4px;
         }
         .training-card p {
             color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
+            font-size: 0.88rem;
         }
         .training-card .tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 6px;
             justify-content: center;
-            margin-top: 14px;
+            margin-top: 12px;
         }
         .training-card .tags span {
             background: rgba(255, 255, 255, 0.05);
             padding: 4px 14px;
             border-radius: 20px;
-            font-size: 0.75rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        /* ============================================================
-           TESTIMONIALS
-           ============================================================ */
-        .testimonials {
-            background: #fff;
-        }
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 28px;
-        }
-        .testimonial-item {
-            background: var(--light);
-            border-radius: var(--radius);
-            padding: 28px 24px;
-            border: 1px solid rgba(0, 0, 0, 0.03);
-            transition: var(--transition);
-        }
-        .testimonial-item:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-hover);
-        }
-        .testimonial-item .stars {
-            color: var(--accent);
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-        }
-        .testimonial-item blockquote {
-            font-size: 0.95rem;
-            color: var(--dark);
-            font-style: italic;
-            line-height: 1.7;
-            margin-bottom: 14px;
-        }
-        .testimonial-item .author {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .testimonial-item .author .initials {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--secondary);
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 0.9rem;
-        }
-        .testimonial-item .author .name {
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: var(--primary);
-        }
-        .testimonial-item .author .title {
-            font-size: 0.8rem;
-            color: var(--gray);
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.65);
         }
 
         /* ============================================================
@@ -1142,104 +923,104 @@
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 36px;
+            gap: 32px;
         }
         .team-card {
             background: #fff;
             border-radius: var(--radius);
-            padding: 32px 28px;
+            padding: 28px 24px;
             box-shadow: var(--shadow);
             text-align: center;
             transition: var(--transition);
             border: 1px solid rgba(0, 0, 0, 0.03);
         }
         .team-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-5px);
             box-shadow: var(--shadow-hover);
         }
         .team-card .avatar {
-            width: 96px;
-            height: 96px;
+            width: 88px;
+            height: 88px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
-            margin: 0 auto 14px;
+            margin: 0 auto 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.4rem;
+            font-size: 2rem;
             font-weight: 700;
             color: #fff;
-            box-shadow: 0 8px 30px rgba(35, 94, 167, 0.25);
+            box-shadow: 0 8px 28px rgba(30, 92, 166, 0.2);
         }
         .team-card h4 {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: var(--primary);
         }
         .team-card .role {
             color: var(--secondary);
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             margin-bottom: 2px;
         }
         .team-card .exp {
             color: var(--gray);
-            font-size: 0.8rem;
-            margin-bottom: 10px;
+            font-size: 0.78rem;
+            margin-bottom: 8px;
         }
         .team-card .bio {
             color: var(--gray);
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             line-height: 1.6;
         }
         .team-card .bio.bangla {
-            font-size: 0.84rem;
-            margin-top: 6px;
+            font-size: 0.82rem;
+            margin-top: 4px;
         }
         .team-card .badge {
             display: inline-block;
-            background: rgba(214, 161, 54, 0.12);
+            background: rgba(212, 160, 43, 0.1);
             color: var(--accent);
             padding: 2px 16px;
             border-radius: 20px;
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             font-weight: 600;
             letter-spacing: 0.5px;
             text-transform: uppercase;
-            margin-top: 10px;
+            margin-top: 8px;
         }
 
         /* ============================================================
            FAQ
            ============================================================ */
-        .faq {
+        .faq-section {
             background: #fff;
         }
         .faq-grid {
-            max-width: 780px;
+            max-width: 760px;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
         .faq-item {
             border: 1px solid rgba(0, 0, 0, 0.05);
-            border-radius: var(--radius);
+            border-radius: var(--radius-sm);
             overflow: hidden;
             background: var(--light);
             transition: var(--transition);
         }
         .faq-item:hover {
-            border-color: rgba(35, 94, 167, 0.15);
+            border-color: rgba(30, 92, 166, 0.12);
         }
         .faq-question {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 18px 24px;
+            padding: 16px 22px;
             cursor: pointer;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             color: var(--primary);
             transition: var(--transition);
             background: transparent;
@@ -1254,7 +1035,7 @@
         .faq-question i {
             transition: var(--transition);
             color: var(--accent);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
         .faq-item.active .faq-question i {
             transform: rotate(180deg);
@@ -1263,14 +1044,14 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.5s ease, padding 0.5s ease;
-            padding: 0 24px;
+            padding: 0 22px;
             color: var(--gray);
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             line-height: 1.7;
         }
         .faq-item.active .faq-answer {
             max-height: 200px;
-            padding: 0 24px 20px;
+            padding: 0 22px 18px;
         }
 
         /* ============================================================
@@ -1293,26 +1074,26 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 16px;
-            margin-top: 8px;
+            gap: 14px;
+            margin-top: 6px;
         }
         .contact-social {
             display: flex;
             justify-content: center;
-            gap: 18px;
-            margin-top: 40px;
+            gap: 16px;
+            margin-top: 36px;
         }
         .contact-social a {
-            width: 54px;
-            height: 54px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.5);
             transition: var(--transition);
         }
         .contact-social a:hover {
@@ -1337,8 +1118,8 @@
            ============================================================ */
         .footer {
             background: var(--dark);
-            color: rgba(255, 255, 255, 0.5);
-            padding: 40px 0 28px;
+            color: rgba(255, 255, 255, 0.4);
+            padding: 36px 0 24px;
             border-top: 1px solid rgba(255, 255, 255, 0.03);
         }
         .footer .container {
@@ -1346,21 +1127,21 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 16px;
         }
         .footer .brand {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             font-weight: 600;
             color: #fff;
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
         .footer .brand span {
             color: var(--accent);
         }
         .footer .brand img {
-            height: 32px;
+            height: 30px;
             width: auto;
             border-radius: 6px;
             background: #fff;
@@ -1368,15 +1149,15 @@
             object-fit: contain;
         }
         .footer p {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
         }
         .footer .social-links {
             display: flex;
-            gap: 14px;
+            gap: 12px;
         }
         .footer .social-links a {
-            color: rgba(255, 255, 255, 0.3);
-            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.25);
+            font-size: 0.95rem;
             transition: var(--transition);
         }
         .footer .social-links a:hover {
@@ -1390,35 +1171,35 @@
         .floating-badge {
             position: fixed;
             z-index: 999;
-            width: 52px;
-            height: 52px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: #fff;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
             transition: var(--transition);
             border: none;
             cursor: pointer;
             text-decoration: none;
         }
         .floating-badge:hover {
-            transform: scale(1.1) translateY(-4px);
+            transform: scale(1.08) translateY(-4px);
         }
         .floating-badge.messenger {
             background: #0084ff;
-            bottom: 100px;
-            right: 28px;
+            bottom: 90px;
+            right: 24px;
         }
         .floating-badge.messenger:hover {
             background: #0066cc;
         }
         .floating-badge.whatsapp {
             background: #25d366;
-            bottom: 30px;
-            right: 28px;
+            bottom: 28px;
+            right: 24px;
         }
         .floating-badge.whatsapp:hover {
             background: #1da851;
@@ -1429,49 +1210,30 @@
            ============================================================ */
         .animate-on-scroll {
             opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+            transform: translateY(32px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
         }
         .animate-on-scroll.visible {
             opacity: 1;
             transform: translateY(0);
         }
         .animate-on-scroll.slide-left {
-            transform: translateX(-40px);
+            transform: translateX(-32px);
         }
         .animate-on-scroll.slide-left.visible {
             transform: translateX(0);
         }
         .animate-on-scroll.slide-right {
-            transform: translateX(40px);
+            transform: translateX(32px);
         }
         .animate-on-scroll.slide-right.visible {
             transform: translateX(0);
         }
         .animate-on-scroll.zoom {
-            transform: scale(0.92);
+            transform: scale(0.94);
         }
         .animate-on-scroll.zoom.visible {
             transform: scale(1);
-        }
-
-        /* ============================================================
-           CURSOR GLOW
-           ============================================================ */
-        .cursor-glow {
-            position: fixed;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            background: radial-gradient(circle, rgba(214, 161, 54, 0.06), transparent 70%);
-            transform: translate(-50%, -50%);
-            transition: opacity 0.3s;
-            opacity: 0;
-        }
-        .cursor-glow.active {
-            opacity: 1;
         }
 
         /* ============================================================
@@ -1481,7 +1243,7 @@
             .hero .container {
                 grid-template-columns: 1fr;
                 text-align: center;
-                gap: 30px;
+                gap: 28px;
             }
             .hero p,
             .hero p.bangla {
@@ -1498,20 +1260,6 @@
                 max-width: 100%;
                 aspect-ratio: 1536 / 743;
             }
-            .about-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .about-text .highlight-list {
-                grid-template-columns: 1fr 1fr;
-            }
-            .about-text .highlight-list li {
-                justify-content: center;
-            }
-            .about-image .logo-wrap {
-                max-width: 260px;
-                margin: 0 auto;
-            }
             .training-grid {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -1523,9 +1271,6 @@
                 display: flex;
                 justify-content: center;
             }
-            .workflow-steps::before {
-                display: none;
-            }
         }
 
         @media (max-width: 768px) {
@@ -1535,11 +1280,11 @@
                 left: 0;
                 right: 0;
                 bottom: 0;
-                background: rgba(15, 26, 58, 0.97);
+                background: rgba(11, 26, 51, 0.97);
                 backdrop-filter: blur(24px);
                 flex-direction: column;
                 justify-content: center;
-                gap: 8px;
+                gap: 6px;
                 transform: translateX(100%);
                 transition: var(--transition);
                 padding: 40px;
@@ -1548,21 +1293,21 @@
                 transform: translateX(0);
             }
             .nav-links a {
-                font-size: 1.1rem;
-                padding: 12px 24px;
+                font-size: 1.05rem;
+                padding: 10px 20px;
             }
             .nav-toggle {
                 display: flex;
             }
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
             .hero-stats {
-                gap: 24px;
+                gap: 20px;
                 flex-wrap: wrap;
             }
             .hero-stats .stat h3 {
-                font-size: 1.6rem;
+                font-size: 1.4rem;
             }
             .services-grid {
                 grid-template-columns: 1fr 1fr;
@@ -1577,30 +1322,27 @@
                 flex-direction: column;
                 text-align: center;
             }
-            .about-text .highlight-list {
-                grid-template-columns: 1fr;
-            }
             .projects-grid {
                 grid-template-columns: 1fr 1fr;
-            }
-            .testimonial-grid {
-                grid-template-columns: 1fr;
             }
             .workflow-steps {
                 grid-template-columns: 1fr 1fr;
             }
             .floating-badge {
-                width: 44px;
-                height: 44px;
+                width: 42px;
+                height: 42px;
                 font-size: 1.1rem;
             }
             .floating-badge.messenger {
-                bottom: 80px;
-                right: 16px;
+                bottom: 72px;
+                right: 14px;
             }
             .floating-badge.whatsapp {
-                bottom: 16px;
-                right: 16px;
+                bottom: 14px;
+                right: 14px;
+            }
+            .trust-grid {
+                grid-template-columns: 1fr 1fr;
             }
         }
 
@@ -1615,46 +1357,47 @@
                 grid-template-columns: 1fr;
             }
             section {
-                padding: 60px 0;
+                padding: 56px 0;
             }
             .hero {
-                padding-top: 80px;
                 min-height: auto;
-                padding-bottom: 40px;
+                padding-bottom: 32px;
             }
             .hero h1 {
-                font-size: 1.8rem;
+                font-size: 1.7rem;
             }
             .hero .container {
-                gap: 20px;
+                gap: 16px;
             }
             .hero-image-container .glass-card {
                 aspect-ratio: 4/3;
-                min-height: 200px;
+                min-height: 180px;
             }
             .team-card {
-                padding: 24px 18px;
+                padding: 20px 16px;
             }
             .training-card {
-                padding: 24px 18px;
+                padding: 20px 16px;
             }
             .contact-social a {
-                width: 44px;
-                height: 44px;
+                width: 42px;
+                height: 42px;
                 font-size: 1rem;
             }
             .section-header h2 {
-                font-size: 1.6rem;
+                font-size: 1.5rem;
+            }
+            .trust-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+            .trust-item .num {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
-
-    <!-- ============================================================
-    CURSOR GLOW
-    ============================================================ -->
-    <div class="cursor-glow" id="cursorGlow"></div>
 
     <!-- ============================================================
     NAVBAR
@@ -1666,7 +1409,6 @@
                 <span>Unity</span> Structural Solution
             </a>
             <ul class="nav-links" id="navLinks" role="menubar">
-                <li role="none"><a href="#about" role="menuitem">About</a></li>
                 <li role="none"><a href="#services" role="menuitem">Services</a></li>
                 <li role="none"><a href="#projects" role="menuitem">Projects</a></li>
                 <li role="none"><a href="#training" role="menuitem">Training</a></li>
@@ -1684,13 +1426,12 @@
     ============================================================ -->
     <header class="hero" id="home">
         <div class="hero-bg">
-            <!-- 3D Canvas for structural animation -->
-            <canvas id="hero-canvas"></canvas>
-            
+            <div class="glow-orb"></div>
+            <div class="glow-orb"></div>
             <div class="grid-overlay"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
+            <div id="hero-canvas-wrap">
+                <canvas id="hero-canvas"></canvas>
+            </div>
         </div>
         <div class="container">
             <div class="hero-content">
@@ -1724,12 +1465,11 @@
             <div class="hero-image-container">
                 <div class="glass-card">
                     <div class="card-shine"></div>
-                    <img src="pic/shed-structure.jpg" alt="3D Steel Shed Structure - Components" onerror="this.style.display='none'; document.querySelector('.placeholder-text').style.display='flex'" />
-                    <div class="placeholder-text" style="display:none;">
+                    <img src="pic/shed-structure.jpg" alt="3D Steel Shed Structure" onerror="this.style.display='none'; document.querySelector('.placeholder-text').style.display='flex'" />
+                    <div class="placeholder-text">
                         <i class="fas fa-warehouse"></i>
                         <div><strong>Steel Shed Structure</strong></div>
-                        <div style="font-size:0.75rem;opacity:0.6;">Upload your 1536×743 image as <strong>pic/shed-structure.jpg</strong></div>
-                        <div style="font-size:0.65rem;opacity:0.4;margin-top:8px;">Columns · Rafters · Purlins · Girts · Bracing</div>
+                        <div style="font-size:0.75rem;opacity:0.6;">Upload pic/shed-structure.jpg (1536×743)</div>
                     </div>
                     <div class="card-label"><i class="fas fa-cube"></i> 3D Steel Shed — Components</div>
                 </div>
@@ -1738,45 +1478,26 @@
     </header>
 
     <!-- ============================================================
-    ABOUT
+    TRUST / STATS
     ============================================================ -->
-    <section class="about" id="about">
+    <section class="trust-section">
         <div class="container">
-            <div class="about-grid">
-                <div class="about-text animate-on-scroll">
-                    <div class="section-header" style="text-align:left;margin-bottom:20px;">
-                        <div class="tag">About Us</div>
-                        <h2 style="font-size:2rem;">Engineering <span>with Integrity</span></h2>
-                    </div>
-                    <p>
-                        <strong>Unity Structural Solution</strong> is a professional engineering consultancy
-                        specializing in <strong>RCC</strong> and <strong>Steel Structure</strong> design,
-                        detailing, estimation, and project support. Our team brings a combined
-                        <strong>22+ years</strong> of industry experience, dedicated to delivering
-                        safe, economical, and practical solutions.
-                    </p>
-                    <p class="bangla">
-                        <strong>Unity Structural Solution</strong> একটি পেশাদার ইঞ্জিনিয়ারিং কনসালটেন্সি প্রতিষ্ঠান।
-                        আমরা <strong>আরসিসি</strong> ও <strong>স্টিল স্ট্রাকচার</strong> ডিজাইন, ডিটেইলিং,
-                        ইস্টিমেশন ও প্রজেক্ট সাপোর্ট সেবা প্রদান করি।
-                    </p>
-                    <p>
-                        Our expertise spans from low-rise RCC buildings to complex steel structures,
-                        PEB engineering, and Tekla Structures detailing.
-                    </p>
-                    <ul class="highlight-list">
-                        <li><i class="fas fa-check-circle"></i> Accurate Design &amp; Detailing</li>
-                        <li><i class="fas fa-check-circle"></i> Reliable Estimation &amp; BOQ</li>
-                        <li><i class="fas fa-check-circle"></i> International Standards</li>
-                        <li><i class="fas fa-check-circle"></i> Timely Project Delivery</li>
-                        <li><i class="fas fa-check-circle"></i> Tekla Structures Expert</li>
-                        <li><i class="fas fa-check-circle"></i> ETABS &amp; STAAD.Pro</li>
-                    </ul>
+            <div class="trust-grid">
+                <div class="trust-item animate-on-scroll zoom">
+                    <div class="num"><span data-count="15">0</span><span class="plus">+</span></div>
+                    <p>Years Experience</p>
                 </div>
-                <div class="about-image animate-on-scroll slide-right">
-                    <div class="logo-wrap">
-                        <img src="pic/logo.png" alt="Unity Structural Solution Logo" />
-                    </div>
+                <div class="trust-item animate-on-scroll zoom" style="transition-delay:0.05s;">
+                    <div class="num"><span data-count="500">0</span><span class="plus">+</span></div>
+                    <p>Projects Delivered</p>
+                </div>
+                <div class="trust-item animate-on-scroll zoom" style="transition-delay:0.1s;">
+                    <div class="num"><span data-count="22">0</span><span class="plus">+</span></div>
+                    <p>Combined Experience</p>
+                </div>
+                <div class="trust-item animate-on-scroll zoom" style="transition-delay:0.15s;">
+                    <div class="num">100<span class="plus">%</span></div>
+                    <p>Client Satisfaction</p>
                 </div>
             </div>
         </div>
@@ -1800,82 +1521,47 @@
                     <p>ETABS, STAAD.Pro &amp; manual verification for low to mid-rise buildings.</p>
                     <p class="bangla">ETABS, STAAD.Pro ও ম্যানুয়াল ভেরিফিকেশনের মাধ্যমে আরসিসি ডিজাইন।</p>
                 </div>
-                <div class="service-card animate-on-scroll">
+                <div class="service-card animate-on-scroll" style="transition-delay:0.05s;">
                     <div class="icon"><i class="fas fa-ruler-combined"></i></div>
                     <h4>RCC Structural Detailing</h4>
                     <p>Reinforcement drawings, schedules &amp; bar bending schedules (BBS).</p>
                     <p class="bangla">রিইনফোর্সমেন্ট ড্রইং, সিডিউল ও বার বেন্ডিং স্কিডিউল (BBS)।</p>
                 </div>
-                <div class="service-card animate-on-scroll">
+                <div class="service-card animate-on-scroll" style="transition-delay:0.1s;">
                     <div class="icon"><i class="fas fa-cubes"></i></div>
                     <h4>Steel Structure Design</h4>
                     <p>Sheds, mezzanines, PEB &amp; industrial structures in STAAD.Pro.</p>
                     <p class="bangla">শেড, মেজানাইন, PEB ও শিল্প কাঠামো STAAD.Pro-তে ডিজাইন।</p>
                 </div>
-                <div class="service-card animate-on-scroll">
+                <div class="service-card animate-on-scroll" style="transition-delay:0.15s;">
                     <div class="icon"><i class="fas fa-cogs"></i></div>
                     <h4>Steel Detailing (Tekla)</h4>
                     <p>3D detailing, GA, assembly &amp; single-part drawings with Tekla Structures.</p>
                     <p class="bangla">Tekla Structures-এ ৩D ডিটেইলিং, GA, অ্যাসেম্বলি ও সিঙ্গল-পার্ট ড্রইং।</p>
                 </div>
-                <div class="service-card animate-on-scroll">
+                <div class="service-card animate-on-scroll" style="transition-delay:0.2s;">
                     <div class="icon"><i class="fas fa-calculator"></i></div>
                     <h4>Estimation &amp; BOQ</h4>
                     <p>Material take-off (MTO), BOQ &amp; cost estimation for RCC &amp; steel.</p>
                     <p class="bangla">আরসিসি ও স্টিলের জন্য MTO, BOQ ও কস্ট ইস্টিমেশন।</p>
                 </div>
-                <div class="service-card animate-on-scroll">
+                <div class="service-card animate-on-scroll" style="transition-delay:0.25s;">
                     <div class="icon"><i class="fas fa-file-invoice"></i></div>
                     <h4>Proposal &amp; Tender</h4>
                     <p>Professional quotations, tender estimation &amp; bid documentation.</p>
                     <p class="bangla">পেশাদার প্রপোজাল, টেন্ডার ইস্টিমেশন ও বিড ডকুমেন্টেশন।</p>
                 </div>
-                <div class="service-card animate-on-scroll">
+                <div class="service-card animate-on-scroll" style="transition-delay:0.3s;">
                     <div class="icon"><i class="fas fa-hard-hat"></i></div>
                     <h4>Shop &amp; Fabrication</h4>
                     <p>Detailed shop drawings &amp; fabrication-ready documentation.</p>
                     <p class="bangla">বিস্তারিত শপ ড্রইং ও ফেব্রিকেশন-রেডি ডকুমেন্টেশন।</p>
                 </div>
-                <div class="service-card animate-on-scroll">
+                <div class="service-card animate-on-scroll" style="transition-delay:0.35s;">
                     <div class="icon"><i class="fas fa-chart-line"></i></div>
                     <h4>PEB Engineering</h4>
                     <p>Pre-engineered building design, detailing &amp; project coordination.</p>
                     <p class="bangla">প্রি-ইঞ্জিনিয়ার্ড বিল্ডিং ডিজাইন, ডিটেইলিং ও কোঅর্ডিনেশন।</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================================
-    WHY CHOOSE US
-    ============================================================ -->
-    <section class="why-choose">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <div class="tag">Why Choose Us</div>
-                <h2>Built on <span>Excellence</span></h2>
-                <p>Numbers that speak for our commitment to quality and precision.</p>
-            </div>
-            <div class="why-grid">
-                <div class="why-item animate-on-scroll zoom">
-                    <div class="num" data-count="15">0</div>
-                    <h4>Years Experience</h4>
-                    <p>Industry expertise since 2011</p>
-                </div>
-                <div class="why-item animate-on-scroll zoom" style="transition-delay:0.1s;">
-                    <div class="num" data-count="500">0</div>
-                    <h4>Projects Completed</h4>
-                    <p>Across Bangladesh &amp; abroad</p>
-                </div>
-                <div class="why-item animate-on-scroll zoom" style="transition-delay:0.2s;">
-                    <div class="num" data-count="22">0</div>
-                    <h4>Combined Experience</h4>
-                    <p>Two engineers, one vision</p>
-                </div>
-                <div class="why-item animate-on-scroll zoom" style="transition-delay:0.3s;">
-                    <div class="num" data-count="100">0</div>
-                    <h4>Client Satisfaction</h4>
-                    <p>100% commitment to quality</p>
                 </div>
             </div>
         </div>
@@ -1890,33 +1576,32 @@
                 <div class="tag">Our Work</div>
                 <h2>Featured <span>Projects</span></h2>
                 <p>Showcasing our engineering excellence across RCC and steel structures.</p>
-                <p class="bangla" style="font-size:0.85rem;color:var(--gray);margin-top:8px;">
-                    📸 প্রতিটি প্রজেক্টের জন্য আপনার ইমেজ আপলোড করুন: <strong>project-1.jpg, project-2.jpg ... project-6.jpg</strong>
-                    (আকার: 600×450px, ফোল্ডার: <strong>pic/projects/</strong>)
+                <p class="bangla" style="font-size:0.82rem;color:var(--gray);margin-top:8px;">
+                    📸 Upload images to <strong>pic/projects/</strong> as project-1.jpg ... project-6.jpg
                 </p>
             </div>
             <div class="projects-grid">
                 <div class="project-item animate-on-scroll zoom">
-                    <img src="pic/projects/project-1.jpg" alt="Industrial Steel Shed Project" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1581094794329-c8112a4afd1f?w=600&h=450&fit=crop'" />
+                    <img src="pic/projects/project-1.jpg" alt="Industrial Steel Shed" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1581094794329-c8112a4afd1f?w=600&h=450&fit=crop'" />
                     <div class="overlay"><span class="badge">Steel</span><h4>Industrial Shed</h4><p>PEB structure, 5000 sqft</p></div>
                 </div>
-                <div class="project-item animate-on-scroll zoom" style="transition-delay:0.1s;">
+                <div class="project-item animate-on-scroll zoom" style="transition-delay:0.08s;">
                     <img src="pic/projects/project-2.jpg" alt="RCC Residential Tower" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1581094794329-c8112a4afd1f?w=600&h=450&fit=crop&sat=-10'" />
                     <div class="overlay"><span class="badge">RCC</span><h4>Residential Tower</h4><p>10-story RCC structure</p></div>
                 </div>
-                <div class="project-item animate-on-scroll zoom" style="transition-delay:0.2s;">
+                <div class="project-item animate-on-scroll zoom" style="transition-delay:0.16s;">
                     <img src="pic/projects/project-3.jpg" alt="Tekla Steel Detailing" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1581094794329-c8112a4afd1f?w=600&h=450&fit=crop&sat=-20'" />
                     <div class="overlay"><span class="badge">Tekla</span><h4>Steel Detailing</h4><p>3D modeling &amp; GA drawings</p></div>
                 </div>
-                <div class="project-item animate-on-scroll zoom" style="transition-delay:0.3s;">
+                <div class="project-item animate-on-scroll zoom" style="transition-delay:0.24s;">
                     <img src="pic/projects/project-4.jpg" alt="PEB Warehouse" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1581094794329-c8112a4afd1f?w=600&h=450&fit=crop&sat=-30'" />
                     <div class="overlay"><span class="badge">PEB</span><h4>Warehouse Complex</h4><p>Pre-engineered building</p></div>
                 </div>
-                <div class="project-item animate-on-scroll zoom" style="transition-delay:0.4s;">
-                    <img src="pic/projects/project-5.jpg" alt="Steel Mezzanine Design" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1581094794329-c8112a4afd1f?w=600&h=450&fit=crop&sat=-40'" />
+                <div class="project-item animate-on-scroll zoom" style="transition-delay:0.32s;">
+                    <img src="pic/projects/project-5.jpg" alt="Steel Mezzanine" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1581094794329-c8112a4afd1f?w=600&h=450&fit=crop&sat=-40'" />
                     <div class="overlay"><span class="badge">Design</span><h4>Mezzanine Floor</h4><p>Steel design &amp; detailing</p></div>
                 </div>
-                <div class="project-item animate-on-scroll zoom" style="transition-delay:0.5s;">
+                <div class="project-item animate-on-scroll zoom" style="transition-delay:0.4s;">
                     <img src="pic/projects/project-6.jpg" alt="RCC Bridge Detailing" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1581094794329-c8112a4afd1f?w=600&h=450&fit=crop&sat=-50'" />
                     <div class="overlay"><span class="badge">RCC</span><h4>Bridge Detailing</h4><p>Reinforcement scheduling</p></div>
                 </div>
@@ -1927,7 +1612,7 @@
     <!-- ============================================================
     SOFTWARE
     ============================================================ -->
-    <section class="software">
+    <section class="software-section">
         <div class="container">
             <div class="section-header animate-on-scroll">
                 <div class="tag">Tools We Use</div>
@@ -1948,7 +1633,7 @@
     <!-- ============================================================
     WORKFLOW
     ============================================================ -->
-    <section class="workflow">
+    <section class="workflow-section">
         <div class="container">
             <div class="section-header animate-on-scroll">
                 <div class="tag">Process</div>
@@ -1957,10 +1642,10 @@
             </div>
             <div class="workflow-steps">
                 <div class="workflow-step animate-on-scroll"><div class="num">01</div><h4>Consultation</h4><p>Understanding project requirements</p></div>
-                <div class="workflow-step animate-on-scroll" style="transition-delay:0.1s;"><div class="num">02</div><h4>Design</h4><p>Structural modeling &amp; analysis</p></div>
-                <div class="workflow-step animate-on-scroll" style="transition-delay:0.2s;"><div class="num">03</div><h4>Detailing</h4><p>Detailed drawings &amp; schedules</p></div>
-                <div class="workflow-step animate-on-scroll" style="transition-delay:0.3s;"><div class="num">04</div><h4>Estimation</h4><p>BOQ &amp; cost analysis</p></div>
-                <div class="workflow-step animate-on-scroll" style="transition-delay:0.4s;"><div class="num">05</div><h4>Delivery</h4><p>Final documentation &amp; support</p></div>
+                <div class="workflow-step animate-on-scroll" style="transition-delay:0.08s;"><div class="num">02</div><h4>Design</h4><p>Structural modeling &amp; analysis</p></div>
+                <div class="workflow-step animate-on-scroll" style="transition-delay:0.16s;"><div class="num">03</div><h4>Detailing</h4><p>Detailed drawings &amp; schedules</p></div>
+                <div class="workflow-step animate-on-scroll" style="transition-delay:0.24s;"><div class="num">04</div><h4>Estimation</h4><p>BOQ &amp; cost analysis</p></div>
+                <div class="workflow-step animate-on-scroll" style="transition-delay:0.32s;"><div class="num">05</div><h4>Delivery</h4><p>Final documentation &amp; support</p></div>
             </div>
         </div>
     </section>
@@ -1978,13 +1663,13 @@
             </div>
             <div class="training-grid">
                 <div class="training-content animate-on-scroll slide-left">
-                    <h3 style="font-size:1.5rem;color:#fff;margin-bottom:6px;">
+                    <h3 style="font-size:1.4rem;color:#fff;margin-bottom:6px;">
                         <i class="fas fa-graduation-cap" style="color:var(--accent);"></i> Complete Tekla Training
                     </h3>
-                    <p style="color:rgba(255,255,255,0.6);margin-bottom:10px;">
+                    <p style="color:rgba(255,255,255,0.6);margin-bottom:8px;">
                         Designed for aspiring detailers and engineers to master steel detailing.
                     </p>
-                    <p class="bangla" style="color:rgba(255,255,255,0.4);margin-bottom:14px;">
+                    <p class="bangla" style="color:rgba(255,255,255,0.4);margin-bottom:12px;">
                         উচ্চাকাঙ্ক্ষী ডিটেইলার ও ইঞ্জিনিয়ারদের জন্য রিয়েল প্রজেক্ট অভিজ্ঞতা।
                     </p>
                     <ul>
@@ -2006,50 +1691,20 @@
                         <div class="big-icon"><i class="fas fa-cube"></i></div>
                         <h4>Tekla Structures</h4>
                         <p>Master the industry-leading software for steel detailing.</p>
-                        <p style="color:rgba(255,255,255,0.35);font-size:0.85rem;">স্টিল ডিটেইলিংয়ের শীর্ষ সফটওয়্যার</p>
+                        <p style="color:rgba(255,255,255,0.3);font-size:0.82rem;">স্টিল ডিটেইলিংয়ের শীর্ষ সফটওয়্যার</p>
                         <div class="tags">
                             <span>3D Modeling</span><span>Detailing</span>
                             <span>Drawings</span><span>BOM</span>
                         </div>
-                        <div style="margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.05);">
-                            <span style="font-size:0.75rem;color:rgba(255,255,255,0.3);">
+                        <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.04);">
+                            <span style="font-size:0.7rem;color:rgba(255,255,255,0.3);">
                                 <i class="fas fa-clock"></i> Flexible batch schedules
                             </span>
-                            <span style="font-size:0.75rem;color:rgba(255,255,255,0.3);margin-left:14px;">
+                            <span style="font-size:0.7rem;color:rgba(255,255,255,0.3);margin-left:12px;">
                                 <i class="fas fa-laptop"></i> Online &amp; Offline
                             </span>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================================
-    TESTIMONIALS
-    ============================================================ -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <div class="tag">Testimonials</div>
-                <h2>What Our <span>Clients Say</span></h2>
-                <p>Real feedback from real projects.</p>
-            </div>
-            <div class="testimonial-grid">
-                <div class="testimonial-item animate-on-scroll">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <blockquote>"Unity Structural Solution delivered exceptional design and detailing for our factory. Their Tekla expertise is outstanding."</blockquote>
-                    <div class="author"><div class="initials">RA</div><div><div class="name">Rafiq Ahmed</div><div class="title">Project Manager, Industrial Builders</div></div></div>
-                </div>
-                <div class="testimonial-item animate-on-scroll" style="transition-delay:0.1s;">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <blockquote>"The team provided accurate RCC design and estimation for our residential tower. Highly professional and reliable."</blockquote>
-                    <div class="author"><div class="initials">SH</div><div><div class="name">S. Hossain</div><div class="title">Developer, Urban Living Ltd</div></div></div>
-                </div>
-                <div class="testimonial-item animate-on-scroll" style="transition-delay:0.2s;">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <blockquote>"Their Tekla training program helped our team level up. Practical, hands-on, and industry-focused approach."</blockquote>
-                    <div class="author"><div class="initials">MA</div><div><div class="name">Mahmud Ali</div><div class="title">Engineering Manager, SteelTech</div></div></div>
                 </div>
             </div>
         </div>
@@ -2076,7 +1731,7 @@
                     <p class="bio bangla"><strong>স্টিল স্ট্রাকচার ডিটেইলিং</strong>-এ Tekla Structures-এ দক্ষ, ১৫+ বছরের অভিজ্ঞতা।</p>
                     <div class="badge"><i class="fas fa-star"></i> Tekla Expert</div>
                 </div>
-                <div class="team-card animate-on-scroll" style="transition-delay:0.15s;">
+                <div class="team-card animate-on-scroll" style="transition-delay:0.12s;">
                     <div class="avatar">SH</div>
                     <h4>Engr. Md S Hossen</h4>
                     <div class="role">Structural Design &amp; Estimation Expert</div>
@@ -2086,10 +1741,10 @@
                     <div class="badge"><i class="fas fa-calculator"></i> Design &amp; Estimation Expert</div>
                 </div>
             </div>
-            <div style="text-align:center;margin-top:32px;font-size:0.9rem;color:var(--gray);">
+            <div style="text-align:center;margin-top:28px;font-size:0.88rem;color:var(--gray);">
                 <i class="fas fa-users" style="color:var(--accent);"></i>
                 &nbsp; Together we bring <strong>22+ years</strong> of combined industry experience.
-                <br><span style="font-size:0.8rem;color:var(--gray);">সম্মিলিত <strong>২২+ বছর</strong> শিল্প অভিজ্ঞতা।</span>
+                <br><span style="font-size:0.78rem;color:var(--gray);">সম্মিলিত <strong>২২+ বছর</strong> শিল্প অভিজ্ঞতা।</span>
             </div>
         </div>
     </section>
@@ -2097,7 +1752,7 @@
     <!-- ============================================================
     FAQ
     ============================================================ -->
-    <section class="faq" id="faq">
+    <section class="faq-section" id="faq">
         <div class="container">
             <div class="section-header animate-on-scroll">
                 <div class="tag">FAQ</div>
@@ -2112,28 +1767,28 @@
                     </button>
                     <div class="faq-answer">We offer RCC and steel structure design, detailing, estimation, BOQ preparation, proposal support, and PEB engineering consultancy.</div>
                 </div>
-                <div class="faq-item animate-on-scroll" style="transition-delay:0.05s;">
+                <div class="faq-item animate-on-scroll" style="transition-delay:0.04s;">
                     <button class="faq-question" aria-expanded="false">
                         What software do you use for design and detailing?
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">We use Tekla Structures for steel detailing, ETABS and STAAD.Pro for structural design, AutoCAD for drafting, and specialized tools for estimation.</div>
                 </div>
-                <div class="faq-item animate-on-scroll" style="transition-delay:0.1s;">
+                <div class="faq-item animate-on-scroll" style="transition-delay:0.08s;">
                     <button class="faq-question" aria-expanded="false">
                         What does the Tekla Structures training cover?
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">The training covers complete Tekla workflow, 3D modeling, GA drawings, assembly and single-part drawings, BOM generation, and real project experience.</div>
                 </div>
-                <div class="faq-item animate-on-scroll" style="transition-delay:0.15s;">
+                <div class="faq-item animate-on-scroll" style="transition-delay:0.12s;">
                     <button class="faq-question" aria-expanded="false">
                         How can I get a quote for my project?
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">Contact us through Facebook, WhatsApp, or email with your project details, and we'll provide a professional proposal and estimation.</div>
                 </div>
-                <div class="faq-item animate-on-scroll" style="transition-delay:0.2s;">
+                <div class="faq-item animate-on-scroll" style="transition-delay:0.16s;">
                     <button class="faq-question" aria-expanded="false">
                         Do you provide training certificates?
                         <i class="fas fa-chevron-down"></i>
@@ -2205,290 +1860,178 @@
     </a>
 
     <!-- ============================================================
-    3D STRUCTURAL ANIMATION (Canvas-based wireframe PEB)
+    3D CANVAS — STRUCTURAL WIREFRAME
     ============================================================ -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const canvas = document.getElementById('hero-canvas');
             const ctx = canvas.getContext('2d');
-
             let width, height;
 
             function resize() {
-                const rect = canvas.parentElement.getBoundingClientRect();
+                const wrap = canvas.parentElement;
+                const rect = wrap.getBoundingClientRect();
                 width = canvas.width = rect.width;
                 height = canvas.height = rect.height;
             }
             resize();
             window.addEventListener('resize', resize);
 
-            // ===== 3D STRUCTURAL FRAME (Wireframe PEB) =====
-            // Define a simple 3D building frame
-            const points = [];
+            // Build a simple 3D steel frame
+            const pts = [];
             const edges = [];
+            const w = 10,
+                h = 5,
+                d = 6;
+            const bays = 5;
+            const bw = w / bays;
+            const ridge = h / 2 + 1.2;
 
-            // Building dimensions (scaled to canvas)
-            const w = 8,
-                h = 4.5,
-                d = 5;
-            const bays = 4;
-            const bayW = w / bays;
+            function addP(x, y, z) { pts.push([x, y, z]); return pts.length - 1; }
 
-            // Helper: add point and return index
-            function addPoint(x, y, z) {
-                points.push([x, y, z]);
-                return points.length - 1;
-            }
+            function addE(i, j) { edges.push([i, j]); }
 
-            // Helper: add edge between two points
-            function addEdge(i1, i2) {
-                edges.push([i1, i2]);
-            }
-
-            // ===== BUILD THE FRAME =====
-
-            // 1. Columns at each bay
-            const colIndices = [];
+            // Columns
+            const cols = [];
             for (let i = 0; i <= bays; i++) {
-                const x = -w / 2 + i * bayW;
+                const x = -w / 2 + i * bw;
                 for (let z of [-d / 2, d / 2]) {
-                    const bottom = addPoint(x, -h / 2, z);
-                    const top = addPoint(x, h / 2, z);
-                    addEdge(bottom, top);
-                    colIndices.push({ bottom, top, x, z });
+                    const b = addP(x, -h / 2, z);
+                    const t = addP(x, h / 2, z);
+                    addE(b, t);
+                    cols.push({ bottom: b, top: t, x, z });
                 }
             }
 
-            // 2. Rafters (roof beams) - forming a pitched roof
-            const ridgeH = h / 2 + 0.8;
+            // Rafters
             for (let i = 0; i <= bays; i++) {
-                const x = -w / 2 + i * bayW;
+                const x = -w / 2 + i * bw;
                 for (let z of [-d / 2, d / 2]) {
-                    const topIdx = addPoint(x, ridgeH, z);
-                    // Find column top at this x,z
-                    const col = colIndices.find(c => Math.abs(c.x - x) < 0.01 && Math.abs(c.z - z) < 0.01);
-                    if (col) {
-                        addEdge(col.top, topIdx);
-                    }
-                    // Ridge beam
-                    if (i === 0 || i === bays) {
-                        const ridgeEnd = addPoint(x, ridgeH, z);
-                        // Connect to center ridge
-                    }
+                    const rp = addP(x, ridge, z);
+                    const col = cols.find(c => Math.abs(c.x - x) < 0.01 && Math.abs(c.z - z) < 0.01);
+                    if (col) addE(col.top, rp);
                 }
             }
 
-            // 3. Ridge line
-            const ridgeCenter = [];
+            // Ridge
             for (let i = 0; i <= bays; i++) {
-                const x = -w / 2 + i * bayW;
-                const p1 = addPoint(x, ridgeH, -d / 2);
-                const p2 = addPoint(x, ridgeH, d / 2);
-                addEdge(p1, p2);
-                ridgeCenter.push({ left: p1, right: p2, x });
+                const x = -w / 2 + i * bw;
+                const l = addP(x, ridge, -d / 2);
+                const r = addP(x, ridge, d / 2);
+                addE(l, r);
             }
 
-            // 4. Purlins (longitudinal roof members)
-            for (let i = 0; i < 4; i++) {
-                const t = (i + 0.5) / 4;
+            // Purlins
+            for (let k = 0; k < 4; k++) {
+                const t = (k + 0.5) / 4;
                 const z = -d / 2 + t * d;
                 for (let j = 0; j <= bays; j++) {
-                    const x = -w / 2 + j * bayW;
-                    const y = ridgeH - 0.3 * (1 - Math.abs(x) / (w / 2) * 0.5);
-                    const p = addPoint(x, y, z);
-                    if (j > 0) {
-                        const prev = points.length - 2;
-                        addEdge(prev, p);
-                    }
+                    const x = -w / 2 + j * bw;
+                    const y = ridge - 0.25 * (1 - Math.abs(x) / (w / 2) * 0.4);
+                    const p = addP(x, y, z);
+                    if (j > 0) addE(pts.length - 2, p);
                 }
             }
 
-            // 5. Wall girts (horizontal wall members)
-            for (let level = 0; level < 3; level++) {
-                const y = -h / 2 + (level + 0.5) * h / 3;
+            // Girts
+            for (let lv = 0; lv < 3; lv++) {
+                const y = -h / 2 + (lv + 0.5) * h / 3;
                 for (let z of [-d / 2, d / 2]) {
                     for (let i = 0; i < bays; i++) {
-                        const x1 = -w / 2 + i * bayW;
-                        const x2 = -w / 2 + (i + 1) * bayW;
-                        const p1 = addPoint(x1, y, z);
-                        const p2 = addPoint(x2, y, z);
-                        addEdge(p1, p2);
-                    }
-                }
-                for (let x of [-w / 2, w / 2]) {
-                    for (let i = 0; i < bays; i++) {
-                        const z1 = -d / 2 + i * (d / bays);
-                        const z2 = -d / 2 + (i + 1) * (d / bays);
-                        const p1 = addPoint(x, y, z1);
-                        const p2 = addPoint(x, y, z2);
-                        addEdge(p1, p2);
+                        const x1 = -w / 2 + i * bw,
+                            x2 = -w / 2 + (i + 1) * bw;
+                        const p1 = addP(x1, y, z),
+                            p2 = addP(x2, y, z);
+                        addE(p1, p2);
                     }
                 }
             }
 
-            // 6. Cross bracing (X-bracing in end bays)
-            for (let bay of [0, bays - 1]) {
-                const x = -w / 2 + bay * bayW + bayW / 2;
-                for (let z of [-d / 2, d / 2]) {
-                    const zOff = z === -d / 2 ? 0.3 : -0.3;
-                    const p1 = addPoint(x - 0.6, -h / 2 + 0.3, z + zOff);
-                    const p2 = addPoint(x + 0.6, h / 2 - 0.3, z - zOff);
-                    addEdge(p1, p2);
-                    const p3 = addPoint(x + 0.6, -h / 2 + 0.3, z + zOff);
-                    const p4 = addPoint(x - 0.6, h / 2 - 0.3, z - zOff);
-                    addEdge(p3, p4);
-                }
-            }
-
-            // 7. Roof bracing
-            for (let bay of [0, bays - 1]) {
-                const x = -w / 2 + bay * bayW + bayW / 2;
-                const h1 = ridgeH - 0.2;
-                const h2 = ridgeH - 0.2;
-                const p1 = addPoint(x - 0.5, h1, -d / 2 + 0.3);
-                const p2 = addPoint(x + 0.5, h2, d / 2 - 0.3);
-                addEdge(p1, p2);
-                const p3 = addPoint(x + 0.5, h1, -d / 2 + 0.3);
-                const p4 = addPoint(x - 0.5, h2, d / 2 - 0.3);
-                addEdge(p3, p4);
-            }
-
-            // 8. Connection nodes (highlighted points)
+            // Nodes for highlighting
             const nodes = [];
-            for (let i = 0; i < points.length; i++) {
-                // Only select key connection points
-                const p = points[i];
-                if (Math.abs(p[1] - h / 2) < 0.01 || Math.abs(p[1] - ridgeH) < 0.01 ||
-                    Math.abs(p[1] + h / 2) < 0.01) {
+            for (let i = 0; i < pts.length; i++) {
+                const p = pts[i];
+                if (Math.abs(p[1] - h / 2) < 0.01 || Math.abs(p[1] - ridge) < 0.01 || Math.abs(p[1] + h / 2) < 0.01) {
                     nodes.push(i);
                 }
             }
 
-            // ===== ROTATION STATE =====
-            let rotX = 0.15;
-            let rotY = 0;
-            let rotZ = 0.05;
-            let time = 0;
+            let rotX = 0.15,
+                rotY = 0,
+                rotZ = 0.05,
+                time = 0;
 
-            // ===== PROJECTION =====
             function project(x, y, z) {
-                // Simple rotation
-                const cosX = Math.cos(rotX),
-                    sinX = Math.sin(rotX);
-                const cosY = Math.cos(rotY),
-                    sinY = Math.sin(rotY);
-                const cosZ = Math.cos(rotZ),
-                    sinZ = Math.sin(rotZ);
-
-                // Rotate around X
-                let y1 = y * cosX - z * sinX;
-                let z1 = y * sinX + z * cosX;
-
-                // Rotate around Y
-                let x1 = x * cosY + z1 * sinY;
-                let z2 = -x * sinY + z1 * cosY;
-
-                // Rotate around Z
-                let x2 = x1 * cosZ - y1 * sinZ;
-                let y2 = x1 * sinZ + y1 * cosZ;
-
-                // Perspective projection
-                const scale = 120;
-                const fov = 800;
-                const perspective = fov / (fov + z2 * 3);
-
-                const px = width / 2 + x2 * scale * perspective;
-                const py = height / 2 - y2 * scale * perspective;
-
-                return { x: px, y: py, z: z2, perspective };
+                let cx = Math.cos(rotX),
+                    sx = Math.sin(rotX),
+                    cy = Math.cos(rotY),
+                    sy = Math.sin(rotY),
+                    cz = Math.cos(rotZ),
+                    sz = Math.sin(rotZ);
+                let y1 = y * cx - z * sx,
+                    z1 = y * sx + z * cx;
+                let x1 = x * cy + z1 * sy,
+                    z2 = -x * sy + z1 * cy;
+                let x2 = x1 * cz - y1 * sz,
+                    y2 = x1 * sz + y1 * cz;
+                const scale = 100,
+                    fov = 700,
+                    persp = fov / (fov + z2 * 2.5);
+                return { x: width / 2 + x2 * scale * persp, y: height / 2 - y2 * scale * persp, z: z2 };
             }
 
-            // ===== DRAW =====
             function draw() {
-                // Clear with fade
                 ctx.clearRect(0, 0, width, height);
+                time += 0.005;
+                rotY = time * 0.25;
+                rotX = 0.2 + Math.sin(time * 0.12) * 0.04;
 
-                // Update rotation
-                time += 0.006;
-                rotY = time * 0.3;
-                rotX = 0.2 + Math.sin(time * 0.15) * 0.05;
-                rotZ = 0.05 + Math.sin(time * 0.2) * 0.02;
-
-                // Project all points
-                const projected = points.map(p => project(p[0], p[1], p[2]));
-
-                // Sort edges by depth for proper rendering
-                const edgeData = edges.map(([i1, i2]) => {
-                    const p1 = projected[i1];
-                    const p2 = projected[i2];
-                    const depth = (p1.z + p2.z) / 2;
-                    return { i1, i2, p1, p2, depth };
+                const proj = pts.map(p => project(p[0], p[1], p[2]));
+                const edgeData = edges.map(([i, j]) => {
+                    const a = proj[i],
+                        b = proj[j];
+                    return { a, b, depth: (a.z + b.z) / 2 };
                 });
                 edgeData.sort((a, b) => b.depth - a.depth);
 
-                // Draw edges
-                for (const { i1, i2, p1, p2, depth } of edgeData) {
-                    const alpha = 0.15 + 0.35 * (1 - (depth + 10) / 20);
-                    const isGlow = (i1 < 30 || i2 < 30) && Math.random() < 0.3;
-
-                    // Line color: gold accent
-                    const r = 214,
-                        g = 161,
-                        b = 54;
-                    const baseAlpha = alpha * 0.9;
-
+                for (const { a, b, depth } of edgeData) {
+                    const alpha = 0.12 + 0.35 * (1 - (depth + 10) / 22);
                     ctx.beginPath();
-                    ctx.moveTo(p1.x, p1.y);
-                    ctx.lineTo(p2.x, p2.y);
-                    ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${baseAlpha})`;
-                    ctx.lineWidth = 0.8 + 0.6 * (1 - depth / 20);
+                    ctx.moveTo(a.x, a.y);
+                    ctx.lineTo(b.x, b.y);
+                    ctx.strokeStyle = `rgba(212, 160, 43, ${alpha})`;
+                    ctx.lineWidth = 0.7 + 0.5 * (1 - depth / 18);
                     ctx.stroke();
-
-                    // Glow effect on some edges
-                    if (isGlow) {
-                        ctx.shadowColor = `rgba(214, 161, 54, 0.15)`;
-                        ctx.shadowBlur = 8;
-                        ctx.beginPath();
-                        ctx.moveTo(p1.x, p1.y);
-                        ctx.lineTo(p2.x, p2.y);
-                        ctx.strokeStyle = `rgba(214, 161, 54, 0.08)`;
-                        ctx.lineWidth = 3;
-                        ctx.stroke();
-                        ctx.shadowBlur = 0;
-                    }
                 }
 
-                // Draw nodes (connection points)
-                const nodeSize = 2 + Math.sin(time * 1.5 + 0.5) * 0.8;
                 for (const idx of nodes) {
-                    const p = projected[idx];
-                    if (p.z > -5 && p.z < 8) {
-                        const alpha = 0.4 + 0.4 * (1 - (p.z + 5) / 15);
+                    const p = proj[idx];
+                    if (p.z > -6 && p.z < 9) {
+                        const alpha = 0.3 + 0.4 * (1 - (p.z + 5) / 16);
                         ctx.beginPath();
-                        ctx.arc(p.x, p.y, nodeSize * (0.8 + 0.2 * Math.sin(time * 1.2 + idx)), 0, Math.PI * 2);
-                        ctx.fillStyle = `rgba(214, 161, 54, ${alpha * 0.8})`;
+                        ctx.arc(p.x, p.y, 2 + Math.sin(time * 1.3 + idx) * 0.6, 0, Math.PI * 2);
+                        ctx.fillStyle = `rgba(212, 160, 43, ${alpha * 0.7})`;
                         ctx.fill();
-                        // Glow
-                        ctx.shadowColor = `rgba(214, 161, 54, 0.2)`;
+                        ctx.shadowColor = `rgba(212, 160, 43, 0.15)`;
                         ctx.shadowBlur = 12;
                         ctx.beginPath();
-                        ctx.arc(p.x, p.y, nodeSize * 1.8, 0, Math.PI * 2);
-                        ctx.fillStyle = `rgba(214, 161, 54, ${alpha * 0.1})`;
+                        ctx.arc(p.x, p.y, 4, 0, Math.PI * 2);
+                        ctx.fillStyle = `rgba(212, 160, 43, ${alpha * 0.08})`;
                         ctx.fill();
                         ctx.shadowBlur = 0;
                     }
                 }
 
-                // Draw subtle grid lines (engineering blueprint feel)
-                ctx.strokeStyle = `rgba(214, 161, 54, 0.02)`;
+                // Subtle grid
+                ctx.strokeStyle = `rgba(212, 160, 43, 0.015)`;
                 ctx.lineWidth = 0.5;
                 for (let i = 0; i < 20; i++) {
-                    const x = (i / 20) * width;
+                    const x = (i / 20) * width,
+                        y = (i / 20) * height;
                     ctx.beginPath();
                     ctx.moveTo(x, 0);
                     ctx.lineTo(x, height);
                     ctx.stroke();
-                    const y = (i / 20) * height;
                     ctx.beginPath();
                     ctx.moveTo(0, y);
                     ctx.lineTo(width, y);
@@ -2497,12 +2040,11 @@
 
                 requestAnimationFrame(draw);
             }
-
             draw();
 
-            // ===== HANDLE RESIZE =====
             window.addEventListener('resize', () => {
-                const rect = canvas.parentElement.getBoundingClientRect();
+                const wrap = canvas.parentElement;
+                const rect = wrap.getBoundingClientRect();
                 width = canvas.width = rect.width;
                 height = canvas.height = rect.height;
             });
@@ -2540,7 +2082,7 @@
             }
             type();
 
-            // ===== NAVBAR TOGGLE =====
+            // ===== NAVBAR =====
             const toggle = document.getElementById('navToggle');
             const navLinks = document.getElementById('navLinks');
             toggle.addEventListener('click', function() {
@@ -2556,7 +2098,6 @@
                 });
             });
 
-            // ===== NAVBAR SCROLL =====
             const navbar = document.getElementById('navbar');
             window.addEventListener('scroll', () => {
                 navbar.classList.toggle('scrolled', window.scrollY > 60);
@@ -2568,30 +2109,30 @@
                 entries.forEach(e => {
                     if (e.isIntersecting) e.target.classList.add('visible');
                 });
-            }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+            }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
             els.forEach(el => obs.observe(el));
 
-            // ===== COUNTER ANIMATION =====
-            const counters = document.querySelectorAll('.why-item .num');
+            // ===== COUNTERS =====
+            const counters = document.querySelectorAll('.trust-item .num span[data-count]');
             const counterObs = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting && !entry.target.dataset.counted) {
                         entry.target.dataset.counted = 'true';
                         const target = parseInt(entry.target.dataset.count);
                         let current = 0;
-                        const step = Math.max(1, Math.floor(target / 40));
+                        const step = Math.max(1, Math.floor(target / 35));
                         const timer = setInterval(() => {
                             current += step;
                             if (current >= target) {
-                                entry.target.textContent = target + (target > 100 ? '+' : '');
+                                entry.target.textContent = target;
                                 clearInterval(timer);
                             } else {
-                                entry.target.textContent = current + (target > 100 ? '+' : '');
+                                entry.target.textContent = current;
                             }
                         }, 30);
                     }
                 });
-            }, { threshold: 0.5 });
+            }, { threshold: 0.4 });
             counters.forEach(c => counterObs.observe(c));
 
             // ===== YEARS COUNTER =====
@@ -2610,7 +2151,7 @@
                             }, 40);
                         }
                     });
-                }, { threshold: 0.5 });
+                }, { threshold: 0.4 });
                 yObs.observe(yearsEl);
             }
 
@@ -2623,20 +2164,6 @@
                     if (!isActive) item.classList.add('active');
                     this.setAttribute('aria-expanded', !isActive);
                 });
-            });
-
-            // ===== CURSOR GLOW =====
-            const glow = document.getElementById('cursorGlow');
-            let glowActive = false;
-            document.addEventListener('mousemove', (e) => {
-                glow.style.left = e.clientX + 'px';
-                glow.style.top = e.clientY + 'px';
-                if (!glowActive) { glow.classList.add('active');
-                    glowActive = true; }
-            });
-            document.addEventListener('mouseleave', () => {
-                glow.classList.remove('active');
-                glowActive = false;
             });
 
             // ===== MAGNETIC BUTTONS =====
@@ -2687,5 +2214,6 @@
             console.log('Engineering with Accuracy • Detailing with Precision • Building with Confidence');
         });
     </script>
+
 </body>
 </html>
