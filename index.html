@@ -9,7 +9,6 @@
     <meta name="description" content="Unity Structural Solution – Premium RCC & Steel Structure Engineering, PEB Consultancy, Tekla Detailing, and Engineering Training in Bangladesh." />
     <meta property="og:title" content="Unity Structural Solution – Engineering with Precision" />
     <meta property="og:description" content="Structural Engineering, PEB Consultancy, Tekla Detailing & Training in Bangladesh." />
-    <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
 
     <!-- ===== FAVICON ===== -->
@@ -178,6 +177,10 @@
             transform: translateY(-3px);
             box-shadow: 0 8px 32px rgba(30, 92, 166, 0.2);
         }
+        .btn-sm {
+            padding: 8px 20px;
+            font-size: 0.8rem;
+        }
 
         /* ============================================================
            NAVBAR
@@ -345,8 +348,6 @@
             left: -10%;
             background: rgba(30, 92, 166, 0.05);
         }
-
-        /* Canvas container */
         #hero-canvas-wrap {
             position: absolute;
             inset: 0;
@@ -359,7 +360,6 @@
             height: 100%;
             display: block;
         }
-
         .hero .container {
             position: relative;
             z-index: 3;
@@ -1055,6 +1055,358 @@
         }
 
         /* ============================================================
+           BLOG / LEARNING HUB
+           ============================================================ */
+        .learning-section {
+            background: var(--light);
+        }
+        .blog-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 32px;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .blog-search {
+            display: flex;
+            gap: 10px;
+            flex: 1;
+            min-width: 200px;
+            max-width: 400px;
+        }
+        .blog-search input {
+            flex: 1;
+            padding: 10px 18px;
+            border-radius: 60px;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            font-family: var(--font);
+            font-size: 0.9rem;
+            background: #fff;
+            transition: var(--transition);
+            outline: none;
+        }
+        .blog-search input:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(30, 92, 166, 0.08);
+        }
+        .blog-search button {
+            padding: 10px 20px;
+            border-radius: 60px;
+            border: none;
+            background: var(--secondary);
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: var(--font);
+            font-size: 0.85rem;
+        }
+        .blog-search button:hover {
+            background: #2770c4;
+            transform: translateY(-2px);
+        }
+        .blog-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .blog-categories button {
+            padding: 6px 18px;
+            border-radius: 40px;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            background: #fff;
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--gray);
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: var(--font);
+        }
+        .blog-categories button:hover,
+        .blog-categories button.active {
+            background: var(--secondary);
+            color: #fff;
+            border-color: var(--secondary);
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 28px;
+        }
+        .blog-card {
+            background: #fff;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+        .blog-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+        }
+        .blog-card .blog-img {
+            height: 200px;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .blog-card .blog-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .blog-card .blog-img .fallback-icon {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+        }
+        .blog-card .blog-body {
+            padding: 24px 24px 28px;
+        }
+        .blog-card .blog-meta {
+            display: flex;
+            gap: 14px;
+            font-size: 0.75rem;
+            color: var(--gray);
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+        .blog-card .blog-meta .cat {
+            color: var(--secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .blog-card .blog-body h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+        .blog-card .blog-body h3 a {
+            color: inherit;
+            transition: var(--transition);
+        }
+        .blog-card .blog-body h3 a:hover {
+            color: var(--secondary);
+        }
+        .blog-card .blog-body p {
+            color: var(--gray);
+            font-size: 0.88rem;
+            margin-bottom: 14px;
+            line-height: 1.6;
+        }
+        .blog-card .blog-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 14px;
+            border-top: 1px solid rgba(0, 0, 0, 0.04);
+            font-size: 0.78rem;
+            color: var(--gray);
+        }
+        .blog-card .blog-footer .read-time i {
+            margin-right: 4px;
+            color: var(--accent);
+        }
+
+        /* ============================================================
+           BLOG DETAIL VIEW (modal style)
+           ============================================================ */
+        .blog-detail-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+            padding: 40px 20px;
+            overflow-y: auto;
+            align-items: flex-start;
+            justify-content: center;
+        }
+        .blog-detail-overlay.active {
+            display: flex;
+        }
+        .blog-detail-card {
+            background: #fff;
+            border-radius: var(--radius);
+            max-width: 800px;
+            width: 100%;
+            padding: 48px 48px 40px;
+            position: relative;
+            animation: slideUp 0.4s ease;
+            margin: auto;
+        }
+        @keyframes slideUp {
+            from {
+                transform: translateY(40px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .blog-detail-card .close-btn {
+            position: absolute;
+            top: 18px;
+            right: 24px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--gray);
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 4px 8px;
+            border-radius: 8px;
+        }
+        .blog-detail-card .close-btn:hover {
+            background: var(--light);
+            color: var(--dark);
+        }
+        .blog-detail-card .blog-detail-img {
+            width: 100%;
+            height: 260px;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            background: var(--primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.15);
+            font-size: 4rem;
+        }
+        .blog-detail-card .blog-detail-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .blog-detail-card .blog-detail-meta {
+            display: flex;
+            gap: 18px;
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        .blog-detail-card .blog-detail-meta .cat {
+            color: var(--secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .blog-detail-card h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        .blog-detail-card .blog-detail-body {
+            color: var(--dark);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+        .blog-detail-card .blog-detail-body p {
+            margin-bottom: 14px;
+        }
+        .blog-detail-card .blog-detail-body h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 20px 0 10px;
+        }
+        .blog-detail-card .blog-detail-body ul {
+            padding-left: 24px;
+            margin-bottom: 14px;
+        }
+        .blog-detail-card .blog-detail-body ul li {
+            margin-bottom: 4px;
+        }
+
+        /* ============================================================
+           BLOG ADMIN (for adding posts)
+           ============================================================ */
+        .blog-admin-toggle {
+            text-align: center;
+            margin-top: 32px;
+        }
+        .blog-admin-panel {
+            display: none;
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 32px 36px;
+            box-shadow: var(--shadow);
+            margin-top: 28px;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+        .blog-admin-panel.active {
+            display: block;
+        }
+        .blog-admin-panel h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+        .blog-admin-panel .form-group {
+            margin-bottom: 14px;
+        }
+        .blog-admin-panel label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+        .blog-admin-panel input,
+        .blog-admin-panel select,
+        .blog-admin-panel textarea {
+            width: 100%;
+            padding: 10px 14px;
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            font-family: var(--font);
+            font-size: 0.9rem;
+            transition: var(--transition);
+            outline: none;
+            background: var(--light);
+        }
+        .blog-admin-panel input:focus,
+        .blog-admin-panel select:focus,
+        .blog-admin-panel textarea:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(30, 92, 166, 0.06);
+            background: #fff;
+        }
+        .blog-admin-panel textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .blog-admin-panel .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+        .blog-admin-panel .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* ============================================================
            CONTACT
            ============================================================ */
         .contact-section {
@@ -1271,6 +1623,9 @@
                 display: flex;
                 justify-content: center;
             }
+            .blog-detail-card {
+                padding: 32px 24px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1344,6 +1699,28 @@
             .trust-grid {
                 grid-template-columns: 1fr 1fr;
             }
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            .blog-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .blog-search {
+                max-width: 100%;
+            }
+            .blog-admin-panel {
+                padding: 20px 16px;
+            }
+            .blog-admin-panel .form-row {
+                grid-template-columns: 1fr;
+            }
+            .blog-detail-card {
+                padding: 24px 16px;
+            }
+            .blog-detail-card h2 {
+                font-size: 1.4rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1394,6 +1771,9 @@
             .trust-item .num {
                 font-size: 2rem;
             }
+            .blog-card .blog-body {
+                padding: 18px 16px 20px;
+            }
         }
     </style>
 </head>
@@ -1411,6 +1791,7 @@
             <ul class="nav-links" id="navLinks" role="menubar">
                 <li role="none"><a href="#services" role="menuitem">Services</a></li>
                 <li role="none"><a href="#projects" role="menuitem">Projects</a></li>
+                <li role="none"><a href="#learning" role="menuitem" class="active">Learning</a></li>
                 <li role="none"><a href="#training" role="menuitem">Training</a></li>
                 <li role="none"><a href="#team" role="menuitem">Team</a></li>
                 <li role="none"><a href="#contact" role="menuitem" class="btn-nav">Contact</a></li>
@@ -1651,6 +2032,97 @@
     </section>
 
     <!-- ============================================================
+    LEARNING HUB (BLOG)
+    ============================================================ -->
+    <section class="learning-section" id="learning">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <div class="tag">Knowledge Hub</div>
+                <h2>Engineering <span>Learning Hub</span></h2>
+                <p>Articles, guides, and tutorials to help you master structural engineering.</p>
+                <p class="bangla">স্ট্রাকচারাল ইঞ্জিনিয়ারিং মাস্টার করতে আর্টিকেল, গাইড ও টিউটোরিয়াল।</p>
+            </div>
+
+            <!-- Blog Controls -->
+            <div class="blog-controls animate-on-scroll">
+                <div class="blog-search">
+                    <input type="text" id="blogSearch" placeholder="Search articles..." />
+                    <button id="searchBtn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="blog-categories" id="blogCategories">
+                    <button class="active" data-cat="all">All</button>
+                    <button data-cat="PEB">PEB</button>
+                    <button data-cat="Steel">Steel</button>
+                    <button data-cat="RCC">RCC</button>
+                    <button data-cat="Tekla">Tekla</button>
+                    <button data-cat="Tutorial">Tutorial</button>
+                </div>
+            </div>
+
+            <!-- Blog Grid -->
+            <div class="blog-grid" id="blogGrid">
+                <!-- Posts will be rendered by JavaScript -->
+            </div>
+
+            <!-- Admin Toggle -->
+            <div class="blog-admin-toggle animate-on-scroll">
+                <button class="btn btn-ghost btn-sm" id="adminToggleBtn">
+                    <i class="fas fa-pen-fancy"></i> Add New Post
+                </button>
+            </div>
+
+            <!-- Admin Panel -->
+            <div class="blog-admin-panel" id="adminPanel">
+                <h3><i class="fas fa-plus-circle" style="color:var(--accent);"></i> Publish New Article</h3>
+                <form id="blogForm">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" id="postTitle" placeholder="Enter article title..." required />
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select id="postCategory">
+                                <option value="PEB">PEB</option>
+                                <option value="Steel">Steel</option>
+                                <option value="RCC">RCC</option>
+                                <option value="Tekla">Tekla</option>
+                                <option value="Tutorial">Tutorial</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Author</label>
+                            <input type="text" id="postAuthor" placeholder="Author name" value="Engr. Team" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Excerpt (short summary)</label>
+                        <input type="text" id="postExcerpt" placeholder="Brief summary of the article..." />
+                    </div>
+                    <div class="form-group">
+                        <label>Full Content (supports HTML)</label>
+                        <textarea id="postContent" placeholder="Write the full article content here. You can use <p>, <h3>, <ul>, etc."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-secondary"><i class="fas fa-publish"></i> Publish Post</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    BLOG DETAIL OVERLAY
+    ============================================================ -->
+    <div class="blog-detail-overlay" id="blogDetailOverlay">
+        <div class="blog-detail-card" id="blogDetailCard">
+            <button class="close-btn" id="blogDetailClose"><i class="fas fa-times"></i></button>
+            <div class="blog-detail-img" id="detailImg"><i class="fas fa-cube"></i></div>
+            <div class="blog-detail-meta" id="detailMeta"></div>
+            <h2 id="detailTitle">Article Title</h2>
+            <div class="blog-detail-body" id="detailBody"></div>
+        </div>
+    </div>
+
+    <!-- ============================================================
     TRAINING
     ============================================================ -->
     <section class="training-section" id="training">
@@ -1877,7 +2349,6 @@
             resize();
             window.addEventListener('resize', resize);
 
-            // Build a simple 3D steel frame
             const pts = [];
             const edges = [];
             const w = 10,
@@ -1891,7 +2362,6 @@
 
             function addE(i, j) { edges.push([i, j]); }
 
-            // Columns
             const cols = [];
             for (let i = 0; i <= bays; i++) {
                 const x = -w / 2 + i * bw;
@@ -1902,8 +2372,6 @@
                     cols.push({ bottom: b, top: t, x, z });
                 }
             }
-
-            // Rafters
             for (let i = 0; i <= bays; i++) {
                 const x = -w / 2 + i * bw;
                 for (let z of [-d / 2, d / 2]) {
@@ -1912,16 +2380,12 @@
                     if (col) addE(col.top, rp);
                 }
             }
-
-            // Ridge
             for (let i = 0; i <= bays; i++) {
                 const x = -w / 2 + i * bw;
                 const l = addP(x, ridge, -d / 2);
                 const r = addP(x, ridge, d / 2);
                 addE(l, r);
             }
-
-            // Purlins
             for (let k = 0; k < 4; k++) {
                 const t = (k + 0.5) / 4;
                 const z = -d / 2 + t * d;
@@ -1932,8 +2396,6 @@
                     if (j > 0) addE(pts.length - 2, p);
                 }
             }
-
-            // Girts
             for (let lv = 0; lv < 3; lv++) {
                 const y = -h / 2 + (lv + 0.5) * h / 3;
                 for (let z of [-d / 2, d / 2]) {
@@ -1946,8 +2408,6 @@
                     }
                 }
             }
-
-            // Nodes for highlighting
             const nodes = [];
             for (let i = 0; i < pts.length; i++) {
                 const p = pts[i];
@@ -2022,7 +2482,6 @@
                     }
                 }
 
-                // Subtle grid
                 ctx.strokeStyle = `rgba(212, 160, 43, 0.015)`;
                 ctx.lineWidth = 0.5;
                 for (let i = 0; i < 20; i++) {
@@ -2210,8 +2669,327 @@
             window.addEventListener('scroll', highlightNav);
             highlightNav();
 
+            // ================================================================
+            // BLOG SYSTEM
+            // ================================================================
+
+            // --- Sample initial posts ---
+            const defaultPosts = [{
+                id: Date.now() + 1,
+                title: 'Introduction to PEB: Pre-Engineered Buildings Explained',
+                category: 'PEB',
+                author: 'Engr. Md Munna Hossain',
+                date: '2026-07-12',
+                excerpt: 'Learn what PEB structures are, their advantages over conventional steel buildings, and why they are the future of industrial construction.',
+                content: `
+                    <p>Pre-Engineered Buildings (PEB) are revolutionizing the construction industry, especially in the industrial sector. Unlike conventional steel buildings that are designed and fabricated on-site, PEB structures are engineered at the factory and assembled at the site.</p>
+                    <h3>What makes PEB different?</h3>
+                    <p>The primary difference lies in the design philosophy. PEB uses a rigid frame system with tapered sections, which reduces steel weight by up to 30% compared to traditional structures.</p>
+                    <ul>
+                        <li><strong>Cost-effective:</strong> Lower steel weight means lower material cost.</li>
+                        <li><strong>Faster construction:</strong> Factory fabrication and bolted connections speed up erection.</li>
+                        <li><strong>Design flexibility:</strong> Can be customized for various industrial needs.</li>
+                        <li><strong>Quality control:</strong> Factory production ensures consistent quality.</li>
+                    </ul>
+                    <h3>Applications</h3>
+                    <p>PEB is widely used for warehouses, factories, aircraft hangars, shopping malls, and even sports arenas.</p>
+                `
+            }, {
+                id: Date.now() + 2,
+                title: 'Steel Connection Design: Bolted vs. Welded Connections',
+                category: 'Steel',
+                author: 'Engr. Md S Hossen',
+                date: '2026-07-10',
+                excerpt: 'Understanding the differences between bolted and welded steel connections, and when to use each type for optimal structural performance.',
+                content: `
+                    <p>Steel connections are critical elements in any steel structure. They transfer forces between members and ensure overall stability. The two most common types are bolted and welded connections.</p>
+                    <h3>Bolted Connections</h3>
+                    <p>Bolted connections use high-strength bolts to join members. They are preferred for field connections because they are easier to install and do not require special skills or equipment.</p>
+                    <ul>
+                        <li><strong>Advantages:</strong> Easy to install, no thermal distortion, can be disassembled.</li>
+                        <li><strong>Disadvantages:</strong> Requires more space for bolt heads, higher fatigue risk.</li>
+                    </ul>
+                    <h3>Welded Connections</h3>
+                    <p>Welded connections are permanent joints created by melting the base metal. They are commonly used in shop fabrication.</p>
+                    <ul>
+                        <li><strong>Advantages:</strong> Stiffer connection, no bolt holes (no stress concentration), aesthetic finish.</li>
+                        <li><strong>Disadvantages:</strong> Requires skilled labor, thermal distortion possible, cannot be disassembled.</li>
+                    </ul>
+                    <p>The choice between bolted and welded connections depends on site conditions, design requirements, and cost considerations. Often, a combination is used for optimal results.</p>
+                `
+            }, {
+                id: Date.now() + 3,
+                title: 'Tekla Structures: A Beginner\'s Guide to 3D Steel Detailing',
+                category: 'Tekla',
+                author: 'Engr. Md Munna Hossain',
+                date: '2026-07-08',
+                excerpt: 'Get started with Tekla Structures, the industry-leading software for steel detailing. Learn the basic workflow and key features.',
+                content: `
+                    <p>Tekla Structures is the most widely used software for steel detailing and BIM. It allows detailers to create accurate 3D models and generate fabrication drawings automatically.</p>
+                    <h3>Why Tekla?</h3>
+                    <p>Tekla offers a complete workflow from design to fabrication. It integrates with other software, supports collaboration, and provides detailed reports.</p>
+                    <ul>
+                        <li><strong>3D Modeling:</strong> Create precise models of steel structures.</li>
+                        <li><strong>Automatic Drawings:</strong> Generate GA, assembly, and single-part drawings.</li>
+                        <li><strong>BOM & Reports:</strong> Create material lists and reports with a few clicks.</li>
+                        <li><strong>Collaboration:</strong> Work with teams using Trimble Connect.</li>
+                    </ul>
+                    <h3>Getting Started</h3>
+                    <p>To get started with Tekla, you need to understand the basic concepts: grid lines, profiles, and bolts. Start with small projects and gradually move to complex structures.</p>
+                `
+            }, {
+                id: Date.now() + 4,
+                title: 'RCC vs. Steel: Choosing the Right Structural System',
+                category: 'RCC',
+                author: 'Engr. Md S Hossen',
+                date: '2026-07-05',
+                excerpt: 'A comparative analysis of RCC and steel structures to help you choose the right material for your project based on cost, time, and performance.',
+                content: `
+                    <p>One of the most common decisions in structural engineering is choosing between RCC (Reinforced Cement Concrete) and steel for a building frame. Each material has its strengths and weaknesses.</p>
+                    <h3>RCC Structures</h3>
+                    <ul>
+                        <li><strong>Advantages:</strong> Excellent fire resistance, good thermal mass, low maintenance, economical for low-rise buildings.</li>
+                        <li><strong>Disadvantages:</strong> Heavy, requires formwork, slower construction, less flexible for future modifications.</li>
+                    </ul>
+                    <h3>Steel Structures</h3>
+                    <ul>
+                        <li><strong>Advantages:</strong> Lighter, faster construction, high strength-to-weight ratio, flexible for future expansions.</li>
+                        <li><strong>Disadvantages:</strong> Requires fire protection, susceptible to corrosion, higher initial cost.</li>
+                    </ul>
+                    <p>The decision often comes down to project requirements: RCC is preferred for residential and low-rise buildings, while steel is ideal for industrial structures, high-rises, and long-span roofs.</p>
+                `
+            }, {
+                id: Date.now() + 5,
+                title: 'How to Reduce Steel Weight in PEB Design',
+                category: 'PEB',
+                author: 'Engr. Md Munna Hossain',
+                date: '2026-07-02',
+                excerpt: 'Practical tips and engineering strategies to optimize steel weight in Pre-Engineered Buildings, saving costs without compromising strength.',
+                content: `
+                    <p>Optimizing steel weight is one of the most important aspects of PEB design. A lighter structure means lower material and foundation costs, which can significantly impact the overall project budget.</p>
+                    <h3>Strategies for Steel Weight Reduction</h3>
+                    <ul>
+                        <li><strong>Use tapered sections:</strong> Tapered beams and columns reduce weight by matching the moment diagram.</li>
+                        <li><strong>Optimize bay spacing:</strong> Increasing bay spacing can reduce the number of frames, lowering steel tonnage.</li>
+                        <li><strong>Use high-strength steel:</strong> Higher yield strength allows for smaller sections.</li>
+                        <li><strong>Consider haunches:</strong> Haunched connections at frame corners reduce the required section size.</li>
+                        <li><strong>Review bracing:</strong> Proper bracing can reduce the size of compression members.</li>
+                    </ul>
+                    <p>By implementing these strategies, engineers can achieve steel savings of 10-20% without compromising safety or performance.</p>
+                `
+            }];
+
+            // --- Load from localStorage or use defaults ---
+            let posts = [];
+            const stored = localStorage.getItem('unityBlogPosts');
+            if (stored) {
+                try {
+                    const parsed = JSON.parse(stored);
+                    if (Array.isArray(parsed) && parsed.length > 0) {
+                        posts = parsed;
+                    } else {
+                        posts = defaultPosts;
+                        localStorage.setItem('unityBlogPosts', JSON.stringify(posts));
+                    }
+                } catch (e) {
+                    posts = defaultPosts;
+                    localStorage.setItem('unityBlogPosts', JSON.stringify(posts));
+                }
+            } else {
+                posts = defaultPosts;
+                localStorage.setItem('unityBlogPosts', JSON.stringify(posts));
+            }
+
+            // --- Render blog posts ---
+            function renderPosts(filterCategory = 'all', searchTerm = '') {
+                const grid = document.getElementById('blogGrid');
+                let filtered = posts;
+
+                if (filterCategory !== 'all') {
+                    filtered = filtered.filter(p => p.category === filterCategory);
+                }
+
+                if (searchTerm.trim() !== '') {
+                    const term = searchTerm.toLowerCase().trim();
+                    filtered = filtered.filter(p =>
+                        p.title.toLowerCase().includes(term) ||
+                        p.excerpt.toLowerCase().includes(term) ||
+                        p.content.toLowerCase().includes(term)
+                    );
+                }
+
+                // Sort by date (newest first)
+                filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+                if (filtered.length === 0) {
+                    grid.innerHTML = `
+                        <div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--gray);">
+                            <i class="fas fa-book-open" style="font-size:2.5rem;color:var(--accent);opacity:0.3;margin-bottom:12px;"></i>
+                            <p style="font-size:1.1rem;font-weight:500;">No articles found</p>
+                            <p style="font-size:0.9rem;">Try adjusting your search or filter.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                grid.innerHTML = filtered.map(post => `
+                    <div class="blog-card animate-on-scroll" data-id="${post.id}">
+                        <div class="blog-img">
+                            <div class="fallback-icon"><i class="fas fa-cube"></i></div>
+                        </div>
+                        <div class="blog-body">
+                            <div class="blog-meta">
+                                <span class="cat">${post.category}</span>
+                                <span>${post.author}</span>
+                                <span>${post.date}</span>
+                            </div>
+                            <h3><a href="#" class="blog-read-link" data-id="${post.id}">${post.title}</a></h3>
+                            <p>${post.excerpt}</p>
+                            <div class="blog-footer">
+                                <span class="read-time"><i class="fas fa-clock"></i> 5 min read</span>
+                                <a href="#" class="blog-read-link" data-id="${post.id}" style="font-weight:600;color:var(--secondary);">Read More →</a>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+
+                // Re-bind animations for new elements
+                const newEls = grid.querySelectorAll('.animate-on-scroll');
+                const newObs = new IntersectionObserver((entries) => {
+                    entries.forEach(e => {
+                        if (e.isIntersecting) e.target.classList.add('visible');
+                    });
+                }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+                newEls.forEach(el => newObs.observe(el));
+
+                // Bind read more links
+                document.querySelectorAll('.blog-read-link').forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const id = parseInt(this.dataset.id);
+                        openDetail(id);
+                    });
+                });
+            }
+
+            // --- Open detail view ---
+            function openDetail(id) {
+                const post = posts.find(p => p.id === id);
+                if (!post) return;
+
+                const overlay = document.getElementById('blogDetailOverlay');
+                document.getElementById('detailTitle').textContent = post.title;
+                document.getElementById('detailMeta').innerHTML = `
+                    <span class="cat">${post.category}</span>
+                    <span>${post.author}</span>
+                    <span>${post.date}</span>
+                `;
+                document.getElementById('detailBody').innerHTML = post.content;
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            // --- Close detail ---
+            document.getElementById('blogDetailClose').addEventListener('click', function() {
+                document.getElementById('blogDetailOverlay').classList.remove('active');
+                document.body.style.overflow = '';
+            });
+            document.getElementById('blogDetailOverlay').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            // --- Category filters ---
+            const catButtons = document.querySelectorAll('#blogCategories button');
+            let currentCategory = 'all';
+            catButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    catButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentCategory = this.dataset.cat;
+                    const searchVal = document.getElementById('blogSearch').value;
+                    renderPosts(currentCategory, searchVal);
+                });
+            });
+
+            // --- Search ---
+            document.getElementById('searchBtn').addEventListener('click', function() {
+                const searchVal = document.getElementById('blogSearch').value;
+                renderPosts(currentCategory, searchVal);
+            });
+            document.getElementById('blogSearch').addEventListener('keyup', function(e) {
+                if (e.key === 'Enter') {
+                    const searchVal = this.value;
+                    renderPosts(currentCategory, searchVal);
+                }
+            });
+
+            // --- Admin toggle ---
+            document.getElementById('adminToggleBtn').addEventListener('click', function() {
+                document.getElementById('adminPanel').classList.toggle('active');
+                this.textContent = document.getElementById('adminPanel').classList.contains('active') ?
+                    'Hide Form' : 'Add New Post';
+                this.prepend(document.createTextNode(' '));
+                this.prepend(document.createElement('i')).className = document.getElementById('adminPanel')
+                .classList.contains('active') ? 'fas fa-times' : 'fas fa-pen-fancy';
+            });
+
+            // --- Submit new post ---
+            document.getElementById('blogForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const title = document.getElementById('postTitle').value.trim();
+                const category = document.getElementById('postCategory').value;
+                const author = document.getElementById('postAuthor').value.trim() || 'Engr. Team';
+                const excerpt = document.getElementById('postExcerpt').value.trim();
+                const content = document.getElementById('postContent').value.trim();
+
+                if (!title || !content) {
+                    alert('Please fill in at least the title and content.');
+                    return;
+                }
+
+                const newPost = {
+                    id: Date.now(),
+                    title,
+                    category,
+                    author,
+                    date: new Date().toISOString().split('T')[0],
+                    excerpt: excerpt || title,
+                    content
+                };
+
+                posts.unshift(newPost);
+                localStorage.setItem('unityBlogPosts', JSON.stringify(posts));
+
+                // Reset form
+                document.getElementById('postTitle').value = '';
+                document.getElementById('postExcerpt').value = '';
+                document.getElementById('postContent').value = '';
+
+                // Re-render
+                renderPosts(currentCategory, document.getElementById('blogSearch').value);
+
+                // Close admin panel
+                document.getElementById('adminPanel').classList.remove('active');
+                document.getElementById('adminToggleBtn').textContent = 'Add New Post';
+                document.getElementById('adminToggleBtn').prepend(document.createElement('i')).className =
+                    'fas fa-pen-fancy';
+
+                // Scroll to blog section
+                document.getElementById('learning').scrollIntoView({ behavior: 'smooth' });
+
+                alert('🎉 Post published successfully!');
+            });
+
+            // --- Initial render ---
+            renderPosts('all', '');
+
             console.log('🏗️ Unity Structural Solution');
-            console.log('Engineering with Accuracy • Detailing with Precision • Building with Confidence');
+            console.log('📚 Learning Hub with ' + posts.length + ' articles loaded.');
+            console.log('📝 Add new posts using the "Add New Post" button.');
         });
     </script>
 
