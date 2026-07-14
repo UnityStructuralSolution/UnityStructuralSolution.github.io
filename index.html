@@ -1055,10 +1055,16 @@
         }
 
         /* ============================================================
-           BLOG / LEARNING HUB
+           BLOG / LEARNING HUB (Page)
            ============================================================ */
-        .learning-section {
+        #learning-page {
+            display: none;
+            padding: 100px 0 60px;
             background: var(--light);
+            min-height: 100vh;
+        }
+        #learning-page.active {
+            display: block;
         }
         .blog-controls {
             display: flex;
@@ -1338,7 +1344,7 @@
         }
 
         /* ============================================================
-           BLOG ADMIN (for adding posts)
+           BLOG ADMIN (password protected)
            ============================================================ */
         .blog-admin-toggle {
             text-align: center;
@@ -1589,6 +1595,13 @@
         }
 
         /* ============================================================
+           UTILITY
+           ============================================================ */
+        .hidden {
+            display: none !important;
+        }
+
+        /* ============================================================
            RESPONSIVE
            ============================================================ */
         @media (max-width: 1024px) {
@@ -1721,6 +1734,9 @@
             .blog-detail-card h2 {
                 font-size: 1.4rem;
             }
+            #learning-page {
+                padding: 80px 0 40px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1784,17 +1800,17 @@
     ============================================================ -->
     <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
         <div class="container">
-            <a href="#" class="nav-logo">
+            <a href="#home" class="nav-logo">
                 <img src="pic/logo.png" alt="Unity Structural Solution Logo" />
                 <span>Unity</span> Structural Solution
             </a>
             <ul class="nav-links" id="navLinks" role="menubar">
                 <li role="none"><a href="#services" role="menuitem">Services</a></li>
                 <li role="none"><a href="#projects" role="menuitem">Projects</a></li>
-                <li role="none"><a href="#learning" role="menuitem" class="active">Learning</a></li>
                 <li role="none"><a href="#training" role="menuitem">Training</a></li>
                 <li role="none"><a href="#team" role="menuitem">Team</a></li>
-                <li role="none"><a href="#contact" role="menuitem" class="btn-nav">Contact</a></li>
+                <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
+                <li role="none"><a href="#learning" role="menuitem" class="btn-nav">Learning</a></li>
             </ul>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
                 <span></span><span></span><span></span>
@@ -1803,238 +1819,422 @@
     </nav>
 
     <!-- ============================================================
-    HERO
+    MAIN CONTENT (Homepage)
     ============================================================ -->
-    <header class="hero" id="home">
-        <div class="hero-bg">
-            <div class="glow-orb"></div>
-            <div class="glow-orb"></div>
-            <div class="grid-overlay"></div>
-            <div id="hero-canvas-wrap">
-                <canvas id="hero-canvas"></canvas>
-            </div>
-        </div>
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge"><i class="fas fa-hard-hat"></i> Engineering with Precision</div>
-                <h1>
-                    Building <br />
-                    <span class="highlight">Structural Excellence</span>
-                </h1>
-                <div class="typing-wrap">
-                    <span class="typed" id="typedText"></span>
-                </div>
-                <p>
-                    Professional RCC &amp; Steel Structure Engineering — Design, Detailing,
-                    Estimation &amp; Consultancy with 15+ years of industry experience.
-                </p>
-                <p class="bangla">
-                    <i class="fas fa-quote-left" style="color:var(--accent);opacity:0.4;margin-right:4px;"></i>
-                    পেশাদার আরসিসি ও স্টিল স্ট্রাকচার ইঞ্জিনিয়ারিং — ডিজাইন, ডিটেইলিং,
-                    ইস্টিমেশন ও কনসালটেন্সি সেবা।
-                </p>
-                <div class="hero-buttons">
-                    <a href="#services" class="btn"><i class="fas fa-arrow-right"></i> Explore Services</a>
-                    <a href="#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Get a Quote</a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat"><h3 id="yearsCount">15+</h3><p>Years Experience</p></div>
-                    <div class="stat"><h3>500+</h3><p>Projects Delivered</p></div>
-                    <div class="stat"><h3>100%</h3><p>Client Satisfaction</p></div>
+    <div id="main-content">
+
+        <!-- HERO -->
+        <header class="hero" id="home">
+            <div class="hero-bg">
+                <div class="glow-orb"></div>
+                <div class="glow-orb"></div>
+                <div class="grid-overlay"></div>
+                <div id="hero-canvas-wrap">
+                    <canvas id="hero-canvas"></canvas>
                 </div>
             </div>
-            <div class="hero-image-container">
-                <div class="glass-card">
-                    <div class="card-shine"></div>
-                    <img src="pic/shed-structure.jpg" alt="3D Steel Shed Structure" onerror="this.style.display='none'; document.querySelector('.placeholder-text').style.display='flex'" />
-                    <div class="placeholder-text">
-                        <i class="fas fa-warehouse"></i>
-                        <div><strong>Steel Shed Structure</strong></div>
-                        <div style="font-size:0.75rem;opacity:0.6;">Upload pic/shed-structure.jpg (1536×743)</div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge"><i class="fas fa-hard-hat"></i> Engineering with Precision</div>
+                    <h1>
+                        Building <br />
+                        <span class="highlight">Structural Excellence</span>
+                    </h1>
+                    <div class="typing-wrap">
+                        <span class="typed" id="typedText"></span>
                     </div>
-                    <div class="card-label"><i class="fas fa-cube"></i> 3D Steel Shed — Components</div>
+                    <p>
+                        Professional RCC &amp; Steel Structure Engineering — Design, Detailing,
+                        Estimation &amp; Consultancy with 15+ years of industry experience.
+                    </p>
+                    <p class="bangla">
+                        <i class="fas fa-quote-left" style="color:var(--accent);opacity:0.4;margin-right:4px;"></i>
+                        পেশাদার আরসিসি ও স্টিল স্ট্রাকচার ইঞ্জিনিয়ারিং — ডিজাইন, ডিটেইলিং,
+                        ইস্টিমেশন ও কনসালটেন্সি সেবা।
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#services" class="btn"><i class="fas fa-arrow-right"></i> Explore Services</a>
+                        <a href="#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Get a Quote</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat"><h3 id="yearsCount">15+</h3><p>Years Experience</p></div>
+                        <div class="stat"><h3>500+</h3><p>Projects Delivered</p></div>
+                        <div class="stat"><h3>100%</h3><p>Client Satisfaction</p></div>
+                    </div>
+                </div>
+                <div class="hero-image-container">
+                    <div class="glass-card">
+                        <div class="card-shine"></div>
+                        <img src="pic/shed-structure.jpg" alt="3D Steel Shed Structure" onerror="this.style.display='none'; document.querySelector('.placeholder-text').style.display='flex'" />
+                        <div class="placeholder-text">
+                            <i class="fas fa-warehouse"></i>
+                            <div><strong>Steel Shed Structure</strong></div>
+                            <div style="font-size:0.75rem;opacity:0.6;">Upload pic/shed-structure.jpg (1536×743)</div>
+                        </div>
+                        <div class="card-label"><i class="fas fa-cube"></i> 3D Steel Shed — Components</div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </header>
+        </header>
+
+        <!-- TRUST -->
+        <section class="trust-section">
+            <div class="container">
+                <div class="trust-grid">
+                    <div class="trust-item animate-on-scroll zoom">
+                        <div class="num"><span data-count="15">0</span><span class="plus">+</span></div>
+                        <p>Years Experience</p>
+                    </div>
+                    <div class="trust-item animate-on-scroll zoom" style="transition-delay:0.05s;">
+                        <div class="num"><span data-count="500">0</span><span class="plus">+</span></div>
+                        <p>Projects Delivered</p>
+                    </div>
+                    <div class="trust-item animate-on-scroll zoom" style="transition-delay:0.1s;">
+                        <div class="num"><span data-count="22">0</span><span class="plus">+</span></div>
+                        <p>Combined Experience</p>
+                    </div>
+                    <div class="trust-item animate-on-scroll zoom" style="transition-delay:0.15s;">
+                        <div class="num">100<span class="plus">%</span></div>
+                        <p>Client Satisfaction</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section class="services" id="services">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <div class="tag">What We Offer</div>
+                    <h2>Our <span>Structural</span> Services</h2>
+                    <p>Comprehensive engineering solutions from concept to construction documentation.</p>
+                    <p class="bangla">ধারণা থেকে নির্মাণ ডকুমেন্টেশন পর্যন্ত সম্পূর্ণ ইঞ্জিনিয়ারিং সমাধান।</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card animate-on-scroll">
+                        <div class="icon"><i class="fas fa-drafting-compass"></i></div>
+                        <h4>RCC Structural Design</h4>
+                        <p>ETABS, STAAD.Pro &amp; manual verification for low to mid-rise buildings.</p>
+                        <p class="bangla">ETABS, STAAD.Pro ও ম্যানুয়াল ভেরিফিকেশনের মাধ্যমে আরসিসি ডিজাইন।</p>
+                    </div>
+                    <div class="service-card animate-on-scroll" style="transition-delay:0.05s;">
+                        <div class="icon"><i class="fas fa-ruler-combined"></i></div>
+                        <h4>RCC Structural Detailing</h4>
+                        <p>Reinforcement drawings, schedules &amp; bar bending schedules (BBS).</p>
+                        <p class="bangla">রিইনফোর্সমেন্ট ড্রইং, সিডিউল ও বার বেন্ডিং স্কিডিউল (BBS)।</p>
+                    </div>
+                    <div class="service-card animate-on-scroll" style="transition-delay:0.1s;">
+                        <div class="icon"><i class="fas fa-cubes"></i></div>
+                        <h4>Steel Structure Design</h4>
+                        <p>Sheds, mezzanines, PEB &amp; industrial structures in STAAD.Pro.</p>
+                        <p class="bangla">শেড, মেজানাইন, PEB ও শিল্প কাঠামো STAAD.Pro-তে ডিজাইন।</p>
+                    </div>
+                    <div class="service-card animate-on-scroll" style="transition-delay:0.15s;">
+                        <div class="icon"><i class="fas fa-cogs"></i></div>
+                        <h4>Steel Detailing (Tekla)</h4>
+                        <p>3D detailing, GA, assembly &amp; single-part drawings with Tekla Structures.</p>
+                        <p class="bangla">Tekla Structures-এ ৩D ডিটেইলিং, GA, অ্যাসেম্বলি ও সিঙ্গল-পার্ট ড্রইং।</p>
+                    </div>
+                    <div class="service-card animate-on-scroll" style="transition-delay:0.2s;">
+                        <div class="icon"><i class="fas fa-calculator"></i></div>
+                        <h4>Estimation &amp; BOQ</h4>
+                        <p>Material take-off (MTO), BOQ &amp; cost estimation for RCC &amp; steel.</p>
+                        <p class="bangla">আরসিসি ও স্টিলের জন্য MTO, BOQ ও কস্ট ইস্টিমেশন।</p>
+                    </div>
+                    <div class="service-card animate-on-scroll" style="transition-delay:0.25s;">
+                        <div class="icon"><i class="fas fa-file-invoice"></i></div>
+                        <h4>Proposal &amp; Tender</h4>
+                        <p>Professional quotations, tender estimation &amp; bid documentation.</p>
+                        <p class="bangla">পেশাদার প্রপোজাল, টেন্ডার ইস্টিমেশন ও বিড ডকুমেন্টেশন।</p>
+                    </div>
+                    <div class="service-card animate-on-scroll" style="transition-delay:0.3s;">
+                        <div class="icon"><i class="fas fa-hard-hat"></i></div>
+                        <h4>Shop &amp; Fabrication</h4>
+                        <p>Detailed shop drawings &amp; fabrication-ready documentation.</p>
+                        <p class="bangla">বিস্তারিত শপ ড্রইং ও ফেব্রিকেশন-রেডি ডকুমেন্টেশন।</p>
+                    </div>
+                    <div class="service-card animate-on-scroll" style="transition-delay:0.35s;">
+                        <div class="icon"><i class="fas fa-chart-line"></i></div>
+                        <h4>PEB Engineering</h4>
+                        <p>Pre-engineered building design, detailing &amp; project coordination.</p>
+                        <p class="bangla">প্রি-ইঞ্জিনিয়ার্ড বিল্ডিং ডিজাইন, ডিটেইলিং ও কোঅর্ডিনেশন।</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section class="projects" id="projects">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <div class="tag">Our Work</div>
+                    <h2>Featured <span>Projects</span></h2>
+                    <p>Showcasing our engineering excellence across RCC and steel structures.</p>
+                    <p class="bangla" style="font-size:0.82rem;color:var(--gray);margin-top:8px;">
+                        📸 Upload images to <strong>pic/projects/</strong> as project-1.jpg ... project-6.jpg
+                    </p>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-item animate-on-scroll zoom">
+                        <img src="pic/projects/project-1.jpg" alt="Industrial Steel Shed" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1581094794329-c8112a4afd1f?w=600&h=450&fit=crop'" />
+                        <div class="overlay"><span class="badge">Steel</span><h4>Industrial Shed</h4><p>PEB structure, 5000 sqft</p></div>
+                    </div>
+                    <div class="project-item animate-on-scroll zoom" style="transition-delay:0.08s;">
+                        <img src="pic/projects/project-2.jpg" alt="RCC Residential Tower" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1581094794329-c8112a4afd1f?w=600&h=450&fit=crop&sat=-10'" />
+                        <div class="overlay"><span class="badge">RCC</span><h4>Residential Tower</h4><p>10-story RCC structure</p></div>
+                    </div>
+                    <div class="project-item animate-on-scroll zoom" style="transition-delay:0.16s;">
+                        <img src="pic/projects/project-3.jpg" alt="Tekla Steel Detailing" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1581094794329-c8112a4afd1f?w=600&h=450&fit=crop&sat=-20'" />
+                        <div class="overlay"><span class="badge">Tekla</span><h4>Steel Detailing</h4><p>3D modeling &amp; GA drawings</p></div>
+                    </div>
+                    <div class="project-item animate-on-scroll zoom" style="transition-delay:0.24s;">
+                        <img src="pic/projects/project-4.jpg" alt="PEB Warehouse" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1581094794329-c8112a4afd1f?w=600&h=450&fit=crop&sat=-30'" />
+                        <div class="overlay"><span class="badge">PEB</span><h4>Warehouse Complex</h4><p>Pre-engineered building</p></div>
+                    </div>
+                    <div class="project-item animate-on-scroll zoom" style="transition-delay:0.32s;">
+                        <img src="pic/projects/project-5.jpg" alt="Steel Mezzanine" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1581094794329-c8112a4afd1f?w=600&h=450&fit=crop&sat=-40'" />
+                        <div class="overlay"><span class="badge">Design</span><h4>Mezzanine Floor</h4><p>Steel design &amp; detailing</p></div>
+                    </div>
+                    <div class="project-item animate-on-scroll zoom" style="transition-delay:0.4s;">
+                        <img src="pic/projects/project-6.jpg" alt="RCC Bridge Detailing" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1581094794329-c8112a4afd1f?w=600&h=450&fit=crop&sat=-50'" />
+                        <div class="overlay"><span class="badge">RCC</span><h4>Bridge Detailing</h4><p>Reinforcement scheduling</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOFTWARE -->
+        <section class="software-section">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <div class="tag">Tools We Use</div>
+                    <h2>Industry <span>Software</span></h2>
+                    <p>Professional-grade engineering tools for precision and excellence.</p>
+                </div>
+                <div class="software-grid">
+                    <span class="software-item"><i class="fas fa-cube"></i> Tekla Structures</span>
+                    <span class="software-item"><i class="fas fa-building"></i> ETABS</span>
+                    <span class="software-item"><i class="fas fa-drafting-compass"></i> STAAD.Pro</span>
+                    <span class="software-item"><i class="fas fa-ruler-combined"></i> AutoCAD</span>
+                    <span class="software-item"><i class="fas fa-calculator"></i> MS Excel</span>
+                    <span class="software-item"><i class="fas fa-file-pdf"></i> Bluebeam</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- WORKFLOW -->
+        <section class="workflow-section">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <div class="tag">Process</div>
+                    <h2>Engineering <span>Workflow</span></h2>
+                    <p>From concept to construction — our systematic approach.</p>
+                </div>
+                <div class="workflow-steps">
+                    <div class="workflow-step animate-on-scroll"><div class="num">01</div><h4>Consultation</h4><p>Understanding project requirements</p></div>
+                    <div class="workflow-step animate-on-scroll" style="transition-delay:0.08s;"><div class="num">02</div><h4>Design</h4><p>Structural modeling &amp; analysis</p></div>
+                    <div class="workflow-step animate-on-scroll" style="transition-delay:0.16s;"><div class="num">03</div><h4>Detailing</h4><p>Detailed drawings &amp; schedules</p></div>
+                    <div class="workflow-step animate-on-scroll" style="transition-delay:0.24s;"><div class="num">04</div><h4>Estimation</h4><p>BOQ &amp; cost analysis</p></div>
+                    <div class="workflow-step animate-on-scroll" style="transition-delay:0.32s;"><div class="num">05</div><h4>Delivery</h4><p>Final documentation &amp; support</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TRAINING -->
+        <section class="training-section" id="training">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <div class="tag">Learn with Us</div>
+                    <h2>Tekla Structures <span>Training</span></h2>
+                    <p>Build your career in steel structure detailing with industry-standard workflow.</p>
+                    <p class="bangla">ইন্ডাস্ট্রি-স্ট্যান্ডার্ড ওয়ার্কফ্লোয় স্টিল ডিটেইলিং-এ ক্যারিয়ার গড়ুন।</p>
+                </div>
+                <div class="training-grid">
+                    <div class="training-content animate-on-scroll slide-left">
+                        <h3 style="font-size:1.4rem;color:#fff;margin-bottom:6px;">
+                            <i class="fas fa-graduation-cap" style="color:var(--accent);"></i> Complete Tekla Training
+                        </h3>
+                        <p style="color:rgba(255,255,255,0.6);margin-bottom:8px;">
+                            Designed for aspiring detailers and engineers to master steel detailing.
+                        </p>
+                        <p class="bangla" style="color:rgba(255,255,255,0.4);margin-bottom:12px;">
+                            উচ্চাকাঙ্ক্ষী ডিটেইলার ও ইঞ্জিনিয়ারদের জন্য রিয়েল প্রজেক্ট অভিজ্ঞতা।
+                        </p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Complete Tekla Structures workflow</li>
+                            <li><i class="fas fa-check"></i> Industry-standard best practices</li>
+                            <li><i class="fas fa-check"></i> Practical project-based learning</li>
+                            <li><i class="fas fa-check"></i> GA, Assembly &amp; Single Part Drawings</li>
+                            <li><i class="fas fa-check"></i> BOM &amp; Report Generation</li>
+                            <li><i class="fas fa-check"></i> Real project experience &amp; guidance</li>
+                        </ul>
+                        <div class="training-cta">
+                            <a href="https://www.facebook.com/UnityStructuralSolution" target="_blank" class="btn">
+                                <i class="fab fa-facebook-messenger"></i> Enquire Now
+                            </a>
+                        </div>
+                    </div>
+                    <div class="animate-on-scroll slide-right">
+                        <div class="training-card">
+                            <div class="big-icon"><i class="fas fa-cube"></i></div>
+                            <h4>Tekla Structures</h4>
+                            <p>Master the industry-leading software for steel detailing.</p>
+                            <p style="color:rgba(255,255,255,0.3);font-size:0.82rem;">স্টিল ডিটেইলিংয়ের শীর্ষ সফটওয়্যার</p>
+                            <div class="tags">
+                                <span>3D Modeling</span><span>Detailing</span>
+                                <span>Drawings</span><span>BOM</span>
+                            </div>
+                            <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.04);">
+                                <span style="font-size:0.7rem;color:rgba(255,255,255,0.3);">
+                                    <i class="fas fa-clock"></i> Flexible batch schedules
+                                </span>
+                                <span style="font-size:0.7rem;color:rgba(255,255,255,0.3);margin-left:12px;">
+                                    <i class="fas fa-laptop"></i> Online &amp; Offline
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TEAM -->
+        <section class="team-section" id="team">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <div class="tag">Our Team</div>
+                    <h2>Meet the <span>Engineers</span></h2>
+                    <p>Passionate professionals dedicated to structural excellence.</p>
+                    <p class="bangla">পেশাদারিত্ব ও নিষ্ঠার সাথে স্ট্রাকচারাল শ্রেষ্ঠত্ব প্রদানে প্রতিশ্রুতিবদ্ধ টিম।</p>
+                </div>
+                <div class="team-grid">
+                    <div class="team-card animate-on-scroll">
+                        <div class="avatar">MH</div>
+                        <h4>Engr. Md Munna Hossain</h4>
+                        <div class="role">Senior Structural Detailer &amp; Tekla Expert</div>
+                        <div class="exp"><i class="fas fa-calendar-alt" style="color:var(--accent);"></i> ১৫+ বছর অভিজ্ঞতা</div>
+                        <p class="bio">Expert in <strong>Steel Structure Detailing</strong> with Tekla Structures, RCC detailing, and planning with 15+ years experience.</p>
+                        <p class="bio bangla"><strong>স্টিল স্ট্রাকচার ডিটেইলিং</strong>-এ Tekla Structures-এ দক্ষ, ১৫+ বছরের অভিজ্ঞতা।</p>
+                        <div class="badge"><i class="fas fa-star"></i> Tekla Expert</div>
+                    </div>
+                    <div class="team-card animate-on-scroll" style="transition-delay:0.12s;">
+                        <div class="avatar">SH</div>
+                        <h4>Engr. Md S Hossen</h4>
+                        <div class="role">Structural Design &amp; Estimation Expert</div>
+                        <div class="exp"><i class="fas fa-calendar-alt" style="color:var(--accent);"></i> ৭+ বছর অভিজ্ঞতা</div>
+                        <p class="bio">Specializes in <strong>Structural Design</strong> (RCC &amp; Steel) using ETABS and STAAD.Pro, plus estimation, BOQ, and proposal.</p>
+                        <p class="bio bangla"><strong>স্ট্রাকচারাল ডিজাইন</strong> (আরসিসি ও স্টিল)-এ ETABS ও STAAD.Pro-তে দক্ষ।</p>
+                        <div class="badge"><i class="fas fa-calculator"></i> Design &amp; Estimation Expert</div>
+                    </div>
+                </div>
+                <div style="text-align:center;margin-top:28px;font-size:0.88rem;color:var(--gray);">
+                    <i class="fas fa-users" style="color:var(--accent);"></i>
+                    &nbsp; Together we bring <strong>22+ years</strong> of combined industry experience.
+                    <br><span style="font-size:0.78rem;color:var(--gray);">সম্মিলিত <strong>২২+ বছর</strong> শিল্প অভিজ্ঞতা।</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq-section" id="faq">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <div class="tag">FAQ</div>
+                    <h2>Frequently Asked <span>Questions</span></h2>
+                    <p>Answers to common questions about our services and training.</p>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-item animate-on-scroll">
+                        <button class="faq-question" aria-expanded="false">
+                            What structural engineering services do you offer?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">We offer RCC and steel structure design, detailing, estimation, BOQ preparation, proposal support, and PEB engineering consultancy.</div>
+                    </div>
+                    <div class="faq-item animate-on-scroll" style="transition-delay:0.04s;">
+                        <button class="faq-question" aria-expanded="false">
+                            What software do you use for design and detailing?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">We use Tekla Structures for steel detailing, ETABS and STAAD.Pro for structural design, AutoCAD for drafting, and specialized tools for estimation.</div>
+                    </div>
+                    <div class="faq-item animate-on-scroll" style="transition-delay:0.08s;">
+                        <button class="faq-question" aria-expanded="false">
+                            What does the Tekla Structures training cover?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">The training covers complete Tekla workflow, 3D modeling, GA drawings, assembly and single-part drawings, BOM generation, and real project experience.</div>
+                    </div>
+                    <div class="faq-item animate-on-scroll" style="transition-delay:0.12s;">
+                        <button class="faq-question" aria-expanded="false">
+                            How can I get a quote for my project?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">Contact us through Facebook, WhatsApp, or email with your project details, and we'll provide a professional proposal and estimation.</div>
+                    </div>
+                    <div class="faq-item animate-on-scroll" style="transition-delay:0.16s;">
+                        <button class="faq-question" aria-expanded="false">
+                            Do you provide training certificates?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">Yes, upon successful completion of the Tekla Structures training, participants receive a certificate of completion and practical project experience.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="contact-section" id="contact">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <div class="tag">Get in Touch</div>
+                    <h2>Let's Build <span>Together</span></h2>
+                    <p>Have a project or training inquiry? Reach out — we're here to help.</p>
+                    <p class="bangla">কোনো প্রজেক্ট বা ট্রেনিং নিয়ে প্রশ্ন? যোগাযোগ করুন — আমরা আছি আপনার পাশে।</p>
+                </div>
+                <div class="contact-buttons animate-on-scroll">
+                    <a href="https://www.facebook.com/UnityStructuralSolution" target="_blank" class="btn btn-white">
+                        <i class="fab fa-facebook-messenger"></i> Message on Facebook
+                    </a>
+                    <a href="https://wa.me/8801602105447?text=Hi%2C%20I%20want%20to%20know%20about%20your%20services" target="_blank" class="btn btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <a href="https://www.facebook.com/UnityStructuralSolution" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-facebook-f"></i> Visit Our Page
+                    </a>
+                </div>
+                <div class="contact-social animate-on-scroll">
+                    <a href="https://www.facebook.com/UnityStructuralSolution" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.facebook.com/UnityStructuralSolution" target="_blank" aria-label="Messenger" class="messenger"><i class="fab fa-facebook-messenger"></i></a>
+                    <a href="https://wa.me/8801602105447?text=Hi%2C%20I%20want%20to%20know%20about%20your%20services" target="_blank" aria-label="WhatsApp" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="#" aria-label="Phone"><i class="fas fa-phone-alt"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="container">
+                <div class="brand">
+                    <img src="pic/logo.png" alt="Unity" />
+                    <span>Unity</span> Structural Solution
+                </div>
+                <p>&copy; 2026 Unity Structural Solution. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/UnityStructuralSolution" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.facebook.com/UnityStructuralSolution" target="_blank" aria-label="Messenger"><i class="fab fa-facebook-messenger"></i></a>
+                    <a href="https://wa.me/8801602105447?text=Hi%2C%20I%20want%20to%20know%20about%20your%20services" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- ===== END MAIN CONTENT ===== -->
 
     <!-- ============================================================
-    TRUST / STATS
+    LEARNING PAGE (Separate view)
     ============================================================ -->
-    <section class="trust-section">
-        <div class="container">
-            <div class="trust-grid">
-                <div class="trust-item animate-on-scroll zoom">
-                    <div class="num"><span data-count="15">0</span><span class="plus">+</span></div>
-                    <p>Years Experience</p>
-                </div>
-                <div class="trust-item animate-on-scroll zoom" style="transition-delay:0.05s;">
-                    <div class="num"><span data-count="500">0</span><span class="plus">+</span></div>
-                    <p>Projects Delivered</p>
-                </div>
-                <div class="trust-item animate-on-scroll zoom" style="transition-delay:0.1s;">
-                    <div class="num"><span data-count="22">0</span><span class="plus">+</span></div>
-                    <p>Combined Experience</p>
-                </div>
-                <div class="trust-item animate-on-scroll zoom" style="transition-delay:0.15s;">
-                    <div class="num">100<span class="plus">%</span></div>
-                    <p>Client Satisfaction</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================================
-    SERVICES
-    ============================================================ -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <div class="tag">What We Offer</div>
-                <h2>Our <span>Structural</span> Services</h2>
-                <p>Comprehensive engineering solutions from concept to construction documentation.</p>
-                <p class="bangla">ধারণা থেকে নির্মাণ ডকুমেন্টেশন পর্যন্ত সম্পূর্ণ ইঞ্জিনিয়ারিং সমাধান।</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card animate-on-scroll">
-                    <div class="icon"><i class="fas fa-drafting-compass"></i></div>
-                    <h4>RCC Structural Design</h4>
-                    <p>ETABS, STAAD.Pro &amp; manual verification for low to mid-rise buildings.</p>
-                    <p class="bangla">ETABS, STAAD.Pro ও ম্যানুয়াল ভেরিফিকেশনের মাধ্যমে আরসিসি ডিজাইন।</p>
-                </div>
-                <div class="service-card animate-on-scroll" style="transition-delay:0.05s;">
-                    <div class="icon"><i class="fas fa-ruler-combined"></i></div>
-                    <h4>RCC Structural Detailing</h4>
-                    <p>Reinforcement drawings, schedules &amp; bar bending schedules (BBS).</p>
-                    <p class="bangla">রিইনফোর্সমেন্ট ড্রইং, সিডিউল ও বার বেন্ডিং স্কিডিউল (BBS)।</p>
-                </div>
-                <div class="service-card animate-on-scroll" style="transition-delay:0.1s;">
-                    <div class="icon"><i class="fas fa-cubes"></i></div>
-                    <h4>Steel Structure Design</h4>
-                    <p>Sheds, mezzanines, PEB &amp; industrial structures in STAAD.Pro.</p>
-                    <p class="bangla">শেড, মেজানাইন, PEB ও শিল্প কাঠামো STAAD.Pro-তে ডিজাইন।</p>
-                </div>
-                <div class="service-card animate-on-scroll" style="transition-delay:0.15s;">
-                    <div class="icon"><i class="fas fa-cogs"></i></div>
-                    <h4>Steel Detailing (Tekla)</h4>
-                    <p>3D detailing, GA, assembly &amp; single-part drawings with Tekla Structures.</p>
-                    <p class="bangla">Tekla Structures-এ ৩D ডিটেইলিং, GA, অ্যাসেম্বলি ও সিঙ্গল-পার্ট ড্রইং।</p>
-                </div>
-                <div class="service-card animate-on-scroll" style="transition-delay:0.2s;">
-                    <div class="icon"><i class="fas fa-calculator"></i></div>
-                    <h4>Estimation &amp; BOQ</h4>
-                    <p>Material take-off (MTO), BOQ &amp; cost estimation for RCC &amp; steel.</p>
-                    <p class="bangla">আরসিসি ও স্টিলের জন্য MTO, BOQ ও কস্ট ইস্টিমেশন।</p>
-                </div>
-                <div class="service-card animate-on-scroll" style="transition-delay:0.25s;">
-                    <div class="icon"><i class="fas fa-file-invoice"></i></div>
-                    <h4>Proposal &amp; Tender</h4>
-                    <p>Professional quotations, tender estimation &amp; bid documentation.</p>
-                    <p class="bangla">পেশাদার প্রপোজাল, টেন্ডার ইস্টিমেশন ও বিড ডকুমেন্টেশন।</p>
-                </div>
-                <div class="service-card animate-on-scroll" style="transition-delay:0.3s;">
-                    <div class="icon"><i class="fas fa-hard-hat"></i></div>
-                    <h4>Shop &amp; Fabrication</h4>
-                    <p>Detailed shop drawings &amp; fabrication-ready documentation.</p>
-                    <p class="bangla">বিস্তারিত শপ ড্রইং ও ফেব্রিকেশন-রেডি ডকুমেন্টেশন।</p>
-                </div>
-                <div class="service-card animate-on-scroll" style="transition-delay:0.35s;">
-                    <div class="icon"><i class="fas fa-chart-line"></i></div>
-                    <h4>PEB Engineering</h4>
-                    <p>Pre-engineered building design, detailing &amp; project coordination.</p>
-                    <p class="bangla">প্রি-ইঞ্জিনিয়ার্ড বিল্ডিং ডিজাইন, ডিটেইলিং ও কোঅর্ডিনেশন।</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================================
-    PROJECTS
-    ============================================================ -->
-    <section class="projects" id="projects">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <div class="tag">Our Work</div>
-                <h2>Featured <span>Projects</span></h2>
-                <p>Showcasing our engineering excellence across RCC and steel structures.</p>
-                <p class="bangla" style="font-size:0.82rem;color:var(--gray);margin-top:8px;">
-                    📸 Upload images to <strong>pic/projects/</strong> as project-1.jpg ... project-6.jpg
-                </p>
-            </div>
-            <div class="projects-grid">
-                <div class="project-item animate-on-scroll zoom">
-                    <img src="pic/projects/project-1.jpg" alt="Industrial Steel Shed" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1581094794329-c8112a4afd1f?w=600&h=450&fit=crop'" />
-                    <div class="overlay"><span class="badge">Steel</span><h4>Industrial Shed</h4><p>PEB structure, 5000 sqft</p></div>
-                </div>
-                <div class="project-item animate-on-scroll zoom" style="transition-delay:0.08s;">
-                    <img src="pic/projects/project-2.jpg" alt="RCC Residential Tower" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1581094794329-c8112a4afd1f?w=600&h=450&fit=crop&sat=-10'" />
-                    <div class="overlay"><span class="badge">RCC</span><h4>Residential Tower</h4><p>10-story RCC structure</p></div>
-                </div>
-                <div class="project-item animate-on-scroll zoom" style="transition-delay:0.16s;">
-                    <img src="pic/projects/project-3.jpg" alt="Tekla Steel Detailing" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1581094794329-c8112a4afd1f?w=600&h=450&fit=crop&sat=-20'" />
-                    <div class="overlay"><span class="badge">Tekla</span><h4>Steel Detailing</h4><p>3D modeling &amp; GA drawings</p></div>
-                </div>
-                <div class="project-item animate-on-scroll zoom" style="transition-delay:0.24s;">
-                    <img src="pic/projects/project-4.jpg" alt="PEB Warehouse" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1581094794329-c8112a4afd1f?w=600&h=450&fit=crop&sat=-30'" />
-                    <div class="overlay"><span class="badge">PEB</span><h4>Warehouse Complex</h4><p>Pre-engineered building</p></div>
-                </div>
-                <div class="project-item animate-on-scroll zoom" style="transition-delay:0.32s;">
-                    <img src="pic/projects/project-5.jpg" alt="Steel Mezzanine" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1581094794329-c8112a4afd1f?w=600&h=450&fit=crop&sat=-40'" />
-                    <div class="overlay"><span class="badge">Design</span><h4>Mezzanine Floor</h4><p>Steel design &amp; detailing</p></div>
-                </div>
-                <div class="project-item animate-on-scroll zoom" style="transition-delay:0.4s;">
-                    <img src="pic/projects/project-6.jpg" alt="RCC Bridge Detailing" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1581094794329-c8112a4afd1f?w=600&h=450&fit=crop&sat=-50'" />
-                    <div class="overlay"><span class="badge">RCC</span><h4>Bridge Detailing</h4><p>Reinforcement scheduling</p></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================================
-    SOFTWARE
-    ============================================================ -->
-    <section class="software-section">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <div class="tag">Tools We Use</div>
-                <h2>Industry <span>Software</span></h2>
-                <p>Professional-grade engineering tools for precision and excellence.</p>
-            </div>
-            <div class="software-grid">
-                <span class="software-item"><i class="fas fa-cube"></i> Tekla Structures</span>
-                <span class="software-item"><i class="fas fa-building"></i> ETABS</span>
-                <span class="software-item"><i class="fas fa-drafting-compass"></i> STAAD.Pro</span>
-                <span class="software-item"><i class="fas fa-ruler-combined"></i> AutoCAD</span>
-                <span class="software-item"><i class="fas fa-calculator"></i> MS Excel</span>
-                <span class="software-item"><i class="fas fa-file-pdf"></i> Bluebeam</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================================
-    WORKFLOW
-    ============================================================ -->
-    <section class="workflow-section">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <div class="tag">Process</div>
-                <h2>Engineering <span>Workflow</span></h2>
-                <p>From concept to construction — our systematic approach.</p>
-            </div>
-            <div class="workflow-steps">
-                <div class="workflow-step animate-on-scroll"><div class="num">01</div><h4>Consultation</h4><p>Understanding project requirements</p></div>
-                <div class="workflow-step animate-on-scroll" style="transition-delay:0.08s;"><div class="num">02</div><h4>Design</h4><p>Structural modeling &amp; analysis</p></div>
-                <div class="workflow-step animate-on-scroll" style="transition-delay:0.16s;"><div class="num">03</div><h4>Detailing</h4><p>Detailed drawings &amp; schedules</p></div>
-                <div class="workflow-step animate-on-scroll" style="transition-delay:0.24s;"><div class="num">04</div><h4>Estimation</h4><p>BOQ &amp; cost analysis</p></div>
-                <div class="workflow-step animate-on-scroll" style="transition-delay:0.32s;"><div class="num">05</div><h4>Delivery</h4><p>Final documentation &amp; support</p></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================================
-    LEARNING HUB (BLOG)
-    ============================================================ -->
-    <section class="learning-section" id="learning">
+    <section id="learning-page">
         <div class="container">
             <div class="section-header animate-on-scroll">
                 <div class="tag">Knowledge Hub</div>
@@ -2064,47 +2264,57 @@
                 <!-- Posts will be rendered by JavaScript -->
             </div>
 
-            <!-- Admin Toggle -->
+            <!-- Admin Section (Password Protected) -->
             <div class="blog-admin-toggle animate-on-scroll">
                 <button class="btn btn-ghost btn-sm" id="adminToggleBtn">
                     <i class="fas fa-pen-fancy"></i> Add New Post
                 </button>
             </div>
 
-            <!-- Admin Panel -->
             <div class="blog-admin-panel" id="adminPanel">
-                <h3><i class="fas fa-plus-circle" style="color:var(--accent);"></i> Publish New Article</h3>
-                <form id="blogForm">
-                    <div class="form-group">
-                        <label>Title</label>
-                        <input type="text" id="postTitle" placeholder="Enter article title..." required />
+                <h3><i class="fas fa-lock" style="color:var(--accent);"></i> Admin Access Required</h3>
+                <div class="form-group" id="passwordGate">
+                    <label>Enter Password to Publish</label>
+                    <div style="display:flex;gap:10px;">
+                        <input type="password" id="adminPassword" placeholder="Enter admin password..." style="flex:1;" />
+                        <button class="btn btn-secondary btn-sm" id="unlockBtn" style="padding:10px 24px;">Unlock</button>
                     </div>
-                    <div class="form-row">
+                    <p id="passwordError" style="color:red;font-size:0.8rem;display:none;margin-top:6px;">Incorrect password. Please try again.</p>
+                </div>
+                <div id="publishForm" style="display:none;">
+                    <h3 style="margin-top:12px;"><i class="fas fa-plus-circle" style="color:var(--accent);"></i> Publish New Article</h3>
+                    <form id="blogForm">
                         <div class="form-group">
-                            <label>Category</label>
-                            <select id="postCategory">
-                                <option value="PEB">PEB</option>
-                                <option value="Steel">Steel</option>
-                                <option value="RCC">RCC</option>
-                                <option value="Tekla">Tekla</option>
-                                <option value="Tutorial">Tutorial</option>
-                            </select>
+                            <label>Title</label>
+                            <input type="text" id="postTitle" placeholder="Enter article title..." required />
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Category</label>
+                                <select id="postCategory">
+                                    <option value="PEB">PEB</option>
+                                    <option value="Steel">Steel</option>
+                                    <option value="RCC">RCC</option>
+                                    <option value="Tekla">Tekla</option>
+                                    <option value="Tutorial">Tutorial</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Author</label>
+                                <input type="text" id="postAuthor" placeholder="Author name" value="Engr. Team" />
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label>Author</label>
-                            <input type="text" id="postAuthor" placeholder="Author name" value="Engr. Team" />
+                            <label>Excerpt (short summary)</label>
+                            <input type="text" id="postExcerpt" placeholder="Brief summary of the article..." />
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Excerpt (short summary)</label>
-                        <input type="text" id="postExcerpt" placeholder="Brief summary of the article..." />
-                    </div>
-                    <div class="form-group">
-                        <label>Full Content (supports HTML)</label>
-                        <textarea id="postContent" placeholder="Write the full article content here. You can use <p>, <h3>, <ul>, etc."></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-secondary"><i class="fas fa-publish"></i> Publish Post</button>
-                </form>
+                        <div class="form-group">
+                            <label>Full Content (supports HTML)</label>
+                            <textarea id="postContent" placeholder="Write the full article content here. You can use <p>, <h3>, <ul>, etc."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-secondary"><i class="fas fa-publish"></i> Publish Post</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -2121,205 +2331,6 @@
             <div class="blog-detail-body" id="detailBody"></div>
         </div>
     </div>
-
-    <!-- ============================================================
-    TRAINING
-    ============================================================ -->
-    <section class="training-section" id="training">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <div class="tag">Learn with Us</div>
-                <h2>Tekla Structures <span>Training</span></h2>
-                <p>Build your career in steel structure detailing with industry-standard workflow.</p>
-                <p class="bangla">ইন্ডাস্ট্রি-স্ট্যান্ডার্ড ওয়ার্কফ্লোয় স্টিল ডিটেইলিং-এ ক্যারিয়ার গড়ুন।</p>
-            </div>
-            <div class="training-grid">
-                <div class="training-content animate-on-scroll slide-left">
-                    <h3 style="font-size:1.4rem;color:#fff;margin-bottom:6px;">
-                        <i class="fas fa-graduation-cap" style="color:var(--accent);"></i> Complete Tekla Training
-                    </h3>
-                    <p style="color:rgba(255,255,255,0.6);margin-bottom:8px;">
-                        Designed for aspiring detailers and engineers to master steel detailing.
-                    </p>
-                    <p class="bangla" style="color:rgba(255,255,255,0.4);margin-bottom:12px;">
-                        উচ্চাকাঙ্ক্ষী ডিটেইলার ও ইঞ্জিনিয়ারদের জন্য রিয়েল প্রজেক্ট অভিজ্ঞতা।
-                    </p>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Complete Tekla Structures workflow</li>
-                        <li><i class="fas fa-check"></i> Industry-standard best practices</li>
-                        <li><i class="fas fa-check"></i> Practical project-based learning</li>
-                        <li><i class="fas fa-check"></i> GA, Assembly &amp; Single Part Drawings</li>
-                        <li><i class="fas fa-check"></i> BOM &amp; Report Generation</li>
-                        <li><i class="fas fa-check"></i> Real project experience &amp; guidance</li>
-                    </ul>
-                    <div class="training-cta">
-                        <a href="https://www.facebook.com/UnityStructuralSolution" target="_blank" class="btn">
-                            <i class="fab fa-facebook-messenger"></i> Enquire Now
-                        </a>
-                    </div>
-                </div>
-                <div class="animate-on-scroll slide-right">
-                    <div class="training-card">
-                        <div class="big-icon"><i class="fas fa-cube"></i></div>
-                        <h4>Tekla Structures</h4>
-                        <p>Master the industry-leading software for steel detailing.</p>
-                        <p style="color:rgba(255,255,255,0.3);font-size:0.82rem;">স্টিল ডিটেইলিংয়ের শীর্ষ সফটওয়্যার</p>
-                        <div class="tags">
-                            <span>3D Modeling</span><span>Detailing</span>
-                            <span>Drawings</span><span>BOM</span>
-                        </div>
-                        <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.04);">
-                            <span style="font-size:0.7rem;color:rgba(255,255,255,0.3);">
-                                <i class="fas fa-clock"></i> Flexible batch schedules
-                            </span>
-                            <span style="font-size:0.7rem;color:rgba(255,255,255,0.3);margin-left:12px;">
-                                <i class="fas fa-laptop"></i> Online &amp; Offline
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================================
-    TEAM
-    ============================================================ -->
-    <section class="team-section" id="team">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <div class="tag">Our Team</div>
-                <h2>Meet the <span>Engineers</span></h2>
-                <p>Passionate professionals dedicated to structural excellence.</p>
-                <p class="bangla">পেশাদারিত্ব ও নিষ্ঠার সাথে স্ট্রাকচারাল শ্রেষ্ঠত্ব প্রদানে প্রতিশ্রুতিবদ্ধ টিম।</p>
-            </div>
-            <div class="team-grid">
-                <div class="team-card animate-on-scroll">
-                    <div class="avatar">MH</div>
-                    <h4>Engr. Md Munna Hossain</h4>
-                    <div class="role">Senior Structural Detailer &amp; Tekla Expert</div>
-                    <div class="exp"><i class="fas fa-calendar-alt" style="color:var(--accent);"></i> ১৫+ বছর অভিজ্ঞতা</div>
-                    <p class="bio">Expert in <strong>Steel Structure Detailing</strong> with Tekla Structures, RCC detailing, and planning with 15+ years experience.</p>
-                    <p class="bio bangla"><strong>স্টিল স্ট্রাকচার ডিটেইলিং</strong>-এ Tekla Structures-এ দক্ষ, ১৫+ বছরের অভিজ্ঞতা।</p>
-                    <div class="badge"><i class="fas fa-star"></i> Tekla Expert</div>
-                </div>
-                <div class="team-card animate-on-scroll" style="transition-delay:0.12s;">
-                    <div class="avatar">SH</div>
-                    <h4>Engr. Md S Hossen</h4>
-                    <div class="role">Structural Design &amp; Estimation Expert</div>
-                    <div class="exp"><i class="fas fa-calendar-alt" style="color:var(--accent);"></i> ৭+ বছর অভিজ্ঞতা</div>
-                    <p class="bio">Specializes in <strong>Structural Design</strong> (RCC &amp; Steel) using ETABS and STAAD.Pro, plus estimation, BOQ, and proposal.</p>
-                    <p class="bio bangla"><strong>স্ট্রাকচারাল ডিজাইন</strong> (আরসিসি ও স্টিল)-এ ETABS ও STAAD.Pro-তে দক্ষ।</p>
-                    <div class="badge"><i class="fas fa-calculator"></i> Design &amp; Estimation Expert</div>
-                </div>
-            </div>
-            <div style="text-align:center;margin-top:28px;font-size:0.88rem;color:var(--gray);">
-                <i class="fas fa-users" style="color:var(--accent);"></i>
-                &nbsp; Together we bring <strong>22+ years</strong> of combined industry experience.
-                <br><span style="font-size:0.78rem;color:var(--gray);">সম্মিলিত <strong>২২+ বছর</strong> শিল্প অভিজ্ঞতা।</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================================
-    FAQ
-    ============================================================ -->
-    <section class="faq-section" id="faq">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <div class="tag">FAQ</div>
-                <h2>Frequently Asked <span>Questions</span></h2>
-                <p>Answers to common questions about our services and training.</p>
-            </div>
-            <div class="faq-grid">
-                <div class="faq-item animate-on-scroll">
-                    <button class="faq-question" aria-expanded="false">
-                        What structural engineering services do you offer?
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">We offer RCC and steel structure design, detailing, estimation, BOQ preparation, proposal support, and PEB engineering consultancy.</div>
-                </div>
-                <div class="faq-item animate-on-scroll" style="transition-delay:0.04s;">
-                    <button class="faq-question" aria-expanded="false">
-                        What software do you use for design and detailing?
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">We use Tekla Structures for steel detailing, ETABS and STAAD.Pro for structural design, AutoCAD for drafting, and specialized tools for estimation.</div>
-                </div>
-                <div class="faq-item animate-on-scroll" style="transition-delay:0.08s;">
-                    <button class="faq-question" aria-expanded="false">
-                        What does the Tekla Structures training cover?
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">The training covers complete Tekla workflow, 3D modeling, GA drawings, assembly and single-part drawings, BOM generation, and real project experience.</div>
-                </div>
-                <div class="faq-item animate-on-scroll" style="transition-delay:0.12s;">
-                    <button class="faq-question" aria-expanded="false">
-                        How can I get a quote for my project?
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">Contact us through Facebook, WhatsApp, or email with your project details, and we'll provide a professional proposal and estimation.</div>
-                </div>
-                <div class="faq-item animate-on-scroll" style="transition-delay:0.16s;">
-                    <button class="faq-question" aria-expanded="false">
-                        Do you provide training certificates?
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">Yes, upon successful completion of the Tekla Structures training, participants receive a certificate of completion and practical project experience.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================================
-    CONTACT
-    ============================================================ -->
-    <section class="contact-section" id="contact">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <div class="tag">Get in Touch</div>
-                <h2>Let's Build <span>Together</span></h2>
-                <p>Have a project or training inquiry? Reach out — we're here to help.</p>
-                <p class="bangla">কোনো প্রজেক্ট বা ট্রেনিং নিয়ে প্রশ্ন? যোগাযোগ করুন — আমরা আছি আপনার পাশে।</p>
-            </div>
-            <div class="contact-buttons animate-on-scroll">
-                <a href="https://www.facebook.com/UnityStructuralSolution" target="_blank" class="btn btn-white">
-                    <i class="fab fa-facebook-messenger"></i> Message on Facebook
-                </a>
-                <a href="https://wa.me/8801602105447?text=Hi%2C%20I%20want%20to%20know%20about%20your%20services" target="_blank" class="btn btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
-                <a href="https://www.facebook.com/UnityStructuralSolution" target="_blank" class="btn btn-secondary">
-                    <i class="fab fa-facebook-f"></i> Visit Our Page
-                </a>
-            </div>
-            <div class="contact-social animate-on-scroll">
-                <a href="https://www.facebook.com/UnityStructuralSolution" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.facebook.com/UnityStructuralSolution" target="_blank" aria-label="Messenger" class="messenger"><i class="fab fa-facebook-messenger"></i></a>
-                <a href="https://wa.me/8801602105447?text=Hi%2C%20I%20want%20to%20know%20about%20your%20services" target="_blank" aria-label="WhatsApp" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
-                <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                <a href="#" aria-label="Phone"><i class="fas fa-phone-alt"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================================
-    FOOTER
-    ============================================================ -->
-    <footer class="footer">
-        <div class="container">
-            <div class="brand">
-                <img src="pic/logo.png" alt="Unity" />
-                <span>Unity</span> Structural Solution
-            </div>
-            <p>&copy; 2026 Unity Structural Solution. All rights reserved.</p>
-            <div class="social-links">
-                <a href="https://www.facebook.com/UnityStructuralSolution" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.facebook.com/UnityStructuralSolution" target="_blank" aria-label="Messenger"><i class="fab fa-facebook-messenger"></i></a>
-                <a href="https://wa.me/8801602105447?text=Hi%2C%20I%20want%20to%20know%20about%20your%20services" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-            </div>
-        </div>
-    </footer>
 
     <!-- ============================================================
     FLOATING BADGES
@@ -2562,8 +2573,8 @@
                 navbar.classList.toggle('scrolled', window.scrollY > 60);
             });
 
-            // ===== SCROLL ANIMATIONS =====
-            const els = document.querySelectorAll('.animate-on-scroll');
+            // ===== SCROLL ANIMATIONS (main content only) =====
+            const els = document.querySelectorAll('#main-content .animate-on-scroll');
             const obs = new IntersectionObserver((entries) => {
                 entries.forEach(e => {
                     if (e.isIntersecting) e.target.classList.add('visible');
@@ -2636,8 +2647,8 @@
                 });
             });
 
-            // ===== SMOOTH SCROLL =====
-            document.querySelectorAll('a[href^="#"]').forEach(a => {
+            // ===== SMOOTH SCROLL (only for in-page anchors) =====
+            document.querySelectorAll('#main-content a[href^="#"]').forEach(a => {
                 a.addEventListener('click', function(e) {
                     const id = this.getAttribute('href');
                     if (id === '#') return;
@@ -2650,28 +2661,60 @@
                 });
             });
 
-            // ===== ACTIVE NAV =====
-            const sections = document.querySelectorAll('section[id]');
-            const navAnchors = document.querySelectorAll('.nav-links a:not(.btn-nav)');
+            // ================================================================
+            // SPA ROUTING: Show/Hide Main Content vs Learning Page
+            // ================================================================
+            const mainContent = document.getElementById('main-content');
+            const learningPage = document.getElementById('learning-page');
+            const navAnchors = document.querySelectorAll('.nav-links a');
 
-            function highlightNav() {
-                let current = '';
-                const pos = window.scrollY + 120;
-                sections.forEach(s => {
-                    const top = s.offsetTop;
-                    const h = s.offsetHeight;
-                    if (pos >= top && pos < top + h) current = s.getAttribute('id');
-                });
+            function handleRouting() {
+                const hash = window.location.hash || '#home';
+                const isLearning = hash === '#learning';
+
+                // Toggle visibility
+                if (isLearning) {
+                    mainContent.style.display = 'none';
+                    learningPage.classList.add('active');
+                } else {
+                    mainContent.style.display = 'block';
+                    learningPage.classList.remove('active');
+                    // Scroll to target if not home
+                    if (hash !== '#home') {
+                        const target = document.querySelector(hash);
+                        if (target) {
+                            setTimeout(() => {
+                                const top = target.getBoundingClientRect().top + window.scrollY - 80;
+                                window.scrollTo({ top, behavior: 'smooth' });
+                            }, 100);
+                        }
+                    } else {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                }
+
+                // Update active nav
                 navAnchors.forEach(link => {
-                    link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+                    const href = link.getAttribute('href');
+                    link.classList.toggle('active', href === hash);
                 });
             }
-            window.addEventListener('scroll', highlightNav);
-            highlightNav();
+
+            window.addEventListener('hashchange', handleRouting);
+            // Initial load
+            if (!window.location.hash || window.location.hash === '#home') {
+                history.replaceState(null, '', '#home');
+            }
+            handleRouting();
+
+            // Also re-run routing on scroll to detect section changes for non-learning nav
+            // But we handle active state via hashchange.
 
             // ================================================================
-            // BLOG SYSTEM
+            // BLOG SYSTEM (Learning Page)
             // ================================================================
+
+            const ADMIN_PASS = 'unity2026'; // Set your secure password here
 
             // --- Sample initial posts ---
             const defaultPosts = [{
@@ -2682,18 +2725,18 @@
                 date: '2026-07-12',
                 excerpt: 'Learn what PEB structures are, their advantages over conventional steel buildings, and why they are the future of industrial construction.',
                 content: `
-                    <p>Pre-Engineered Buildings (PEB) are revolutionizing the construction industry, especially in the industrial sector. Unlike conventional steel buildings that are designed and fabricated on-site, PEB structures are engineered at the factory and assembled at the site.</p>
-                    <h3>What makes PEB different?</h3>
-                    <p>The primary difference lies in the design philosophy. PEB uses a rigid frame system with tapered sections, which reduces steel weight by up to 30% compared to traditional structures.</p>
-                    <ul>
-                        <li><strong>Cost-effective:</strong> Lower steel weight means lower material cost.</li>
-                        <li><strong>Faster construction:</strong> Factory fabrication and bolted connections speed up erection.</li>
-                        <li><strong>Design flexibility:</strong> Can be customized for various industrial needs.</li>
-                        <li><strong>Quality control:</strong> Factory production ensures consistent quality.</li>
-                    </ul>
-                    <h3>Applications</h3>
-                    <p>PEB is widely used for warehouses, factories, aircraft hangars, shopping malls, and even sports arenas.</p>
-                `
+                        <p>Pre-Engineered Buildings (PEB) are revolutionizing the construction industry, especially in the industrial sector. Unlike conventional steel buildings that are designed and fabricated on-site, PEB structures are engineered at the factory and assembled at the site.</p>
+                        <h3>What makes PEB different?</h3>
+                        <p>The primary difference lies in the design philosophy. PEB uses a rigid frame system with tapered sections, which reduces steel weight by up to 30% compared to traditional structures.</p>
+                        <ul>
+                            <li><strong>Cost-effective:</strong> Lower steel weight means lower material cost.</li>
+                            <li><strong>Faster construction:</strong> Factory fabrication and bolted connections speed up erection.</li>
+                            <li><strong>Design flexibility:</strong> Can be customized for various industrial needs.</li>
+                            <li><strong>Quality control:</strong> Factory production ensures consistent quality.</li>
+                        </ul>
+                        <h3>Applications</h3>
+                        <p>PEB is widely used for warehouses, factories, aircraft hangars, shopping malls, and even sports arenas.</p>
+                    `
             }, {
                 id: Date.now() + 2,
                 title: 'Steel Connection Design: Bolted vs. Welded Connections',
@@ -2702,21 +2745,21 @@
                 date: '2026-07-10',
                 excerpt: 'Understanding the differences between bolted and welded steel connections, and when to use each type for optimal structural performance.',
                 content: `
-                    <p>Steel connections are critical elements in any steel structure. They transfer forces between members and ensure overall stability. The two most common types are bolted and welded connections.</p>
-                    <h3>Bolted Connections</h3>
-                    <p>Bolted connections use high-strength bolts to join members. They are preferred for field connections because they are easier to install and do not require special skills or equipment.</p>
-                    <ul>
-                        <li><strong>Advantages:</strong> Easy to install, no thermal distortion, can be disassembled.</li>
-                        <li><strong>Disadvantages:</strong> Requires more space for bolt heads, higher fatigue risk.</li>
-                    </ul>
-                    <h3>Welded Connections</h3>
-                    <p>Welded connections are permanent joints created by melting the base metal. They are commonly used in shop fabrication.</p>
-                    <ul>
-                        <li><strong>Advantages:</strong> Stiffer connection, no bolt holes (no stress concentration), aesthetic finish.</li>
-                        <li><strong>Disadvantages:</strong> Requires skilled labor, thermal distortion possible, cannot be disassembled.</li>
-                    </ul>
-                    <p>The choice between bolted and welded connections depends on site conditions, design requirements, and cost considerations. Often, a combination is used for optimal results.</p>
-                `
+                        <p>Steel connections are critical elements in any steel structure. They transfer forces between members and ensure overall stability. The two most common types are bolted and welded connections.</p>
+                        <h3>Bolted Connections</h3>
+                        <p>Bolted connections use high-strength bolts to join members. They are preferred for field connections because they are easier to install and do not require special skills or equipment.</p>
+                        <ul>
+                            <li><strong>Advantages:</strong> Easy to install, no thermal distortion, can be disassembled.</li>
+                            <li><strong>Disadvantages:</strong> Requires more space for bolt heads, higher fatigue risk.</li>
+                        </ul>
+                        <h3>Welded Connections</h3>
+                        <p>Welded connections are permanent joints created by melting the base metal. They are commonly used in shop fabrication.</p>
+                        <ul>
+                            <li><strong>Advantages:</strong> Stiffer connection, no bolt holes (no stress concentration), aesthetic finish.</li>
+                            <li><strong>Disadvantages:</strong> Requires skilled labor, thermal distortion possible, cannot be disassembled.</li>
+                        </ul>
+                        <p>The choice between bolted and welded connections depends on site conditions, design requirements, and cost considerations. Often, a combination is used for optimal results.</p>
+                    `
             }, {
                 id: Date.now() + 3,
                 title: 'Tekla Structures: A Beginner\'s Guide to 3D Steel Detailing',
@@ -2725,18 +2768,18 @@
                 date: '2026-07-08',
                 excerpt: 'Get started with Tekla Structures, the industry-leading software for steel detailing. Learn the basic workflow and key features.',
                 content: `
-                    <p>Tekla Structures is the most widely used software for steel detailing and BIM. It allows detailers to create accurate 3D models and generate fabrication drawings automatically.</p>
-                    <h3>Why Tekla?</h3>
-                    <p>Tekla offers a complete workflow from design to fabrication. It integrates with other software, supports collaboration, and provides detailed reports.</p>
-                    <ul>
-                        <li><strong>3D Modeling:</strong> Create precise models of steel structures.</li>
-                        <li><strong>Automatic Drawings:</strong> Generate GA, assembly, and single-part drawings.</li>
-                        <li><strong>BOM & Reports:</strong> Create material lists and reports with a few clicks.</li>
-                        <li><strong>Collaboration:</strong> Work with teams using Trimble Connect.</li>
-                    </ul>
-                    <h3>Getting Started</h3>
-                    <p>To get started with Tekla, you need to understand the basic concepts: grid lines, profiles, and bolts. Start with small projects and gradually move to complex structures.</p>
-                `
+                        <p>Tekla Structures is the most widely used software for steel detailing and BIM. It allows detailers to create accurate 3D models and generate fabrication drawings automatically.</p>
+                        <h3>Why Tekla?</h3>
+                        <p>Tekla offers a complete workflow from design to fabrication. It integrates with other software, supports collaboration, and provides detailed reports.</p>
+                        <ul>
+                            <li><strong>3D Modeling:</strong> Create precise models of steel structures.</li>
+                            <li><strong>Automatic Drawings:</strong> Generate GA, assembly, and single-part drawings.</li>
+                            <li><strong>BOM & Reports:</strong> Create material lists and reports with a few clicks.</li>
+                            <li><strong>Collaboration:</strong> Work with teams using Trimble Connect.</li>
+                        </ul>
+                        <h3>Getting Started</h3>
+                        <p>To get started with Tekla, you need to understand the basic concepts: grid lines, profiles, and bolts. Start with small projects and gradually move to complex structures.</p>
+                    `
             }, {
                 id: Date.now() + 4,
                 title: 'RCC vs. Steel: Choosing the Right Structural System',
@@ -2745,19 +2788,19 @@
                 date: '2026-07-05',
                 excerpt: 'A comparative analysis of RCC and steel structures to help you choose the right material for your project based on cost, time, and performance.',
                 content: `
-                    <p>One of the most common decisions in structural engineering is choosing between RCC (Reinforced Cement Concrete) and steel for a building frame. Each material has its strengths and weaknesses.</p>
-                    <h3>RCC Structures</h3>
-                    <ul>
-                        <li><strong>Advantages:</strong> Excellent fire resistance, good thermal mass, low maintenance, economical for low-rise buildings.</li>
-                        <li><strong>Disadvantages:</strong> Heavy, requires formwork, slower construction, less flexible for future modifications.</li>
-                    </ul>
-                    <h3>Steel Structures</h3>
-                    <ul>
-                        <li><strong>Advantages:</strong> Lighter, faster construction, high strength-to-weight ratio, flexible for future expansions.</li>
-                        <li><strong>Disadvantages:</strong> Requires fire protection, susceptible to corrosion, higher initial cost.</li>
-                    </ul>
-                    <p>The decision often comes down to project requirements: RCC is preferred for residential and low-rise buildings, while steel is ideal for industrial structures, high-rises, and long-span roofs.</p>
-                `
+                        <p>One of the most common decisions in structural engineering is choosing between RCC (Reinforced Cement Concrete) and steel for a building frame. Each material has its strengths and weaknesses.</p>
+                        <h3>RCC Structures</h3>
+                        <ul>
+                            <li><strong>Advantages:</strong> Excellent fire resistance, good thermal mass, low maintenance, economical for low-rise buildings.</li>
+                            <li><strong>Disadvantages:</strong> Heavy, requires formwork, slower construction, less flexible for future modifications.</li>
+                        </ul>
+                        <h3>Steel Structures</h3>
+                        <ul>
+                            <li><strong>Advantages:</strong> Lighter, faster construction, high strength-to-weight ratio, flexible for future expansions.</li>
+                            <li><strong>Disadvantages:</strong> Requires fire protection, susceptible to corrosion, higher initial cost.</li>
+                        </ul>
+                        <p>The decision often comes down to project requirements: RCC is preferred for residential and low-rise buildings, while steel is ideal for industrial structures, high-rises, and long-span roofs.</p>
+                    `
             }, {
                 id: Date.now() + 5,
                 title: 'How to Reduce Steel Weight in PEB Design',
@@ -2766,17 +2809,17 @@
                 date: '2026-07-02',
                 excerpt: 'Practical tips and engineering strategies to optimize steel weight in Pre-Engineered Buildings, saving costs without compromising strength.',
                 content: `
-                    <p>Optimizing steel weight is one of the most important aspects of PEB design. A lighter structure means lower material and foundation costs, which can significantly impact the overall project budget.</p>
-                    <h3>Strategies for Steel Weight Reduction</h3>
-                    <ul>
-                        <li><strong>Use tapered sections:</strong> Tapered beams and columns reduce weight by matching the moment diagram.</li>
-                        <li><strong>Optimize bay spacing:</strong> Increasing bay spacing can reduce the number of frames, lowering steel tonnage.</li>
-                        <li><strong>Use high-strength steel:</strong> Higher yield strength allows for smaller sections.</li>
-                        <li><strong>Consider haunches:</strong> Haunched connections at frame corners reduce the required section size.</li>
-                        <li><strong>Review bracing:</strong> Proper bracing can reduce the size of compression members.</li>
-                    </ul>
-                    <p>By implementing these strategies, engineers can achieve steel savings of 10-20% without compromising safety or performance.</p>
-                `
+                        <p>Optimizing steel weight is one of the most important aspects of PEB design. A lighter structure means lower material and foundation costs, which can significantly impact the overall project budget.</p>
+                        <h3>Strategies for Steel Weight Reduction</h3>
+                        <ul>
+                            <li><strong>Use tapered sections:</strong> Tapered beams and columns reduce weight by matching the moment diagram.</li>
+                            <li><strong>Optimize bay spacing:</strong> Increasing bay spacing can reduce the number of frames, lowering steel tonnage.</li>
+                            <li><strong>Use high-strength steel:</strong> Higher yield strength allows for smaller sections.</li>
+                            <li><strong>Consider haunches:</strong> Haunched connections at frame corners reduce the required section size.</li>
+                            <li><strong>Review bracing:</strong> Proper bracing can reduce the size of compression members.</li>
+                        </ul>
+                        <p>By implementing these strategies, engineers can achieve steel savings of 10-20% without compromising safety or performance.</p>
+                    `
             }];
 
             // --- Load from localStorage or use defaults ---
@@ -2818,42 +2861,40 @@
                     );
                 }
 
-                // Sort by date (newest first)
                 filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
 
                 if (filtered.length === 0) {
                     grid.innerHTML = `
-                        <div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--gray);">
-                            <i class="fas fa-book-open" style="font-size:2.5rem;color:var(--accent);opacity:0.3;margin-bottom:12px;"></i>
-                            <p style="font-size:1.1rem;font-weight:500;">No articles found</p>
-                            <p style="font-size:0.9rem;">Try adjusting your search or filter.</p>
-                        </div>
-                    `;
+                            <div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--gray);">
+                                <i class="fas fa-book-open" style="font-size:2.5rem;color:var(--accent);opacity:0.3;margin-bottom:12px;"></i>
+                                <p style="font-size:1.1rem;font-weight:500;">No articles found</p>
+                                <p style="font-size:0.9rem;">Try adjusting your search or filter.</p>
+                            </div>
+                        `;
                     return;
                 }
 
                 grid.innerHTML = filtered.map(post => `
-                    <div class="blog-card animate-on-scroll" data-id="${post.id}">
-                        <div class="blog-img">
-                            <div class="fallback-icon"><i class="fas fa-cube"></i></div>
-                        </div>
-                        <div class="blog-body">
-                            <div class="blog-meta">
-                                <span class="cat">${post.category}</span>
-                                <span>${post.author}</span>
-                                <span>${post.date}</span>
+                        <div class="blog-card animate-on-scroll" data-id="${post.id}">
+                            <div class="blog-img">
+                                <div class="fallback-icon"><i class="fas fa-cube"></i></div>
                             </div>
-                            <h3><a href="#" class="blog-read-link" data-id="${post.id}">${post.title}</a></h3>
-                            <p>${post.excerpt}</p>
-                            <div class="blog-footer">
-                                <span class="read-time"><i class="fas fa-clock"></i> 5 min read</span>
-                                <a href="#" class="blog-read-link" data-id="${post.id}" style="font-weight:600;color:var(--secondary);">Read More →</a>
+                            <div class="blog-body">
+                                <div class="blog-meta">
+                                    <span class="cat">${post.category}</span>
+                                    <span>${post.author}</span>
+                                    <span>${post.date}</span>
+                                </div>
+                                <h3><a href="#" class="blog-read-link" data-id="${post.id}">${post.title}</a></h3>
+                                <p>${post.excerpt}</p>
+                                <div class="blog-footer">
+                                    <span class="read-time"><i class="fas fa-clock"></i> 5 min read</span>
+                                    <a href="#" class="blog-read-link" data-id="${post.id}" style="font-weight:600;color:var(--secondary);">Read More →</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                `).join('');
+                    `).join('');
 
-                // Re-bind animations for new elements
                 const newEls = grid.querySelectorAll('.animate-on-scroll');
                 const newObs = new IntersectionObserver((entries) => {
                     entries.forEach(e => {
@@ -2862,7 +2903,6 @@
                 }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
                 newEls.forEach(el => newObs.observe(el));
 
-                // Bind read more links
                 document.querySelectorAll('.blog-read-link').forEach(link => {
                     link.addEventListener('click', function(e) {
                         e.preventDefault();
@@ -2880,16 +2920,15 @@
                 const overlay = document.getElementById('blogDetailOverlay');
                 document.getElementById('detailTitle').textContent = post.title;
                 document.getElementById('detailMeta').innerHTML = `
-                    <span class="cat">${post.category}</span>
-                    <span>${post.author}</span>
-                    <span>${post.date}</span>
-                `;
+                        <span class="cat">${post.category}</span>
+                        <span>${post.author}</span>
+                        <span>${post.date}</span>
+                    `;
                 document.getElementById('detailBody').innerHTML = post.content;
                 overlay.classList.add('active');
                 document.body.style.overflow = 'hidden';
             }
 
-            // --- Close detail ---
             document.getElementById('blogDetailClose').addEventListener('click', function() {
                 document.getElementById('blogDetailOverlay').classList.remove('active');
                 document.body.style.overflow = '';
@@ -2926,19 +2965,59 @@
                 }
             });
 
+            // --- Admin: Password Protection ---
+            let isUnlocked = false;
+            const passwordInput = document.getElementById('adminPassword');
+            const unlockBtn = document.getElementById('unlockBtn');
+            const passwordError = document.getElementById('passwordError');
+            const publishForm = document.getElementById('publishForm');
+            const passwordGate = document.getElementById('passwordGate');
+
+            function checkPassword() {
+                const entered = passwordInput.value.trim();
+                if (entered === ADMIN_PASS) {
+                    isUnlocked = true;
+                    passwordGate.style.display = 'none';
+                    publishForm.style.display = 'block';
+                    passwordError.style.display = 'none';
+                } else {
+                    passwordError.style.display = 'block';
+                    passwordInput.value = '';
+                    passwordInput.focus();
+                }
+            }
+
+            unlockBtn.addEventListener('click', checkPassword);
+            passwordInput.addEventListener('keyup', function(e) {
+                if (e.key === 'Enter') checkPassword();
+            });
+
             // --- Admin toggle ---
             document.getElementById('adminToggleBtn').addEventListener('click', function() {
-                document.getElementById('adminPanel').classList.toggle('active');
-                this.textContent = document.getElementById('adminPanel').classList.contains('active') ?
-                    'Hide Form' : 'Add New Post';
+                const panel = document.getElementById('adminPanel');
+                const isActive = panel.classList.toggle('active');
+                this.textContent = isActive ? 'Hide Form' : 'Add New Post';
                 this.prepend(document.createTextNode(' '));
-                this.prepend(document.createElement('i')).className = document.getElementById('adminPanel')
-                .classList.contains('active') ? 'fas fa-times' : 'fas fa-pen-fancy';
+                this.prepend(document.createElement('i')).className = isActive ? 'fas fa-times' : 'fas fa-pen-fancy';
+
+                // Reset unlock state if hiding
+                if (!isActive) {
+                    isUnlocked = false;
+                    passwordGate.style.display = 'block';
+                    publishForm.style.display = 'none';
+                    passwordError.style.display = 'none';
+                    passwordInput.value = '';
+                }
             });
 
             // --- Submit new post ---
             document.getElementById('blogForm').addEventListener('submit', function(e) {
                 e.preventDefault();
+
+                if (!isUnlocked) {
+                    alert('Please unlock the admin panel with the correct password first.');
+                    return;
+                }
 
                 const title = document.getElementById('postTitle').value.trim();
                 const category = document.getElementById('postCategory').value;
@@ -2964,32 +3043,33 @@
                 posts.unshift(newPost);
                 localStorage.setItem('unityBlogPosts', JSON.stringify(posts));
 
-                // Reset form
                 document.getElementById('postTitle').value = '';
                 document.getElementById('postExcerpt').value = '';
                 document.getElementById('postContent').value = '';
 
-                // Re-render
                 renderPosts(currentCategory, document.getElementById('blogSearch').value);
 
-                // Close admin panel
                 document.getElementById('adminPanel').classList.remove('active');
                 document.getElementById('adminToggleBtn').textContent = 'Add New Post';
                 document.getElementById('adminToggleBtn').prepend(document.createElement('i')).className =
                     'fas fa-pen-fancy';
 
-                // Scroll to blog section
-                document.getElementById('learning').scrollIntoView({ behavior: 'smooth' });
+                // Reset unlock state
+                isUnlocked = false;
+                passwordGate.style.display = 'block';
+                publishForm.style.display = 'none';
+                passwordError.style.display = 'none';
+                passwordInput.value = '';
 
                 alert('🎉 Post published successfully!');
             });
 
-            // --- Initial render ---
+            // --- Initial render for learning page ---
             renderPosts('all', '');
 
             console.log('🏗️ Unity Structural Solution');
             console.log('📚 Learning Hub with ' + posts.length + ' articles loaded.');
-            console.log('📝 Add new posts using the "Add New Post" button.');
+            console.log('🔒 Admin panel is password protected.');
         });
     </script>
 
