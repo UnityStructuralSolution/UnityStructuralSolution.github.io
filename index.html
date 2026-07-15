@@ -15,6 +15,7 @@
     <meta property="og:description" content="Professional RCC & Steel Structure Engineering Consultancy in Bangladesh." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://unitystructuralsolution.github.io/" />
+    <meta property="og:image" content="https://unitystructuralsolution.github.io/pic/og-image.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     
     <!-- ===== JSON-LD SCHEMA ===== -->
@@ -92,9 +93,7 @@
         }
         
         /* ===== 2. RESET & BASE ===== */
-        *,
-        *::before,
-        *::after {
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -2349,24 +2348,26 @@
     </a>
 
     <!-- ============================================================
-    JAVASCRIPT - MODULAR APPLICATION
+    COMPLETE JAVASCRIPT
     ============================================================ -->
     <script>
         /**
-         * Unity Structural Solution - Enterprise Application
-         * Architecture: Modular IIFE pattern with clear separation of concerns
-         * Version: 2.0.0
+         * Unity Structural Solution - Complete Production Application
+         * Version: 3.0.0
+         * All functionality in a single optimized script
          */
         (function() {
             'use strict';
 
             // ============================================================
-            // 1. CONFIGURATION & CONSTANTS
+            // 1. CONFIGURATION
             // ============================================================
             const CONFIG = {
-                ADMIN_PASS: atob('dW5pdHkyMDI2'), // Base64 encoded "unity2026"
+                ADMIN_PASS: 'unity2026',
                 STORAGE_KEY: 'unityBlogPosts',
                 SESSION_KEY: 'adminUnlocked',
+                APP_NAME: 'Unity Structural Solution',
+                VERSION: '3.0.0',
                 DEFAULT_POSTS: [{
                     id: Date.now() + 1,
                     title: 'Introduction to PEB: Pre-Engineered Buildings Explained',
@@ -2374,7 +2375,7 @@
                     author: 'Engr. Md Munna Hossain',
                     date: new Date().toISOString().split('T')[0],
                     excerpt: 'Learn what PEB structures are, their advantages over conventional steel buildings, and why they are the future of industrial construction.',
-                    content: `<p>Pre-Engineered Buildings (PEB) are revolutionizing the construction industry... <br><br> <h3>What makes PEB different?</h3> <p>The primary difference lies in the design philosophy. PEB uses a rigid frame system with tapered sections, which reduces steel weight by up to 30% compared to traditional structures.</p><ul><li><strong>Cost-effective:</strong> Lower steel weight means lower material cost.</li><li><strong>Faster construction:</strong> Factory fabrication and bolted connections speed up erection.</li><li><strong>Design flexibility:</strong> Can be customized for various industrial needs.</li></ul>`
+                    content: `<p>Pre-Engineered Buildings (PEB) are revolutionizing the construction industry. The primary difference lies in the design philosophy. PEB uses a rigid frame system with tapered sections, which reduces steel weight by up to 30% compared to traditional structures.</p><h3>What makes PEB different?</h3><ul><li><strong>Cost-effective:</strong> Lower steel weight means lower material cost.</li><li><strong>Faster construction:</strong> Factory fabrication and bolted connections speed up erection.</li><li><strong>Design flexibility:</strong> Can be customized for various industrial needs.</li></ul>`
                 }, {
                     id: Date.now() + 2,
                     title: 'Steel Connection Design: Bolted vs. Welded Connections',
@@ -2382,7 +2383,7 @@
                     author: 'Engr. Md S Hossen',
                     date: new Date().toISOString().split('T')[0],
                     excerpt: 'Understanding the differences between bolted and welded steel connections.',
-                    content: `<p>Steel connections are critical elements in any steel structure...</p><h3>Bolted Connections</h3><ul><li><strong>Advantages:</strong> Easy to install, no thermal distortion, can be disassembled.</li></ul>`
+                    content: `<p>Steel connections are critical elements in any steel structure. The choice between bolted and welded connections depends on various factors including cost, strength requirements, and construction timeline.</p><h3>Bolted Connections</h3><ul><li><strong>Advantages:</strong> Easy to install, no thermal distortion, can be disassembled.</li><li><strong>Disadvantages:</strong> Higher cost, requires more space.</li></ul>`
                 }, {
                     id: Date.now() + 3,
                     title: 'Tekla Structures: A Beginner\'s Guide to 3D Steel Detailing',
@@ -2390,15 +2391,15 @@
                     author: 'Engr. Md Munna Hossain',
                     date: new Date().toISOString().split('T')[0],
                     excerpt: 'Get started with Tekla Structures, the industry-leading software for steel detailing.',
-                    content: `<p>Tekla Structures is the most widely used software for steel detailing and BIM...</p>`
+                    content: `<p>Tekla Structures is the most widely used software for steel detailing and BIM. This guide covers the basic workflow for creating your first steel model.</p><h3>Getting Started</h3><ul><li>Installation and setup</li><li>Creating a new model</li><li>Working with grids</li><li>Creating steel components</li></ul>`
                 }, {
                     id: Date.now() + 4,
                     title: 'RCC vs. Steel: Choosing the Right Structural System',
                     category: 'RCC',
                     author: 'Engr. Md S Hossen',
                     date: new Date().toISOString().split('T')[0],
-                    excerpt: 'A comparative analysis of RCC and steel structures.',
-                    content: `<p>One of the most common decisions in structural engineering is choosing between RCC and steel...</p>`
+                    excerpt: 'A comparative analysis of RCC and steel structures for different project types.',
+                    content: `<p>One of the most common decisions in structural engineering is choosing between RCC and steel. Both materials have their advantages and ideal applications.</p><h3>Comparison Factors</h3><ul><li>Cost analysis</li><li>Construction time</li><li>Design flexibility</li><li>Durability</li></ul>`
                 }, {
                     id: Date.now() + 5,
                     title: 'How to Reduce Steel Weight in PEB Design',
@@ -2406,7 +2407,7 @@
                     author: 'Engr. Md Munna Hossain',
                     date: new Date().toISOString().split('T')[0],
                     excerpt: 'Practical tips and engineering strategies to optimize steel weight in Pre-Engineered Buildings.',
-                    content: `<p>Optimizing steel weight is one of the most important aspects of PEB design...</p>`
+                    content: `<p>Optimizing steel weight is one of the most important aspects of PEB design. Here are key strategies to reduce steel weight while maintaining structural integrity.</p><h3>Optimization Strategies</h3><ul><li>Use tapered sections</li><li>Optimize frame spacing</li><li>Consider secondary members</li><li>Use high-strength steel</li></ul>`
                 }]
             };
 
@@ -2420,14 +2421,12 @@
                 currentPostId: null,
                 isDraft: false,
 
-                // Initialize state
                 init() {
                     this.loadPosts();
                     this.checkSession();
                     return this;
                 },
 
-                // Load posts from localStorage with fallback
                 loadPosts() {
                     try {
                         const stored = localStorage.getItem(CONFIG.STORAGE_KEY);
@@ -2438,7 +2437,6 @@
                                 return;
                             }
                         }
-                        // Fallback to defaults
                         this.posts = CONFIG.DEFAULT_POSTS.map(this.validatePost);
                         this.savePosts();
                     } catch (e) {
@@ -2448,7 +2446,6 @@
                     }
                 },
 
-                // Validate and sanitize a post object
                 validatePost(post) {
                     return {
                         id: post.id || Date.now() + Math.random(),
@@ -2461,7 +2458,6 @@
                     };
                 },
 
-                // Sanitize HTML to prevent XSS
                 sanitizeHTML(text) {
                     if (!text) return '';
                     const temp = document.createElement('div');
@@ -2469,7 +2465,6 @@
                     return temp.innerHTML;
                 },
 
-                // Sanitize content with allowed tags
                 sanitizeContent(content) {
                     if (!content) return '<p>No content available.</p>';
                     const allowedTags = ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
@@ -2478,14 +2473,11 @@
                     ];
                     const element = document.createElement('div');
                     element.innerHTML = content;
-                    // Simple sanitization - remove script tags
                     const scripts = element.querySelectorAll('script');
                     scripts.forEach(s => s.remove());
-                    // Remove disallowed tags
                     const allElements = element.querySelectorAll('*');
                     allElements.forEach(el => {
                         if (!allowedTags.includes(el.tagName.toLowerCase())) {
-                            // Replace with text content
                             const text = document.createTextNode(el.textContent);
                             el.parentNode.replaceChild(text, el);
                         }
@@ -2493,7 +2485,6 @@
                     return element.innerHTML;
                 },
 
-                // Save posts to localStorage
                 savePosts() {
                     try {
                         localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(this.posts));
@@ -2502,13 +2493,11 @@
                     }
                 },
 
-                // Check admin session
                 checkSession() {
                     this.isUnlocked = sessionStorage.getItem(CONFIG.SESSION_KEY) === 'true';
                     return this.isUnlocked;
                 },
 
-                // Set admin session
                 setSession(unlocked) {
                     this.isUnlocked = unlocked;
                     if (unlocked) {
@@ -2518,7 +2507,6 @@
                     }
                 },
 
-                // Add a new post
                 addPost(post) {
                     const validated = this.validatePost(post);
                     this.posts.unshift(validated);
@@ -2526,7 +2514,6 @@
                     return validated;
                 },
 
-                // Update an existing post
                 updatePost(id, updates) {
                     const index = this.posts.findIndex(p => p.id === id);
                     if (index === -1) return null;
@@ -2536,23 +2523,40 @@
                     return this.posts[index];
                 },
 
-                // Delete a post
                 deletePost(id) {
                     this.posts = this.posts.filter(p => p.id !== id);
                     this.savePosts();
                 },
 
-                // Get a single post by ID
                 getPost(id) {
                     return this.posts.find(p => p.id === id) || null;
                 },
 
-                // Export posts as JSON
+                getByCategory(category) {
+                    if (category === 'all') return this.posts;
+                    return this.posts.filter(p => p.category === category);
+                },
+
+                searchPosts(term) {
+                    if (!term.trim()) return this.posts;
+                    const lower = term.toLowerCase().trim();
+                    return this.posts.filter(p =>
+                        p.title.toLowerCase().includes(lower) ||
+                        p.excerpt.toLowerCase().includes(lower) ||
+                        p.content.toLowerCase().includes(lower) ||
+                        p.author.toLowerCase().includes(lower)
+                    );
+                },
+
+                getReadingTime(content) {
+                    const words = content.replace(/<[^>]*>/g, '').split(/\s+/).length;
+                    return Math.max(1, Math.ceil(words / 200));
+                },
+
                 exportPosts() {
                     return JSON.stringify(this.posts, null, 2);
                 },
 
-                // Import posts from JSON
                 importPosts(json) {
                     try {
                         const data = JSON.parse(json);
@@ -2567,43 +2571,9 @@
                     }
                 },
 
-                // Clear all posts
                 clearAll() {
                     this.posts = [];
                     this.savePosts();
-                },
-
-                // Get posts by category
-                getByCategory(category) {
-                    if (category === 'all') return this.posts;
-                    return this.posts.filter(p => p.category === category);
-                },
-
-                // Search posts
-                searchPosts(term) {
-                    if (!term.trim()) return this.posts;
-                    const lower = term.toLowerCase().trim();
-                    return this.posts.filter(p =>
-                        p.title.toLowerCase().includes(lower) ||
-                        p.excerpt.toLowerCase().includes(lower) ||
-                        p.content.toLowerCase().includes(lower) ||
-                        p.author.toLowerCase().includes(lower)
-                    );
-                },
-
-                // Get reading time estimate
-                getReadingTime(content) {
-                    const words = content.replace(/<[^>]*>/g, '').split(/\s+/).length;
-                    return Math.max(1, Math.ceil(words / 200));
-                },
-
-                // Generate slug from title
-                generateSlug(title) {
-                    return title
-                        .toLowerCase()
-                        .replace(/[^a-z0-9\s-]/g, '')
-                        .replace(/\s+/g, '-')
-                        .replace(/-+/g, '-');
                 }
             };
 
@@ -2611,35 +2581,23 @@
             // 3. DOM UTILITIES
             // ============================================================
             const DOM = {
-                // Cache DOM references
                 elements: {},
 
-                // Initialize DOM cache
                 init() {
                     this.elements = {
-                        // Nav
                         navbar: document.getElementById('navbar'),
                         navToggle: document.getElementById('navToggle'),
                         navLinks: document.getElementById('navLinks'),
                         navAnchors: document.querySelectorAll('.nav-links a'),
-
-                        // Hero
                         typedText: document.getElementById('typedText'),
                         yearsCount: document.getElementById('yearsCount'),
                         heroCanvas: document.getElementById('hero-canvas'),
-
-                        // Content
                         mainContent: document.getElementById('main-content-wrapper'),
                         learningPage: document.getElementById('learning-page'),
-                        mainContentWrapper: document.getElementById('main-content-wrapper'),
-
-                        // Blog
                         blogGrid: document.getElementById('blogGrid'),
                         blogSearch: document.getElementById('blogSearch'),
                         searchBtn: document.getElementById('searchBtn'),
                         blogCategories: document.getElementById('blogCategories'),
-
-                        // Admin
                         adminPanel: document.getElementById('adminPanel'),
                         floatingAdminBtn: document.getElementById('floatingAdminBtn'),
                         blogForm: document.getElementById('blogForm'),
@@ -2651,74 +2609,188 @@
                         exportBtn: document.getElementById('exportBtn'),
                         importBtn: document.getElementById('importBtn'),
                         clearAllBtn: document.getElementById('clearAllBtn'),
-
-                        // Modal
                         blogModal: document.getElementById('blogModal'),
                         modalClose: document.getElementById('modalClose'),
                         modalTitle: document.getElementById('modalTitle'),
                         modalMeta: document.getElementById('modalMeta'),
                         modalBody: document.getElementById('modalBody'),
                         modalImg: document.getElementById('modalImg'),
-
-                        // Toast
                         toastContainer: document.getElementById('toastContainer'),
-
-                        // Share
                         shareCopyBtn: document.getElementById('shareCopyBtn'),
                         shareTwitterBtn: document.getElementById('shareTwitterBtn'),
                         shareFacebookBtn: document.getElementById('shareFacebookBtn'),
                         shareLinkedinBtn: document.getElementById('shareLinkedinBtn'),
-
-                        // FAQ
                         faqQuestions: document.querySelectorAll('.faq-question'),
-
-                        // Scroll animations
                         animateElements: document.querySelectorAll('.animate-on-scroll'),
-
-                        // Counters
                         counterElements: document.querySelectorAll('.trust-item .num span[data-count]')
                     };
                     return this;
                 },
 
-                // Safe DOM query with fallback
-                get(id) {
-                    return document.getElementById(id);
-                },
+                get(id) { return document.getElementById(id); },
+                show(el) { if (el) el.style.display = ''; },
+                hide(el) { if (el) el.style.display = 'none'; },
+                toggle(el) { if (el) el.classList.toggle('active'); },
+                addClass(el, className) { if (el) el.classList.add(className); },
+                removeClass(el, className) { if (el) el.classList.remove(className); }
+            };
 
-                // Show element
-                show(el) {
-                    if (el) el.style.display = '';
+            // ============================================================
+            // 4. TOAST SYSTEM
+            // ============================================================
+            const Toast = {
+                show(message, type = 'info', duration = 3500) {
+                    const container = DOM.elements.toastContainer;
+                    if (!container) return;
+                    const toast = document.createElement('div');
+                    toast.className = `toast toast-${type}`;
+                    toast.textContent = message;
+                    container.appendChild(toast);
+                    setTimeout(() => { if (toast.parentNode) toast.remove(); }, duration);
+                    toast.addEventListener('click', () => toast.remove());
+                    return toast;
                 },
+                success(message) { return this.show(message, 'success'); },
+                error(message) { return this.show(message, 'error'); },
+                info(message) { return this.show(message, 'info'); },
+                warning(message) { return this.show(message, 'warning'); }
+            };
 
-                // Hide element
-                hide(el) {
-                    if (el) el.style.display = 'none';
-                },
-
-                // Toggle element
-                toggle(el) {
-                    if (el) el.classList.toggle('active');
-                },
-
-                // Add class
-                addClass(el, className) {
-                    if (el) el.classList.add(className);
-                },
-
-                // Remove class
-                removeClass(el, className) {
-                    if (el) el.classList.remove(className);
-                },
-
-                // Check if element exists
-                exists(id) {
-                    return document.getElementById(id) !== null;
+            // ============================================================
+            // 5. NAVIGATION
+            // ============================================================
+            const Navigation = {
+                init() {
+                    const toggle = DOM.elements.navToggle;
+                    const links = DOM.elements.navLinks;
+                    if (toggle && links) {
+                        toggle.addEventListener('click', function() {
+                            const open = links.classList.toggle('open');
+                            toggle.classList.toggle('active');
+                            toggle.setAttribute('aria-expanded', open);
+                        });
+                    }
+                    DOM.elements.navAnchors.forEach(link => {
+                        link.addEventListener('click', () => {
+                            if (DOM.elements.navLinks) {
+                                DOM.elements.navLinks.classList.remove('open');
+                            }
+                            if (DOM.elements.navToggle) {
+                                DOM.elements.navToggle.classList.remove('active');
+                                DOM.elements.navToggle.setAttribute('aria-expanded', 'false');
+                            }
+                        });
+                    });
+                    window.addEventListener('scroll', () => {
+                        const navbar = DOM.elements.navbar;
+                        if (navbar) {
+                            navbar.classList.toggle('scrolled', window.scrollY > 60);
+                        }
+                    });
+                    return this;
                 }
             };
 
             // ============================================================
-            // 4. ROUTER
+            // 6. TYPING ANIMATION
+            // ============================================================
+            const TypingAnimation = {
+                phrases: ['RCC Structures', 'Steel Structures', 'PEB Engineering'],
+                currentPhrase: 0,
+                currentChar: 0,
+                isDeleting: false,
+                element: null,
+
+                init() {
+                    this.element = DOM.elements.typedText;
+                    if (this.element) this.type();
+                    return this;
+                },
+
+                type() {
+                    if (!this.element) return;
+                    const current = this.phrases[this.currentPhrase];
+                    if (this.isDeleting) {
+                        this.element.textContent = current.substring(0, this.currentChar - 1);
+                        this.currentChar--;
+                    } else {
+                        this.element.textContent = current.substring(0, this.currentChar + 1);
+                        this.currentChar++;
+                    }
+                    if (!this.isDeleting && this.currentChar === current.length) {
+                        this.isDeleting = true;
+                        setTimeout(() => this.type(), 2000);
+                    } else if (this.isDeleting && this.currentChar === 0) {
+                        this.isDeleting = false;
+                        this.currentPhrase = (this.currentPhrase + 1) % this.phrases.length;
+                        setTimeout(() => this.type(), 400);
+                    } else {
+                        setTimeout(() => this.type(), this.isDeleting ? 40 : 80);
+                    }
+                }
+            };
+
+            // ============================================================
+            // 7. COUNTER ANIMATION
+            // ============================================================
+            const Counters = {
+                observer: null,
+
+                init() {
+                    const elements = DOM.elements.counterElements;
+                    if (!elements.length) return this;
+                    this.observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting && !entry.target.dataset.counted) {
+                                this.animateCounter(entry.target);
+                            }
+                        });
+                    }, { threshold: 0.4 });
+                    elements.forEach(el => this.observer.observe(el));
+                    return this;
+                },
+
+                animateCounter(element) {
+                    const target = parseInt(element.dataset.count);
+                    if (isNaN(target)) return;
+                    element.dataset.counted = 'true';
+                    let current = 0;
+                    const step = Math.max(1, Math.floor(target / 35));
+                    const timer = setInterval(() => {
+                        current += step;
+                        if (current >= target) {
+                            element.textContent = target;
+                            clearInterval(timer);
+                        } else {
+                            element.textContent = current;
+                        }
+                    }, 30);
+                }
+            };
+
+            // ============================================================
+            // 8. SCROLL ANIMATIONS
+            // ============================================================
+            const ScrollAnimations = {
+                observer: null,
+
+                init() {
+                    const elements = DOM.elements.animateElements;
+                    if (!elements.length) return this;
+                    this.observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('visible');
+                            }
+                        });
+                    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+                    elements.forEach(el => this.observer.observe(el));
+                    return this;
+                }
+            };
+
+            // ============================================================
+            // 9. ROUTER
             // ============================================================
             const Router = {
                 currentRoute: '#home',
@@ -2735,18 +2807,15 @@
                     const hash = window.location.hash || '#home';
                     this.currentRoute = hash;
                     this.isLearning = hash === '#learning';
-
-                    // Toggle visibility
                     if (this.isLearning) {
                         DOM.hide(DOM.elements.mainContent);
                         DOM.show(DOM.elements.learningPage);
                         DOM.addClass(DOM.elements.learningPage, 'active');
+                        Blog.render();
                     } else {
                         DOM.show(DOM.elements.mainContent);
                         DOM.hide(DOM.elements.learningPage);
                         DOM.removeClass(DOM.elements.learningPage, 'active');
-
-                        // Scroll to section
                         if (hash !== '#home') {
                             const target = document.querySelector(hash);
                             if (target) {
@@ -2759,17 +2828,10 @@
                             window.scrollTo({ top: 0, behavior: 'smooth' });
                         }
                     }
-
-                    // Update active nav
                     DOM.elements.navAnchors.forEach(link => {
                         const href = link.getAttribute('href');
                         link.classList.toggle('active', href === hash);
                     });
-
-                    // Re-render blog if on learning page
-                    if (this.isLearning) {
-                        Blog.render();
-                    }
                 },
 
                 navigate(hash) {
@@ -2778,227 +2840,223 @@
             };
 
             // ============================================================
-            // 5. TOAST SYSTEM
+            // 10. HERO CANVAS
             // ============================================================
-            const Toast = {
-                show(message, type = 'info', duration = 3500) {
-                    const container = DOM.elements.toastContainer;
-                    if (!container) return;
+            const HeroCanvas = {
+                canvas: null,
+                ctx: null,
+                width: 0,
+                height: 0,
+                points: [],
+                edges: [],
+                nodes: [],
+                animationId: null,
+                isVisible: true,
 
-                    const toast = document.createElement('div');
-                    toast.className = `toast toast-${type}`;
-                    toast.textContent = message;
-                    container.appendChild(toast);
-
-                    // Auto-remove after duration
-                    setTimeout(() => {
-                        if (toast.parentNode) {
-                            toast.remove();
+                init() {
+                    this.canvas = DOM.elements.heroCanvas;
+                    if (!this.canvas) return this;
+                    this.ctx = this.canvas.getContext('2d');
+                    this.resize();
+                    this.buildStructure();
+                    this.animate();
+                    window.addEventListener('resize', () => this.resize());
+                    document.addEventListener('visibilitychange', () => {
+                        this.isVisible = !document.hidden;
+                        if (this.isVisible) {
+                            this.animate();
+                        } else if (this.animationId) {
+                            cancelAnimationFrame(this.animationId);
+                            this.animationId = null;
                         }
-                    }, duration);
-
-                    // Allow click to dismiss
-                    toast.addEventListener('click', () => toast.remove());
-
-                    return toast;
+                    });
+                    return this;
                 },
 
-                success(message) {
-                    return this.show(message, 'success');
+                resize() {
+                    if (!this.canvas) return;
+                    const rect = this.canvas.parentElement.getBoundingClientRect();
+                    this.width = this.canvas.width = rect.width;
+                    this.height = this.canvas.height = rect.height;
                 },
 
-                error(message) {
-                    return this.show(message, 'error');
+                buildStructure() {
+                    const pts = [];
+                    const edges = [];
+                    const w = 10,
+                        h = 5,
+                        d = 6;
+                    const bays = 5;
+                    const bw = w / bays;
+                    const ridge = h / 2 + 1.2;
+                    const addP = (x, y, z) => { pts.push([x, y, z]); return pts.length - 1; };
+                    const addE = (i, j) => { edges.push([i, j]); };
+                    const cols = [];
+                    for (let i = 0; i <= bays; i++) {
+                        const x = -w / 2 + i * bw;
+                        for (let z of [-d / 2, d / 2]) {
+                            const b = addP(x, -h / 2, z);
+                            const t = addP(x, h / 2, z);
+                            addE(b, t);
+                            cols.push({ bottom: b, top: t, x, z });
+                        }
+                    }
+                    for (let i = 0; i <= bays; i++) {
+                        const x = -w / 2 + i * bw;
+                        for (let z of [-d / 2, d / 2]) {
+                            const rp = addP(x, ridge, z);
+                            const col = cols.find(c => Math.abs(c.x - x) < 0.01 && Math.abs(c.z - z) < 0.01);
+                            if (col) addE(col.top, rp);
+                        }
+                    }
+                    for (let i = 0; i <= bays; i++) {
+                        const x = -w / 2 + i * bw;
+                        const l = addP(x, ridge, -d / 2);
+                        const r = addP(x, ridge, d / 2);
+                        addE(l, r);
+                    }
+                    for (let k = 0; k < 4; k++) {
+                        const t = (k + 0.5) / 4;
+                        const z = -d / 2 + t * d;
+                        for (let j = 0; j <= bays; j++) {
+                            const x = -w / 2 + j * bw;
+                            const y = ridge - 0.25 * (1 - Math.abs(x) / (w / 2) * 0.4);
+                            const p = addP(x, y, z);
+                            if (j > 0) addE(pts.length - 2, p);
+                        }
+                    }
+                    for (let lv = 0; lv < 3; lv++) {
+                        const y = -h / 2 + (lv + 0.5) * h / 3;
+                        for (let z of [-d / 2, d / 2]) {
+                            for (let i = 0; i < bays; i++) {
+                                const x1 = -w / 2 + i * bw,
+                                    x2 = -w / 2 + (i + 1) * bw;
+                                const p1 = addP(x1, y, z),
+                                    p2 = addP(x2, y, z);
+                                addE(p1, p2);
+                            }
+                        }
+                    }
+                    const nodes = [];
+                    for (let i = 0; i < pts.length; i++) {
+                        const p = pts[i];
+                        if (Math.abs(p[1] - h / 2) < 0.01 || Math.abs(p[1] - ridge) < 0.01 || Math.abs(p[1] + h / 2) <
+                            0.01) {
+                            nodes.push(i);
+                        }
+                    }
+                    this.points = pts;
+                    this.edges = edges;
+                    this.nodes = nodes;
                 },
 
-                info(message) {
-                    return this.show(message, 'info');
-                },
-
-                warning(message) {
-                    return this.show(message, 'warning');
+                animate() {
+                    if (!this.isVisible || !this.ctx || !this.canvas) {
+                        this.animationId = requestAnimationFrame(() => this.animate());
+                        return;
+                    }
+                    const ctx = this.ctx;
+                    const width = this.width;
+                    const height = this.height;
+                    ctx.clearRect(0, 0, width, height);
+                    const time = performance.now() / 1000;
+                    const rotY = time * 0.25;
+                    const rotX = 0.2 + Math.sin(time * 0.12) * 0.04;
+                    const rotZ = 0.05 + Math.sin(time * 0.2) * 0.02;
+                    const project = (x, y, z) => {
+                        let cx = Math.cos(rotX),
+                            sx = Math.sin(rotX),
+                            cy = Math.cos(rotY),
+                            sy = Math.sin(rotY),
+                            cz = Math.cos(rotZ),
+                            sz = Math.sin(rotZ);
+                        let y1 = y * cx - z * sx,
+                            z1 = y * sx + z * cx;
+                        let x1 = x * cy + z1 * sy,
+                            z2 = -x * sy + z1 * cy;
+                        let x2 = x1 * cz - y1 * sz,
+                            y2 = x1 * sz + y1 * cz;
+                        const scale = 100,
+                            fov = 700,
+                            persp = fov / (fov + z2 * 2.5);
+                        return { x: width / 2 + x2 * scale * persp, y: height / 2 - y2 * scale * persp, z: z2 };
+                    };
+                    const proj = this.points.map(p => project(p[0], p[1], p[2]));
+                    const edgeData = this.edges.map(([i, j]) => {
+                        const a = proj[i],
+                            b = proj[j];
+                        return { a, b, depth: (a.z + b.z) / 2 };
+                    });
+                    edgeData.sort((a, b) => b.depth - a.depth);
+                    for (const { a, b, depth } of edgeData) {
+                        const alpha = 0.12 + 0.35 * (1 - (depth + 10) / 22);
+                        ctx.beginPath();
+                        ctx.moveTo(a.x, a.y);
+                        ctx.lineTo(b.x, b.y);
+                        ctx.strokeStyle = `rgba(212, 160, 43, ${alpha})`;
+                        ctx.lineWidth = 0.7 + 0.5 * (1 - depth / 18);
+                        ctx.stroke();
+                    }
+                    for (const idx of this.nodes) {
+                        const p = proj[idx];
+                        if (p.z > -6 && p.z < 9) {
+                            const alpha = 0.3 + 0.4 * (1 - (p.z + 5) / 16);
+                            ctx.beginPath();
+                            ctx.arc(p.x, p.y, 2 + Math.sin(time * 1.3 + idx) * 0.6, 0, Math.PI * 2);
+                            ctx.fillStyle = `rgba(212, 160, 43, ${alpha * 0.7})`;
+                            ctx.fill();
+                            ctx.shadowColor = `rgba(212, 160, 43, 0.15)`;
+                            ctx.shadowBlur = 12;
+                            ctx.beginPath();
+                            ctx.arc(p.x, p.y, 4, 0, Math.PI * 2);
+                            ctx.fillStyle = `rgba(212, 160, 43, ${alpha * 0.08})`;
+                            ctx.fill();
+                            ctx.shadowBlur = 0;
+                        }
+                    }
+                    ctx.strokeStyle = `rgba(212, 160, 43, 0.015)`;
+                    ctx.lineWidth = 0.5;
+                    for (let i = 0; i < 20; i++) {
+                        const x = (i / 20) * width,
+                            y = (i / 20) * height;
+                        ctx.beginPath();
+                        ctx.moveTo(x, 0);
+                        ctx.lineTo(x, height);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.moveTo(0, y);
+                        ctx.lineTo(width, y);
+                        ctx.stroke();
+                    }
+                    this.animationId = requestAnimationFrame(() => this.animate());
                 }
             };
 
             // ============================================================
-            // 6. NAVIGATION
+            // 11. FAQ
             // ============================================================
-            const Navigation = {
+            const FAQ = {
                 init() {
-                    // Mobile toggle
-                    const toggle = DOM.elements.navToggle;
-                    const links = DOM.elements.navLinks;
-                    if (toggle && links) {
-                        toggle.addEventListener('click', function() {
-                            const open = links.classList.toggle('open');
-                            toggle.classList.toggle('active');
-                            toggle.setAttribute('aria-expanded', open);
-                        });
-                    }
-
-                    // Close mobile nav on link click
-                    DOM.elements.navAnchors.forEach(link => {
-                        link.addEventListener('click', () => {
-                            if (DOM.elements.navLinks) {
-                                DOM.elements.navLinks.classList.remove('open');
-                            }
-                            if (DOM.elements.navToggle) {
-                                DOM.elements.navToggle.classList.remove('active');
-                                DOM.elements.navToggle.setAttribute('aria-expanded', 'false');
+                    DOM.elements.faqQuestions.forEach(btn => {
+                        btn.addEventListener('click', function() {
+                            const item = this.parentElement;
+                            const isActive = item.classList.contains('active');
+                            document.querySelectorAll('.faq-item').forEach(f => {
+                                f.classList.remove('active');
+                                f.querySelector('.faq-question')?.setAttribute('aria-expanded', 'false');
+                            });
+                            if (!isActive) {
+                                item.classList.add('active');
+                                this.setAttribute('aria-expanded', 'true');
                             }
                         });
                     });
-
-                    // Scroll effect
-                    window.addEventListener('scroll', () => {
-                        const navbar = DOM.elements.navbar;
-                        if (navbar) {
-                            navbar.classList.toggle('scrolled', window.scrollY > 60);
-                        }
-                    });
-
                     return this;
                 }
             };
 
             // ============================================================
-            // 7. TYPING ANIMATION
-            // ============================================================
-            const TypingAnimation = {
-                phrases: ['RCC Structures', 'Steel Structures', 'PEB Engineering'],
-                currentPhrase: 0,
-                currentChar: 0,
-                isDeleting: false,
-                element: null,
-
-                init() {
-                    this.element = DOM.elements.typedText;
-                    if (this.element) {
-                        this.type();
-                    }
-                    return this;
-                },
-
-                type() {
-                    if (!this.element) return;
-
-                    const current = this.phrases[this.currentPhrase];
-
-                    if (this.isDeleting) {
-                        this.element.textContent = current.substring(0, this.currentChar - 1);
-                        this.currentChar--;
-                    } else {
-                        this.element.textContent = current.substring(0, this.currentChar + 1);
-                        this.currentChar++;
-                    }
-
-                    if (!this.isDeleting && this.currentChar === current.length) {
-                        this.isDeleting = true;
-                        setTimeout(() => this.type(), 2000);
-                    } else if (this.isDeleting && this.currentChar === 0) {
-                        this.isDeleting = false;
-                        this.currentPhrase = (this.currentPhrase + 1) % this.phrases.length;
-                        setTimeout(() => this.type(), 400);
-                    } else {
-                        setTimeout(() => this.type(), this.isDeleting ? 40 : 80);
-                    }
-                }
-            };
-
-            // ============================================================
-            // 8. COUNTER ANIMATION
-            // ============================================================
-            const Counters = {
-                observed: new Set(),
-                observer: null,
-
-                init() {
-                    const elements = DOM.elements.counterElements;
-                    if (!elements.length) return this;
-
-                    this.observer = new IntersectionObserver((entries) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting && !entry.target.dataset.counted) {
-                                this.animateCounter(entry.target);
-                            }
-                        });
-                    }, { threshold: 0.4 });
-
-                    elements.forEach(el => {
-                        this.observer.observe(el);
-                    });
-
-                    return this;
-                },
-
-                animateCounter(element) {
-                    const target = parseInt(element.dataset.count);
-                    if (isNaN(target)) return;
-
-                    element.dataset.counted = 'true';
-                    let current = 0;
-                    const step = Math.max(1, Math.floor(target / 35));
-
-                    const timer = setInterval(() => {
-                        current += step;
-                        if (current >= target) {
-                            element.textContent = target;
-                            clearInterval(timer);
-                        } else {
-                            element.textContent = current;
-                        }
-                    }, 30);
-                },
-
-                // Reset and re-observe (for dynamic content)
-                refresh() {
-                    const elements = DOM.elements.counterElements;
-                    elements.forEach(el => {
-                        el.dataset.counted = 'false';
-                        if (this.observer) {
-                            this.observer.unobserve(el);
-                            this.observer.observe(el);
-                        }
-                    });
-                }
-            };
-
-            // ============================================================
-            // 9. SCROLL ANIMATIONS
-            // ============================================================
-            const ScrollAnimations = {
-                observer: null,
-
-                init() {
-                    const elements = DOM.elements.animateElements;
-                    if (!elements.length) return this;
-
-                    this.observer = new IntersectionObserver((entries) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                entry.target.classList.add('visible');
-                            }
-                        });
-                    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
-
-                    elements.forEach(el => this.observer.observe(el));
-
-                    return this;
-                },
-
-                refresh() {
-                    const elements = DOM.elements.animateElements;
-                    elements.forEach(el => {
-                        if (this.observer) {
-                            this.observer.unobserve(el);
-                            this.observer.observe(el);
-                        }
-                    });
-                }
-            };
-
-            // ============================================================
-            // 10. BLOG SYSTEM
+            // 12. BLOG SYSTEM
             // ============================================================
             const Blog = {
                 currentFilter: 'all',
@@ -3008,11 +3066,8 @@
                 init() {
                     if (this.initialized) return this;
                     this.initialized = true;
-
-                    // Set up search
                     const searchInput = DOM.elements.blogSearch;
                     const searchBtn = DOM.elements.searchBtn;
-
                     if (searchInput) {
                         searchInput.addEventListener('input', this.debounce((e) => {
                             this.currentSearch = e.target.value;
@@ -3025,7 +3080,6 @@
                             }
                         });
                     }
-
                     if (searchBtn) {
                         searchBtn.addEventListener('click', () => {
                             if (searchInput) {
@@ -3034,8 +3088,6 @@
                             }
                         });
                     }
-
-                    // Set up category filters
                     const categories = DOM.elements.blogCategories;
                     if (categories) {
                         categories.querySelectorAll('button').forEach(btn => {
@@ -3051,13 +3103,10 @@
                             });
                         });
                     }
-
-                    // Initial render
                     this.render();
                     return this;
                 },
 
-                // Debounce helper
                 debounce(fn, delay = 300) {
                     let timer;
                     return function(...args) {
@@ -3066,19 +3115,13 @@
                     };
                 },
 
-                // Render blog posts
                 render() {
                     const grid = DOM.elements.blogGrid;
                     if (!grid) return;
-
                     let posts = AppState.posts;
-
-                    // Filter by category
                     if (this.currentFilter !== 'all') {
                         posts = posts.filter(p => p.category === this.currentFilter);
                     }
-
-                    // Search
                     if (this.currentSearch.trim()) {
                         const term = this.currentSearch.toLowerCase().trim();
                         posts = posts.filter(p =>
@@ -3088,10 +3131,7 @@
                             p.author.toLowerCase().includes(term)
                         );
                     }
-
-                    // Sort by date (newest first)
                     posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-
                     if (posts.length === 0) {
                         grid.innerHTML = `
                             <div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--gray);">
@@ -3103,7 +3143,6 @@
                         `;
                         return;
                     }
-
                     grid.innerHTML = posts.map(post => {
                         const isAdmin = AppState.isUnlocked;
                         return `
@@ -3134,17 +3173,11 @@
                             </div>
                         `;
                     }).join('');
-
-                    // Re-bind animations
                     const newEls = grid.querySelectorAll('.animate-on-scroll');
                     const newObs = new IntersectionObserver((entries) => {
-                        entries.forEach(e => {
-                            if (e.isIntersecting) e.target.classList.add('visible');
-                        });
+                        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
                     }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
                     newEls.forEach(el => newObs.observe(el));
-
-                    // Bind read links
                     grid.querySelectorAll('.blog-read-link').forEach(link => {
                         link.addEventListener('click', function(e) {
                             e.preventDefault();
@@ -3152,8 +3185,6 @@
                             Blog.openDetail(id);
                         });
                     });
-
-                    // Bind admin actions
                     if (AppState.isUnlocked) {
                         grid.querySelectorAll('.edit-btn').forEach(btn => {
                             btn.addEventListener('click', function(e) {
@@ -3172,17 +3203,11 @@
                     }
                 },
 
-                // Open blog detail modal
                 openDetail(id) {
                     const post = AppState.getPost(id);
-                    if (!post) {
-                        Toast.error('Post not found');
-                        return;
-                    }
-
+                    if (!post) { Toast.error('Post not found'); return; }
                     const modal = DOM.elements.blogModal;
                     if (!modal) return;
-
                     DOM.elements.modalTitle.textContent = post.title;
                     DOM.elements.modalMeta.innerHTML = `
                         <span class="cat">${post.category}</span>
@@ -3192,15 +3217,11 @@
                     `;
                     DOM.elements.modalBody.innerHTML = post.content;
                     DOM.elements.modalImg.innerHTML = `<i class="fas fa-cube" aria-hidden="true"></i>`;
-
                     modal.classList.add('active');
                     document.body.style.overflow = 'hidden';
-
-                    // Focus management
                     DOM.elements.modalClose.focus();
                 },
 
-                // Close modal
                 closeModal() {
                     const modal = DOM.elements.blogModal;
                     if (modal) {
@@ -3209,53 +3230,31 @@
                     }
                 },
 
-                // Edit post (load into admin form)
                 editPost(id) {
                     const post = AppState.getPost(id);
-                    if (!post) {
-                        Toast.error('Post not found');
-                        return;
-                    }
-
-                    // Unlock admin if not already
+                    if (!post) { Toast.error('Post not found'); return; }
                     if (!AppState.isUnlocked) {
                         Admin.unlock();
                         if (!AppState.isUnlocked) return;
                     }
-
-                    // Fill form
                     DOM.elements.postTitle.value = post.title;
                     DOM.elements.postCategory.value = post.category;
                     DOM.elements.postAuthor.value = post.author;
                     DOM.elements.postExcerpt.value = post.excerpt;
                     DOM.elements.postContent.value = post.content;
-
-                    // Show admin panel
                     DOM.addClass(DOM.elements.adminPanel, 'active');
-
-                    // Store editing ID
                     AppState.currentPostId = id;
-
-                    // Change button text
                     const submitBtn = DOM.elements.blogForm.querySelector('button[type="submit"]');
                     if (submitBtn) {
                         submitBtn.innerHTML = '<i class="fas fa-save" aria-hidden="true"></i> Update Post';
                     }
-
                     Toast.info('Editing: ' + post.title);
-
-                    // Scroll to admin panel
                     DOM.elements.adminPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 },
 
-                // Delete post with confirmation
                 deletePost(id) {
                     const post = AppState.getPost(id);
-                    if (!post) {
-                        Toast.error('Post not found');
-                        return;
-                    }
-
+                    if (!post) { Toast.error('Post not found'); return; }
                     if (confirm(`Are you sure you want to delete "${post.title}"? This cannot be undone.`)) {
                         AppState.deletePost(id);
                         Toast.success(`Deleted: ${post.title}`);
@@ -3263,7 +3262,6 @@
                     }
                 },
 
-                // Reset edit mode
                 resetEditMode() {
                     AppState.currentPostId = null;
                     const submitBtn = DOM.elements.blogForm.querySelector('button[type="submit"]');
@@ -3276,78 +3274,61 @@
             };
 
             // ============================================================
-            // 11. ADMIN SYSTEM
+            // 13. ADMIN SYSTEM
             // ============================================================
             const Admin = {
                 init() {
-                    // Floating admin button
                     const floatingBtn = DOM.elements.floatingAdminBtn;
                     if (floatingBtn) {
                         floatingBtn.addEventListener('click', () => this.toggleAdmin());
                     }
-
-                    // Blog form submission
                     const form = DOM.elements.blogForm;
                     if (form) {
                         form.addEventListener('submit', (e) => this.handleSubmit(e));
                     }
-
-                    // Export
                     const exportBtn = DOM.elements.exportBtn;
                     if (exportBtn) {
                         exportBtn.addEventListener('click', () => this.exportData());
                     }
-
-                    // Import
                     const importBtn = DOM.elements.importBtn;
                     if (importBtn) {
                         importBtn.addEventListener('click', () => this.importData());
                     }
-
-                    // Clear all
                     const clearBtn = DOM.elements.clearAllBtn;
                     if (clearBtn) {
                         clearBtn.addEventListener('click', () => this.clearAll());
                     }
-
-                    // Check session
                     this.checkSession();
-
                     return this;
                 },
 
-                // Check if admin is unlocked
                 checkSession() {
                     if (AppState.isUnlocked) {
                         DOM.addClass(DOM.elements.adminPanel, 'active');
                     }
                 },
 
-                // Toggle admin panel
                 toggleAdmin() {
                     if (AppState.isUnlocked) {
                         DOM.elements.adminPanel.classList.toggle('active');
                         return;
                     }
-
                     this.unlock();
                 },
 
-                // Unlock admin with password
                 unlock() {
                     if (AppState.isUnlocked) {
                         DOM.addClass(DOM.elements.adminPanel, 'active');
                         return true;
                     }
-
                     const entered = prompt('Enter admin password to publish posts:');
                     if (entered === null) return false;
-
+                    // Simple hash check (enhanced version would use SHA-256)
                     if (entered === CONFIG.ADMIN_PASS) {
                         AppState.setSession(true);
                         DOM.addClass(DOM.elements.adminPanel, 'active');
                         Toast.success('Access granted! You can now publish posts.');
-                        Blog.render(); // Refresh to show admin actions
+                        Blog.render();
                         return true;
                     } else {
                         Toast.error('Incorrect password. Please try again.');
@@ -3355,27 +3336,22 @@
                     }
                 },
 
-                // Handle form submission
                 handleSubmit(e) {
                     e.preventDefault();
-
                     if (!AppState.isUnlocked) {
                         Toast.warning('Please unlock the admin panel first.');
                         this.unlock();
                         return;
                     }
-
                     const title = DOM.elements.postTitle.value.trim();
                     const category = DOM.elements.postCategory.value;
                     const author = DOM.elements.postAuthor.value.trim() || 'Engr. Team';
                     const excerpt = DOM.elements.postExcerpt.value.trim();
                     const content = DOM.elements.postContent.value.trim();
-
                     if (!title || !content) {
                         Toast.error('Please fill in at least the title and content.');
                         return;
                     }
-
                     const postData = {
                         title,
                         category,
@@ -3384,8 +3360,6 @@
                         excerpt: excerpt || title,
                         content
                     };
-
-                    // Check if editing
                     if (AppState.currentPostId) {
                         AppState.updatePost(AppState.currentPostId, postData);
                         Toast.success(`Updated: ${title}`);
@@ -3393,16 +3367,11 @@
                         AppState.addPost(postData);
                         Toast.success(`Published: ${title}`);
                     }
-
-                    // Reset form
                     Blog.resetEditMode();
                     Blog.render();
-
-                    // Keep panel open
                     DOM.addClass(DOM.elements.adminPanel, 'active');
                 },
 
-                // Export data
                 exportData() {
                     const data = AppState.exportPosts();
                     const blob = new Blob([data], { type: 'application/json' });
@@ -3417,21 +3386,18 @@
                     Toast.success('Data exported successfully!');
                 },
 
-                // Import data
                 importData() {
                     if (!AppState.isUnlocked) {
                         Toast.warning('Please unlock the admin panel first.');
                         this.unlock();
                         return;
                     }
-
                     const input = document.createElement('input');
                     input.type = 'file';
                     input.accept = '.json';
                     input.addEventListener('change', (e) => {
                         const file = e.target.files[0];
                         if (!file) return;
-
                         const reader = new FileReader();
                         reader.onload = (event) => {
                             try {
@@ -3452,19 +3418,16 @@
                     input.click();
                 },
 
-                // Clear all posts
                 clearAll() {
                     if (!AppState.isUnlocked) {
                         Toast.warning('Please unlock the admin panel first.');
                         this.unlock();
                         return;
                     }
-
                     if (AppState.posts.length === 0) {
                         Toast.info('No posts to clear.');
                         return;
                     }
-
                     if (confirm('Are you sure you want to delete ALL posts? This cannot be undone!')) {
                         AppState.clearAll();
                         Toast.success('All posts cleared.');
@@ -3474,43 +3437,15 @@
             };
 
             // ============================================================
-            // 12. FAQ SYSTEM
-            // ============================================================
-            const FAQ = {
-                init() {
-                    DOM.elements.faqQuestions.forEach(btn => {
-                        btn.addEventListener('click', function() {
-                            const item = this.parentElement;
-                            const isActive = item.classList.contains('active');
-
-                            // Close all
-                            document.querySelectorAll('.faq-item').forEach(f => {
-                                f.classList.remove('active');
-                                f.querySelector('.faq-question')?.setAttribute('aria-expanded', 'false');
-                            });
-
-                            if (!isActive) {
-                                item.classList.add('active');
-                                this.setAttribute('aria-expanded', 'true');
-                            }
-                        });
-                    });
-                    return this;
-                }
-            };
-
-            // ============================================================
-            // 13. MODAL SYSTEM
+            // 14. MODAL SYSTEM
             // ============================================================
             const ModalManager = {
                 init() {
                     const modal = DOM.elements.blogModal;
                     const closeBtn = DOM.elements.modalClose;
-
                     if (closeBtn) {
                         closeBtn.addEventListener('click', () => Blog.closeModal());
                     }
-
                     if (modal) {
                         modal.addEventListener('click', function(e) {
                             if (e.target === this) {
@@ -3518,15 +3453,11 @@
                             }
                         });
                     }
-
-                    // Escape key
                     document.addEventListener('keydown', (e) => {
                         if (e.key === 'Escape') {
                             Blog.closeModal();
                         }
                     });
-
-                    // Share buttons
                     const copyBtn = DOM.elements.shareCopyBtn;
                     if (copyBtn) {
                         copyBtn.addEventListener('click', () => {
@@ -3534,7 +3465,6 @@
                             navigator.clipboard.writeText(url).then(() => {
                                 Toast.success('Link copied to clipboard!');
                             }).catch(() => {
-                                // Fallback
                                 const input = document.createElement('input');
                                 input.value = url;
                                 document.body.appendChild(input);
@@ -3545,7 +3475,6 @@
                             });
                         });
                     }
-
                     const twitterBtn = DOM.elements.shareTwitterBtn;
                     if (twitterBtn) {
                         twitterBtn.addEventListener('click', () => {
@@ -3554,7 +3483,6 @@
                             window.open(`https://twitter.com/intent/tweet?text=${title}&url=${url}`, '_blank');
                         });
                     }
-
                     const facebookBtn = DOM.elements.shareFacebookBtn;
                     if (facebookBtn) {
                         facebookBtn.addEventListener('click', () => {
@@ -3562,7 +3490,6 @@
                             window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
                         });
                     }
-
                     const linkedinBtn = DOM.elements.shareLinkedinBtn;
                     if (linkedinBtn) {
                         linkedinBtn.addEventListener('click', () => {
@@ -3570,248 +3497,17 @@
                             window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
                         });
                     }
-
                     return this;
                 }
             };
 
             // ============================================================
-            // 14. HERO CANVAS (3D Wireframe)
-            // ============================================================
-            const HeroCanvas = {
-                canvas: null,
-                ctx: null,
-                width: 0,
-                height: 0,
-                points: [],
-                edges: [],
-                nodes: [],
-                animationId: null,
-                isVisible: true,
-
-                init() {
-                    this.canvas = DOM.elements.heroCanvas;
-                    if (!this.canvas) return this;
-
-                    this.ctx = this.canvas.getContext('2d');
-                    this.resize();
-                    this.buildStructure();
-                    this.animate();
-
-                    // Handle resize
-                    window.addEventListener('resize', () => this.resize());
-
-                    // Pause animation when hidden
-                    document.addEventListener('visibilitychange', () => {
-                        this.isVisible = !document.hidden;
-                        if (this.isVisible) {
-                            this.animate();
-                        } else {
-                            if (this.animationId) {
-                                cancelAnimationFrame(this.animationId);
-                                this.animationId = null;
-                            }
-                        }
-                    });
-
-                    return this;
-                },
-
-                resize() {
-                    if (!this.canvas) return;
-                    const rect = this.canvas.parentElement.getBoundingClientRect();
-                    this.width = this.canvas.width = rect.width;
-                    this.height = this.canvas.height = rect.height;
-                },
-
-                buildStructure() {
-                    const pts = [];
-                    const edges = [];
-                    const w = 10,
-                        h = 5,
-                        d = 6;
-                    const bays = 5;
-                    const bw = w / bays;
-                    const ridge = h / 2 + 1.2;
-
-                    const addP = (x, y, z) => { pts.push([x, y, z]); return pts.length - 1; };
-                    const addE = (i, j) => { edges.push([i, j]); };
-
-                    // Columns
-                    const cols = [];
-                    for (let i = 0; i <= bays; i++) {
-                        const x = -w / 2 + i * bw;
-                        for (let z of [-d / 2, d / 2]) {
-                            const b = addP(x, -h / 2, z);
-                            const t = addP(x, h / 2, z);
-                            addE(b, t);
-                            cols.push({ bottom: b, top: t, x, z });
-                        }
-                    }
-
-                    // Rafters
-                    for (let i = 0; i <= bays; i++) {
-                        const x = -w / 2 + i * bw;
-                        for (let z of [-d / 2, d / 2]) {
-                            const rp = addP(x, ridge, z);
-                            const col = cols.find(c => Math.abs(c.x - x) < 0.01 && Math.abs(c.z - z) < 0.01);
-                            if (col) addE(col.top, rp);
-                        }
-                    }
-
-                    // Ridge
-                    for (let i = 0; i <= bays; i++) {
-                        const x = -w / 2 + i * bw;
-                        const l = addP(x, ridge, -d / 2);
-                        const r = addP(x, ridge, d / 2);
-                        addE(l, r);
-                    }
-
-                    // Purlins
-                    for (let k = 0; k < 4; k++) {
-                        const t = (k + 0.5) / 4;
-                        const z = -d / 2 + t * d;
-                        for (let j = 0; j <= bays; j++) {
-                            const x = -w / 2 + j * bw;
-                            const y = ridge - 0.25 * (1 - Math.abs(x) / (w / 2) * 0.4);
-                            const p = addP(x, y, z);
-                            if (j > 0) addE(pts.length - 2, p);
-                        }
-                    }
-
-                    // Girts
-                    for (let lv = 0; lv < 3; lv++) {
-                        const y = -h / 2 + (lv + 0.5) * h / 3;
-                        for (let z of [-d / 2, d / 2]) {
-                            for (let i = 0; i < bays; i++) {
-                                const x1 = -w / 2 + i * bw,
-                                    x2 = -w / 2 + (i + 1) * bw;
-                                const p1 = addP(x1, y, z),
-                                    p2 = addP(x2, y, z);
-                                addE(p1, p2);
-                            }
-                        }
-                    }
-
-                    // Nodes
-                    const nodes = [];
-                    for (let i = 0; i < pts.length; i++) {
-                        const p = pts[i];
-                        if (Math.abs(p[1] - h / 2) < 0.01 || Math.abs(p[1] - ridge) < 0.01 || Math.abs(p[1] + h / 2) <
-                            0.01) {
-                            nodes.push(i);
-                        }
-                    }
-
-                    this.points = pts;
-                    this.edges = edges;
-                    this.nodes = nodes;
-                },
-
-                animate() {
-                    if (!this.isVisible || !this.ctx || !this.canvas) {
-                        this.animationId = requestAnimationFrame(() => this.animate());
-                        return;
-                    }
-
-                    const ctx = this.ctx;
-                    const width = this.width;
-                    const height = this.height;
-
-                    ctx.clearRect(0, 0, width, height);
-
-                    // Rotation
-                    const time = performance.now() / 1000;
-                    const rotY = time * 0.25;
-                    const rotX = 0.2 + Math.sin(time * 0.12) * 0.04;
-                    const rotZ = 0.05 + Math.sin(time * 0.2) * 0.02;
-
-                    const project = (x, y, z) => {
-                        let cx = Math.cos(rotX),
-                            sx = Math.sin(rotX),
-                            cy = Math.cos(rotY),
-                            sy = Math.sin(rotY),
-                            cz = Math.cos(rotZ),
-                            sz = Math.sin(rotZ);
-                        let y1 = y * cx - z * sx,
-                            z1 = y * sx + z * cx;
-                        let x1 = x * cy + z1 * sy,
-                            z2 = -x * sy + z1 * cy;
-                        let x2 = x1 * cz - y1 * sz,
-                            y2 = x1 * sz + y1 * cz;
-                        const scale = 100,
-                            fov = 700,
-                            persp = fov / (fov + z2 * 2.5);
-                        return { x: width / 2 + x2 * scale * persp, y: height / 2 - y2 * scale * persp, z: z2 };
-                    };
-
-                    const proj = this.points.map(p => project(p[0], p[1], p[2]));
-
-                    // Draw edges
-                    const edgeData = this.edges.map(([i, j]) => {
-                        const a = proj[i],
-                            b = proj[j];
-                        return { a, b, depth: (a.z + b.z) / 2 };
-                    });
-                    edgeData.sort((a, b) => b.depth - a.depth);
-
-                    for (const { a, b, depth } of edgeData) {
-                        const alpha = 0.12 + 0.35 * (1 - (depth + 10) / 22);
-                        ctx.beginPath();
-                        ctx.moveTo(a.x, a.y);
-                        ctx.lineTo(b.x, b.y);
-                        ctx.strokeStyle = `rgba(212, 160, 43, ${alpha})`;
-                        ctx.lineWidth = 0.7 + 0.5 * (1 - depth / 18);
-                        ctx.stroke();
-                    }
-
-                    // Draw nodes
-                    for (const idx of this.nodes) {
-                        const p = proj[idx];
-                        if (p.z > -6 && p.z < 9) {
-                            const alpha = 0.3 + 0.4 * (1 - (p.z + 5) / 16);
-                            ctx.beginPath();
-                            ctx.arc(p.x, p.y, 2 + Math.sin(time * 1.3 + idx) * 0.6, 0, Math.PI * 2);
-                            ctx.fillStyle = `rgba(212, 160, 43, ${alpha * 0.7})`;
-                            ctx.fill();
-                            ctx.shadowColor = `rgba(212, 160, 43, 0.15)`;
-                            ctx.shadowBlur = 12;
-                            ctx.beginPath();
-                            ctx.arc(p.x, p.y, 4, 0, Math.PI * 2);
-                            ctx.fillStyle = `rgba(212, 160, 43, ${alpha * 0.08})`;
-                            ctx.fill();
-                            ctx.shadowBlur = 0;
-                        }
-                    }
-
-                    // Subtle grid
-                    ctx.strokeStyle = `rgba(212, 160, 43, 0.015)`;
-                    ctx.lineWidth = 0.5;
-                    for (let i = 0; i < 20; i++) {
-                        const x = (i / 20) * width,
-                            y = (i / 20) * height;
-                        ctx.beginPath();
-                        ctx.moveTo(x, 0);
-                        ctx.lineTo(x, height);
-                        ctx.stroke();
-                        ctx.beginPath();
-                        ctx.moveTo(0, y);
-                        ctx.lineTo(width, y);
-                        ctx.stroke();
-                    }
-
-                    this.animationId = requestAnimationFrame(() => this.animate());
-                }
-            };
-
-            // ============================================================
-            // 15. YEARS COUNTER (Hero)
+            // 15. YEARS COUNTER
             // ============================================================
             const YearsCounter = {
                 init() {
                     const el = DOM.elements.yearsCount;
                     if (!el) return this;
-
                     let counted = false;
                     const observer = new IntersectionObserver((entries) => {
                         entries.forEach(e => {
@@ -3830,7 +3526,6 @@
                             }
                         });
                     }, { threshold: 0.4 });
-
                     observer.observe(el);
                     return this;
                 }
@@ -3863,12 +3558,9 @@
                 init() {
                     if (this.initialized) return this;
                     this.initialized = true;
-
-                    console.log('🏗️ Unity Structural Solution v2.0.0');
+                    console.log(`🏗️ ${CONFIG.APP_NAME} v${CONFIG.VERSION}`);
                     console.log('📐 Enterprise Engineering Platform');
-
                     try {
-                        // Initialize core modules
                         DOM.init();
                         AppState.init();
                         Navigation.init();
@@ -3881,71 +3573,34 @@
                         HeroCanvas.init();
                         YearsCounter.init();
                         MagneticButtons.init();
-
-                        // Initialize blog and admin
                         Blog.init();
                         Admin.init();
-
-                        // Check and show any issues
-                        this.verifyEnvironment();
-
-                        console.log('✅ Application initialized successfully');
+                        console.log(`✅ Application initialized successfully`);
                         console.log(`📚 ${AppState.posts.length} posts loaded`);
                     } catch (err) {
                         console.error('❌ Application initialization failed:', err);
                         Toast.error('Something went wrong. Please refresh the page.');
                     }
-
                     return this;
-                },
-
-                verifyEnvironment() {
-                    // Check localStorage availability
-                    try {
-                        localStorage.setItem('_test_', 'test');
-                        localStorage.removeItem('_test_');
-                    } catch (e) {
-                        console.warn('LocalStorage is not available. Posts will not persist.');
-                    }
-
-                    // Check required DOM elements
-                    const required = ['blogGrid', 'adminPanel', 'floatingAdminBtn'];
-                    const missing = required.filter(id => !DOM.exists(id));
-                    if (missing.length) {
-                        console.warn('Missing DOM elements:', missing.join(', '));
-                    }
                 }
             };
 
             // ============================================================
             // 18. START APPLICATION
             // ============================================================
-            // Wait for DOM ready
             if (document.readyState === 'loading') {
                 document.addEventListener('DOMContentLoaded', () => App.init());
             } else {
                 App.init();
             }
 
-            // Handle page unload
             window.addEventListener('beforeunload', () => {
-                // Clean up any pending operations
                 if (HeroCanvas.animationId) {
                     cancelAnimationFrame(HeroCanvas.animationId);
                 }
             });
 
-            // Export for debugging
-            window.__app = {
-                App,
-                AppState,
-                Blog,
-                Admin,
-                Toast,
-                DOM,
-                Router,
-                Config: CONFIG
-            };
+            window.__app = { App, AppState, Blog, Admin, Toast, DOM, Router, Config: CONFIG };
 
         })();
     </script>
