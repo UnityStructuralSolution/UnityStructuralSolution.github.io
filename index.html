@@ -2346,15 +2346,14 @@
     <a href="https://wa.me/8801602105447?text=Hi%2C%20I%20want%20to%20know%20about%20your%20services" target="_blank" rel="noopener noreferrer" class="floating-badge whatsapp" aria-label="Contact us on WhatsApp">
         <i class="fab fa-whatsapp" aria-hidden="true"></i>
     </a>
-
     <!-- ============================================================
-    COMPLETE JAVASCRIPT
+    COMPLETE JAVASCRIPT (FIXED)
     ============================================================ -->
     <script>
         /**
          * Unity Structural Solution - Complete Production Application
-         * Version: 3.0.0
-         * All functionality in a single optimized script
+         * Version: 3.0.1
+         * Fixed: validatePost this binding issue
          */
         (function() {
             'use strict';
@@ -2367,7 +2366,7 @@
                 STORAGE_KEY: 'unityBlogPosts',
                 SESSION_KEY: 'adminUnlocked',
                 APP_NAME: 'Unity Structural Solution',
-                VERSION: '3.0.0',
+                VERSION: '3.0.1',
                 DEFAULT_POSTS: [{
                     id: Date.now() + 1,
                     title: 'Introduction to PEB: Pre-Engineered Buildings Explained',
@@ -2412,7 +2411,7 @@
             };
 
             // ============================================================
-            // 2. STATE MANAGEMENT
+            // 2. STATE MANAGEMENT (FIXED - sanitize methods defined first)
             // ============================================================
             const AppState = {
                 posts: [],
@@ -2421,43 +2420,7 @@
                 currentPostId: null,
                 isDraft: false,
 
-                init() {
-                    this.loadPosts();
-                    this.checkSession();
-                    return this;
-                },
-
-                loadPosts() {
-                    try {
-                        const stored = localStorage.getItem(CONFIG.STORAGE_KEY);
-                        if (stored) {
-                            const parsed = JSON.parse(stored);
-                            if (Array.isArray(parsed) && parsed.length > 0) {
-                                this.posts = parsed.map(this.validatePost);
-                                return;
-                            }
-                        }
-                        this.posts = CONFIG.DEFAULT_POSTS.map(this.validatePost);
-                        this.savePosts();
-                    } catch (e) {
-                        console.warn('Failed to load posts, using defaults:', e);
-                        this.posts = CONFIG.DEFAULT_POSTS.map(this.validatePost);
-                        this.savePosts();
-                    }
-                },
-
-                validatePost(post) {
-                    return {
-                        id: post.id || Date.now() + Math.random(),
-                        title: this.sanitizeHTML(post.title || 'Untitled'),
-                        category: post.category || 'Tutorial',
-                        author: this.sanitizeHTML(post.author || 'Engr. Team'),
-                        date: post.date || new Date().toISOString().split('T')[0],
-                        excerpt: this.sanitizeHTML(post.excerpt || post.title || ''),
-                        content: this.sanitizeContent(post.content || '<p>No content available.</p>')
-                    };
-                },
-
+                // --- Helper methods (defined BEFORE they are used) ---
                 sanitizeHTML(text) {
                     if (!text) return '';
                     const temp = document.createElement('div');
@@ -2485,6 +2448,44 @@
                     return element.innerHTML;
                 },
 
+                validatePost(post) {
+                    // Use AppState directly to access sanitize methods
+                    return {
+                        id: post.id || Date.now() + Math.random(),
+                        title: AppState.sanitizeHTML(post.title || 'Untitled'),
+                        category: post.category || 'Tutorial',
+                        author: AppState.sanitizeHTML(post.author || 'Engr. Team'),
+                        date: post.date || new Date().toISOString().split('T')[0],
+                        excerpt: AppState.sanitizeHTML(post.excerpt || post.title || ''),
+                        content: AppState.sanitizeContent(post.content || '<p>No content available.</p>')
+                    };
+                },
+
+                init() {
+                    this.loadPosts();
+                    this.checkSession();
+                    return this;
+                },
+
+                loadPosts() {
+                    try {
+                        const stored = localStorage.getItem(CONFIG.STORAGE_KEY);
+                        if (stored) {
+                            const parsed = JSON.parse(stored);
+                            if (Array.isArray(parsed) && parsed.length > 0) {
+                                this.posts = parsed.map(post => AppState.validatePost(post));
+                                return;
+                            }
+                        }
+                        this.posts = CONFIG.DEFAULT_POSTS.map(post => AppState.validatePost(post));
+                        this.savePosts();
+                    } catch (e) {
+                        console.warn('Failed to load posts, using defaults:', e);
+                        this.posts = CONFIG.DEFAULT_POSTS.map(post => AppState.validatePost(post));
+                        this.savePosts();
+                    }
+                },
+
                 savePosts() {
                     try {
                         localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(this.posts));
@@ -2508,7 +2509,7 @@
                 },
 
                 addPost(post) {
-                    const validated = this.validatePost(post);
+                    const validated = AppState.validatePost(post);
                     this.posts.unshift(validated);
                     this.savePosts();
                     return validated;
@@ -2518,7 +2519,7 @@
                     const index = this.posts.findIndex(p => p.id === id);
                     if (index === -1) return null;
                     const updated = { ...this.posts[index], ...updates };
-                    this.posts[index] = this.validatePost(updated);
+                    this.posts[index] = AppState.validatePost(updated);
                     this.savePosts();
                     return this.posts[index];
                 },
@@ -2561,7 +2562,7 @@
                     try {
                         const data = JSON.parse(json);
                         if (Array.isArray(data)) {
-                            this.posts = data.map(this.validatePost);
+                            this.posts = data.map(post => AppState.validatePost(post));
                             this.savePosts();
                             return true;
                         }
@@ -3323,7 +3324,6 @@
                     }
                     const entered = prompt('Enter admin password to publish posts:');
                     if (entered === null) return false;
-                    // Simple hash check (enhanced version would use SHA-256)
                     if (entered === CONFIG.ADMIN_PASS) {
                         AppState.setSession(true);
                         DOM.addClass(DOM.elements.adminPanel, 'active');
@@ -3604,6 +3604,3 @@
 
         })();
     </script>
-
-</body>
-</html>
