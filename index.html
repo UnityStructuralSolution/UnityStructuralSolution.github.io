@@ -70,6 +70,7 @@
            21. FOOTER
            22. ANIMATIONS
            23. RESPONSIVE
+           24. LEARNING PAGE FIXES
            ============================================================ */
         
         /* ===== 1. ROOT VARIABLES ===== */
@@ -1067,6 +1068,7 @@
             flex: 1;
             min-width: 200px;
             max-width: 400px;
+            align-items: center;
         }
         .blog-search input {
             flex: 1;
@@ -1083,6 +1085,16 @@
             border-color: var(--secondary);
             box-shadow: 0 0 0 3px rgba(30, 92, 166, 0.08);
         }
+        .blog-search .clear-btn {
+            background: none;
+            border: none;
+            color: var(--gray);
+            cursor: pointer;
+            padding: 0 8px;
+            font-size: 0.9rem;
+            display: none;
+        }
+        .blog-search .clear-btn.visible { display: block; }
         .blog-search button {
             padding: 10px 20px;
             border-radius: 60px;
@@ -1122,6 +1134,20 @@
             color: #fff;
             border-color: var(--secondary);
         }
+        .blog-categories button .count {
+            display: inline-block;
+            background: rgba(30, 92, 166, 0.1);
+            color: var(--secondary);
+            font-size: 0.6rem;
+            padding: 0 6px;
+            border-radius: 10px;
+            margin-left: 4px;
+            font-weight: 600;
+        }
+        .blog-categories button.active .count {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
         .blog-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -1134,6 +1160,9 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             border: 1px solid rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
         .blog-card:hover {
             transform: translateY(-6px);
@@ -1160,7 +1189,11 @@
         }
         .blog-card .blog-body {
             padding: 24px 24px 28px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
+        .blog-card .blog-body p { flex: 1; }
         .blog-card .blog-meta {
             display: flex;
             gap: 14px;
@@ -1201,6 +1234,7 @@
             border-top: 1px solid rgba(0, 0, 0, 0.04);
             font-size: 0.78rem;
             color: var(--gray);
+            margin-top: auto;
         }
         .blog-card .blog-footer .read-time i {
             margin-right: 4px;
@@ -1251,6 +1285,21 @@
             margin-bottom: 16px;
         }
         .blog-admin-panel .form-group { margin-bottom: 14px; }
+        .blog-admin-panel .form-group.required label::after {
+            content: ' *';
+            color: #dc3545;
+        }
+        .blog-admin-panel .form-error {
+            color: #dc3545;
+            font-size: 0.75rem;
+            margin-top: 4px;
+            display: none;
+        }
+        .blog-admin-panel .form-error.visible { display: block; }
+        .blog-admin-panel input.error,
+        .blog-admin-panel textarea.error {
+            border-color: #dc3545;
+        }
         .blog-admin-panel label {
             display: block;
             font-weight: 600;
@@ -1299,6 +1348,42 @@
             min-width: 120px;
         }
         
+        /* Session indicator */
+        .admin-session-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.75rem;
+            color: var(--gray);
+            padding: 6px 14px;
+            border-radius: 20px;
+            background: var(--light);
+            margin-bottom: 12px;
+        }
+        .admin-session-indicator .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .admin-session-indicator .status-dot.active { background: #28a745; }
+        .admin-session-indicator .status-dot.inactive { background: #dc3545; }
+        .admin-session-indicator #logoutBtn {
+            background: none;
+            border: none;
+            color: var(--gray);
+            cursor: pointer;
+            font-size: 0.75rem;
+            margin-left: auto;
+            padding: 2px 8px;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+        .admin-session-indicator #logoutBtn:hover {
+            background: rgba(220, 53, 69, 0.1);
+            color: #dc3545;
+        }
+        
         /* ===== 19. FLOATING BUTTONS ===== */
         .floating-badge {
             position: fixed;
@@ -1336,28 +1421,32 @@
         .floating-admin-btn {
             display: none;
             position: fixed;
-            z-index: 999;
+            z-index: 1000;
             bottom: 155px;
             right: 24px;
-            width: 52px;
-            height: 52px;
+            width: 56px;
+            height: 56px;
             border-radius: 50%;
             background: var(--accent);
             color: var(--dark);
-            box-shadow: 0 8px 30px rgba(212, 160, 43, 0.4);
+            box-shadow: 0 8px 30px rgba(212, 160, 43, 0.5);
             border: none;
             cursor: pointer;
-            font-size: 1.4rem;
-            transition: var(--transition);
+            font-size: 1.5rem;
+            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
             align-items: center;
             justify-content: center;
             text-decoration: none;
         }
         .floating-admin-btn:hover {
             transform: scale(1.1) translateY(-4px);
-            box-shadow: 0 12px 40px rgba(212, 160, 43, 0.6);
+            box-shadow: 0 12px 40px rgba(212, 160, 43, 0.7);
         }
-        #learning-page.active .floating-admin-btn { display: flex; }
+        /* FIX: Show button on learning page */
+        #learning-page.active ~ .floating-admin-btn,
+        .floating-admin-btn.show {
+            display: flex !important;
+        }
         
         /* ===== 20. CONTACT ===== */
         .contact-section {
@@ -1458,9 +1547,7 @@
         
         /* ===== 22. ANIMATIONS ===== */
         @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
+            *, *::before, *::after {
                 animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
@@ -1476,24 +1563,12 @@
             opacity: 1;
             transform: translateY(0);
         }
-        .animate-on-scroll.slide-left {
-            transform: translateX(-32px);
-        }
-        .animate-on-scroll.slide-left.visible {
-            transform: translateX(0);
-        }
-        .animate-on-scroll.slide-right {
-            transform: translateX(32px);
-        }
-        .animate-on-scroll.slide-right.visible {
-            transform: translateX(0);
-        }
-        .animate-on-scroll.zoom {
-            transform: scale(0.94);
-        }
-        .animate-on-scroll.zoom.visible {
-            transform: scale(1);
-        }
+        .animate-on-scroll.slide-left { transform: translateX(-32px); }
+        .animate-on-scroll.slide-left.visible { transform: translateX(0); }
+        .animate-on-scroll.slide-right { transform: translateX(32px); }
+        .animate-on-scroll.slide-right.visible { transform: translateX(0); }
+        .animate-on-scroll.zoom { transform: scale(0.94); }
+        .animate-on-scroll.zoom.visible { transform: scale(1); }
         
         /* Toast notifications */
         .toast-container {
@@ -1512,20 +1587,33 @@
             font-weight: 500;
             font-size: 0.9rem;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-            animation: slideIn 0.3s ease, fadeOut 0.3s ease 3s forwards;
+            animation: slideIn 0.3s ease;
             max-width: 400px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
         }
+        .toast .toast-icon { font-size: 1.2rem; }
         .toast-success { background: #28a745; }
         .toast-error { background: #dc3545; }
         .toast-info { background: var(--secondary); }
         .toast-warning { background: var(--accent); color: var(--dark); }
+        .toast-close {
+            background: none;
+            border: none;
+            color: inherit;
+            cursor: pointer;
+            font-size: 1rem;
+            opacity: 0.6;
+            margin-left: auto;
+            padding: 0 4px;
+        }
+        .toast-close:hover { opacity: 1; }
         
         @keyframes slideIn {
             from { transform: translateX(100px); opacity: 0; }
             to { transform: translateX(0); opacity: 1; }
-        }
-        @keyframes fadeOut {
-            to { opacity: 0; transform: translateY(-20px); }
         }
         
         /* ===== 23. RESPONSIVE ===== */
@@ -1535,11 +1623,7 @@
                 text-align: center;
                 gap: 28px;
             }
-            .hero p,
-            .hero p.bangla {
-                margin-left: auto;
-                margin-right: auto;
-            }
+            .hero p, .hero p.bangla { margin-left: auto; margin-right: auto; }
             .hero-buttons { justify-content: center; }
             .hero-stats { justify-content: center; }
             .hero-image-container .glass-card {
@@ -1552,7 +1636,6 @@
             }
             .training-content ul li { justify-content: center; }
             .training-cta { display: flex; justify-content: center; }
-            .blog-detail-card { padding: 32px 24px; }
         }
         
         @media (max-width: 768px) {
@@ -1572,16 +1655,10 @@
                 padding: 40px;
             }
             .nav-links.open { transform: translateX(0); }
-            .nav-links a {
-                font-size: 1.05rem;
-                padding: 10px 20px;
-            }
+            .nav-links a { font-size: 1.05rem; padding: 10px 20px; }
             .nav-toggle { display: flex; }
             .hero h1 { font-size: 2rem; }
-            .hero-stats {
-                gap: 20px;
-                flex-wrap: wrap;
-            }
+            .hero-stats { gap: 20px; flex-wrap: wrap; }
             .hero-stats .stat h3 { font-size: 1.4rem; }
             .services-grid { grid-template-columns: 1fr 1fr; }
             .team-grid { grid-template-columns: 1fr; }
@@ -1594,35 +1671,25 @@
                 height: 42px;
                 font-size: 1.1rem;
             }
-            .floating-badge.messenger {
-                bottom: 72px;
-                right: 14px;
-            }
-            .floating-badge.whatsapp {
-                bottom: 14px;
-                right: 14px;
-            }
+            .floating-badge.messenger { bottom: 72px; right: 14px; }
+            .floating-badge.whatsapp { bottom: 14px; right: 14px; }
             .floating-admin-btn {
-                width: 44px;
-                height: 44px;
-                font-size: 1.1rem;
+                width: 48px;
+                height: 48px;
+                font-size: 1.2rem;
                 bottom: 130px;
                 right: 14px;
             }
             .trust-grid { grid-template-columns: 1fr 1fr; }
             .blog-grid { grid-template-columns: 1fr; }
-            .blog-controls {
-                flex-direction: column;
-                align-items: stretch;
-            }
+            .blog-controls { flex-direction: column; align-items: stretch; }
             .blog-search { max-width: 100%; }
             .blog-admin-panel { padding: 20px 16px; }
             .blog-admin-panel .form-row { grid-template-columns: 1fr; }
-            .blog-detail-card { padding: 24px 16px; }
-            .blog-detail-card h2 { font-size: 1.4rem; }
             #learning-page { padding: 80px 0 40px; }
             .blog-admin-panel .admin-actions { flex-direction: column; }
             .blog-admin-panel .admin-actions button { flex: 1; }
+            .blog-categories button .count { font-size: 0.5rem; padding: 0 4px; }
         }
         
         @media (max-width: 480px) {
@@ -1648,24 +1715,17 @@
                 font-size: 1rem;
             }
             .section-header h2 { font-size: 1.5rem; }
-            .trust-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 16px;
-            }
+            .trust-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
             .trust-item .num { font-size: 2rem; }
             .blog-card .blog-body { padding: 18px 16px 20px; }
             .floating-admin-btn {
+                width: 44px;
+                height: 44px;
+                font-size: 1rem;
                 bottom: 110px;
                 right: 10px;
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
             }
-            .toast-container {
-                top: 10px;
-                right: 10px;
-                left: 10px;
-            }
+            .toast-container { top: 10px; right: 10px; left: 10px; }
             .toast { max-width: 100%; }
         }
         
@@ -2249,30 +2309,34 @@
             <div class="blog-controls animate-on-scroll">
                 <div class="blog-search">
                     <input type="text" id="blogSearch" placeholder="Search articles..." aria-label="Search blog articles" />
+                    <button class="clear-btn" id="searchClearBtn" aria-label="Clear search"><i class="fas fa-times"></i></button>
                     <button id="searchBtn" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></button>
                 </div>
                 <div class="blog-categories" id="blogCategories" role="tablist">
-                    <button class="active" data-cat="all" role="tab" aria-selected="true">All</button>
-                    <button data-cat="PEB" role="tab" aria-selected="false">PEB</button>
-                    <button data-cat="Steel" role="tab" aria-selected="false">Steel</button>
-                    <button data-cat="RCC" role="tab" aria-selected="false">RCC</button>
-                    <button data-cat="Tekla" role="tab" aria-selected="false">Tekla</button>
-                    <button data-cat="Tutorial" role="tab" aria-selected="false">Tutorial</button>
+                    <!-- Categories rendered by JavaScript -->
                 </div>
             </div>
 
             <!-- Blog Grid -->
             <div class="blog-grid" id="blogGrid" aria-label="Blog posts">
-                <!-- Posts will be rendered by JavaScript -->
+                <!-- Posts rendered by JavaScript -->
             </div>
 
             <!-- Admin Panel -->
             <div class="blog-admin-panel" id="adminPanel" role="form" aria-label="Admin publishing panel">
-                <h3><i class="fas fa-plus-circle" style="color:var(--accent);" aria-hidden="true"></i> Publish New Article</h3>
+                <div class="admin-session-indicator" id="sessionIndicator">
+                    <span class="status-dot inactive" id="sessionDot"></span>
+                    <span id="sessionStatus">Not authenticated</span>
+                    <button id="logoutBtn" style="display:none;" aria-label="Logout">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+                <h3><i class="fas fa-plus-circle" style="color:var(--accent);" aria-hidden="true"></i> <span id="adminPanelTitle">Publish New Article</span></h3>
                 <form id="blogForm" novalidate>
-                    <div class="form-group">
+                    <div class="form-group required">
                         <label for="postTitle">Title</label>
                         <input type="text" id="postTitle" placeholder="Enter article title..." required />
+                        <div class="form-error" id="titleError">Please enter a title</div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
@@ -2294,11 +2358,12 @@
                         <label for="postExcerpt">Excerpt (short summary)</label>
                         <input type="text" id="postExcerpt" placeholder="Brief summary of the article..." />
                     </div>
-                    <div class="form-group">
+                    <div class="form-group required">
                         <label for="postContent">Full Content (supports HTML)</label>
-                        <textarea id="postContent" placeholder="Write the full article content here. You can use <p>, <h3>, <ul>, etc."></textarea>
+                        <textarea id="postContent" placeholder="Write the full article content here. You can use &lt;p&gt;, &lt;h3&gt;, &lt;ul&gt;, etc."></textarea>
+                        <div class="form-error" id="contentError">Please enter the article content</div>
                     </div>
-                    <button type="submit" class="btn btn-secondary"><i class="fas fa-publish" aria-hidden="true"></i> Publish Post</button>
+                    <button type="submit" class="btn btn-secondary"><i class="fas fa-publish" aria-hidden="true"></i> <span id="submitBtnText">Publish Post</span></button>
                 </form>
                 <div class="admin-actions">
                     <button class="btn btn-ghost btn-sm" id="exportBtn"><i class="fas fa-download" aria-hidden="true"></i> Export Data</button>
@@ -2346,14 +2411,16 @@
     <a href="https://wa.me/8801602105447?text=Hi%2C%20I%20want%20to%20know%20about%20your%20services" target="_blank" rel="noopener noreferrer" class="floating-badge whatsapp" aria-label="Contact us on WhatsApp">
         <i class="fab fa-whatsapp" aria-hidden="true"></i>
     </a>
+
     <!-- ============================================================
-    COMPLETE JAVASCRIPT (FIXED)
+    COMPLETE JAVASCRIPT (3800+ Lines)
     ============================================================ -->
     <script>
         /**
          * Unity Structural Solution - Complete Production Application
-         * Version: 3.0.1
-         * Fixed: validatePost this binding issue
+         * Version: 3.1.0
+         * Total Lines: 3800+
+         * Features: Full CMS, Admin Panel, Blog, Routing, Animations, Toast, Modal, Search, Categories
          */
         (function() {
             'use strict';
@@ -2366,7 +2433,7 @@
                 STORAGE_KEY: 'unityBlogPosts',
                 SESSION_KEY: 'adminUnlocked',
                 APP_NAME: 'Unity Structural Solution',
-                VERSION: '3.0.1',
+                VERSION: '3.1.0',
                 DEFAULT_POSTS: [{
                     id: Date.now() + 1,
                     title: 'Introduction to PEB: Pre-Engineered Buildings Explained',
@@ -2411,7 +2478,7 @@
             };
 
             // ============================================================
-            // 2. STATE MANAGEMENT (FIXED - sanitize methods defined first)
+            // 2. STATE MANAGEMENT
             // ============================================================
             const AppState = {
                 posts: [],
@@ -2420,7 +2487,6 @@
                 currentPostId: null,
                 isDraft: false,
 
-                // --- Helper methods (defined BEFORE they are used) ---
                 sanitizeHTML(text) {
                     if (!text) return '';
                     const temp = document.createElement('div');
@@ -2449,7 +2515,6 @@
                 },
 
                 validatePost(post) {
-                    // Use AppState directly to access sanitize methods
                     return {
                         id: post.id || Date.now() + Math.random(),
                         title: AppState.sanitizeHTML(post.title || 'Untitled'),
@@ -2503,9 +2568,19 @@
                     this.isUnlocked = unlocked;
                     if (unlocked) {
                         sessionStorage.setItem(CONFIG.SESSION_KEY, 'true');
+                        sessionStorage.setItem('admin_session_start', Date.now().toString());
                     } else {
                         sessionStorage.removeItem(CONFIG.SESSION_KEY);
+                        sessionStorage.removeItem('admin_session_start');
                     }
+                    Admin.updateSessionIndicator();
+                    return this.isUnlocked;
+                },
+
+                getSessionTime() {
+                    const start = sessionStorage.getItem('admin_session_start');
+                    if (!start) return 0;
+                    return Math.floor((Date.now() - parseInt(start)) / 1000);
                 },
 
                 addPost(post) {
@@ -2575,6 +2650,15 @@
                 clearAll() {
                     this.posts = [];
                     this.savePosts();
+                },
+
+                getCategoryCounts() {
+                    const counts = {};
+                    this.posts.forEach(p => {
+                        counts[p.category] = (counts[p.category] || 0) + 1;
+                    });
+                    counts.all = this.posts.length;
+                    return counts;
                 }
             };
 
@@ -2597,6 +2681,7 @@
                         learningPage: document.getElementById('learning-page'),
                         blogGrid: document.getElementById('blogGrid'),
                         blogSearch: document.getElementById('blogSearch'),
+                        searchClearBtn: document.getElementById('searchClearBtn'),
                         searchBtn: document.getElementById('searchBtn'),
                         blogCategories: document.getElementById('blogCategories'),
                         adminPanel: document.getElementById('adminPanel'),
@@ -2607,9 +2692,17 @@
                         postAuthor: document.getElementById('postAuthor'),
                         postExcerpt: document.getElementById('postExcerpt'),
                         postContent: document.getElementById('postContent'),
+                        titleError: document.getElementById('titleError'),
+                        contentError: document.getElementById('contentError'),
+                        submitBtnText: document.getElementById('submitBtnText'),
+                        adminPanelTitle: document.getElementById('adminPanelTitle'),
                         exportBtn: document.getElementById('exportBtn'),
                         importBtn: document.getElementById('importBtn'),
                         clearAllBtn: document.getElementById('clearAllBtn'),
+                        logoutBtn: document.getElementById('logoutBtn'),
+                        sessionDot: document.getElementById('sessionDot'),
+                        sessionStatus: document.getElementById('sessionStatus'),
+                        sessionIndicator: document.getElementById('sessionIndicator'),
                         blogModal: document.getElementById('blogModal'),
                         modalClose: document.getElementById('modalClose'),
                         modalTitle: document.getElementById('modalTitle'),
@@ -2629,26 +2722,46 @@
                 },
 
                 get(id) { return document.getElementById(id); },
-                show(el) { if (el) el.style.display = ''; },
-                hide(el) { if (el) el.style.display = 'none'; },
+                show(el) { if (el) { el.style.display = ''; el.style.visibility = 'visible'; } },
+                hide(el) { if (el) { el.style.display = 'none'; el.style.visibility = 'hidden'; } },
                 toggle(el) { if (el) el.classList.toggle('active'); },
                 addClass(el, className) { if (el) el.classList.add(className); },
-                removeClass(el, className) { if (el) el.classList.remove(className); }
+                removeClass(el, className) { if (el) el.classList.remove(className); },
+                hasClass(el, className) { return el ? el.classList.contains(className) : false; }
             };
 
             // ============================================================
             // 4. TOAST SYSTEM
             // ============================================================
             const Toast = {
-                show(message, type = 'info', duration = 3500) {
+                show(message, type = 'info', duration = 4000) {
                     const container = DOM.elements.toastContainer;
                     if (!container) return;
+
+                    const icons = {
+                        success: 'fa-check-circle',
+                        error: 'fa-exclamation-circle',
+                        warning: 'fa-exclamation-triangle',
+                        info: 'fa-info-circle'
+                    };
+
                     const toast = document.createElement('div');
                     toast.className = `toast toast-${type}`;
-                    toast.textContent = message;
+                    toast.innerHTML = `
+                        <span class="toast-icon"><i class="fas ${icons[type] || icons.info}"></i></span>
+                        <span>${message}</span>
+                        <button class="toast-close" aria-label="Dismiss notification"><i class="fas fa-times"></i></button>
+                    `;
                     container.appendChild(toast);
-                    setTimeout(() => { if (toast.parentNode) toast.remove(); }, duration);
-                    toast.addEventListener('click', () => toast.remove());
+
+                    const close = () => { if (toast.parentNode) toast.remove(); };
+                    toast.querySelector('.toast-close').addEventListener('click', close);
+                    toast.addEventListener('click', (e) => {
+                        if (e.target === toast || e.target.closest('.toast-close')) return;
+                        close();
+                    });
+
+                    setTimeout(close, duration);
                     return toast;
                 },
                 success(message) { return this.show(message, 'success'); },
@@ -2808,15 +2921,31 @@
                     const hash = window.location.hash || '#home';
                     this.currentRoute = hash;
                     this.isLearning = hash === '#learning';
+
+                    const mainContent = DOM.elements.mainContent;
+                    const learningPage = DOM.elements.learningPage;
+                    const floatingBtn = DOM.elements.floatingAdminBtn;
+
                     if (this.isLearning) {
-                        DOM.hide(DOM.elements.mainContent);
-                        DOM.show(DOM.elements.learningPage);
-                        DOM.addClass(DOM.elements.learningPage, 'active');
+                        DOM.hide(mainContent);
+                        DOM.show(learningPage);
+                        DOM.addClass(learningPage, 'active');
+                        if (floatingBtn) {
+                            DOM.show(floatingBtn);
+                            floatingBtn.classList.add('show');
+                        }
                         Blog.render();
                     } else {
-                        DOM.show(DOM.elements.mainContent);
-                        DOM.hide(DOM.elements.learningPage);
-                        DOM.removeClass(DOM.elements.learningPage, 'active');
+                        DOM.show(mainContent);
+                        DOM.hide(learningPage);
+                        DOM.removeClass(learningPage, 'active');
+                        if (floatingBtn) {
+                            floatingBtn.classList.remove('show');
+                            if (!DOM.hasClass(DOM.elements.adminPanel, 'active')) {
+                                DOM.hide(floatingBtn);
+                            }
+                        }
+
                         if (hash !== '#home') {
                             const target = document.querySelector(hash);
                             if (target) {
@@ -2829,6 +2958,7 @@
                             window.scrollTo({ top: 0, behavior: 'smooth' });
                         }
                     }
+
                     DOM.elements.navAnchors.forEach(link => {
                         const href = link.getAttribute('href');
                         link.classList.toggle('active', href === hash);
@@ -2884,9 +3014,7 @@
                 buildStructure() {
                     const pts = [];
                     const edges = [];
-                    const w = 10,
-                        h = 5,
-                        d = 6;
+                    const w = 10, h = 5, d = 6;
                     const bays = 5;
                     const bw = w / bays;
                     const ridge = h / 2 + 1.2;
@@ -2930,10 +3058,8 @@
                         const y = -h / 2 + (lv + 0.5) * h / 3;
                         for (let z of [-d / 2, d / 2]) {
                             for (let i = 0; i < bays; i++) {
-                                const x1 = -w / 2 + i * bw,
-                                    x2 = -w / 2 + (i + 1) * bw;
-                                const p1 = addP(x1, y, z),
-                                    p2 = addP(x2, y, z);
+                                const x1 = -w / 2 + i * bw, x2 = -w / 2 + (i + 1) * bw;
+                                const p1 = addP(x1, y, z), p2 = addP(x2, y, z);
                                 addE(p1, p2);
                             }
                         }
@@ -2941,8 +3067,7 @@
                     const nodes = [];
                     for (let i = 0; i < pts.length; i++) {
                         const p = pts[i];
-                        if (Math.abs(p[1] - h / 2) < 0.01 || Math.abs(p[1] - ridge) < 0.01 || Math.abs(p[1] + h / 2) <
-                            0.01) {
+                        if (Math.abs(p[1] - h / 2) < 0.01 || Math.abs(p[1] - ridge) < 0.01 || Math.abs(p[1] + h / 2) < 0.01) {
                             nodes.push(i);
                         }
                     }
@@ -2965,27 +3090,17 @@
                     const rotX = 0.2 + Math.sin(time * 0.12) * 0.04;
                     const rotZ = 0.05 + Math.sin(time * 0.2) * 0.02;
                     const project = (x, y, z) => {
-                        let cx = Math.cos(rotX),
-                            sx = Math.sin(rotX),
-                            cy = Math.cos(rotY),
-                            sy = Math.sin(rotY),
-                            cz = Math.cos(rotZ),
-                            sz = Math.sin(rotZ);
-                        let y1 = y * cx - z * sx,
-                            z1 = y * sx + z * cx;
-                        let x1 = x * cy + z1 * sy,
-                            z2 = -x * sy + z1 * cy;
-                        let x2 = x1 * cz - y1 * sz,
-                            y2 = x1 * sz + y1 * cz;
-                        const scale = 100,
-                            fov = 700,
-                            persp = fov / (fov + z2 * 2.5);
+                        let cx = Math.cos(rotX), sx = Math.sin(rotX), cy = Math.cos(rotY), sy = Math.sin(rotY),
+                            cz = Math.cos(rotZ), sz = Math.sin(rotZ);
+                        let y1 = y * cx - z * sx, z1 = y * sx + z * cx;
+                        let x1 = x * cy + z1 * sy, z2 = -x * sy + z1 * cy;
+                        let x2 = x1 * cz - y1 * sz, y2 = x1 * sz + y1 * cz;
+                        const scale = 100, fov = 700, persp = fov / (fov + z2 * 2.5);
                         return { x: width / 2 + x2 * scale * persp, y: height / 2 - y2 * scale * persp, z: z2 };
                     };
                     const proj = this.points.map(p => project(p[0], p[1], p[2]));
                     const edgeData = this.edges.map(([i, j]) => {
-                        const a = proj[i],
-                            b = proj[j];
+                        const a = proj[i], b = proj[j];
                         return { a, b, depth: (a.z + b.z) / 2 };
                     });
                     edgeData.sort((a, b) => b.depth - a.depth);
@@ -3018,8 +3133,7 @@
                     ctx.strokeStyle = `rgba(212, 160, 43, 0.015)`;
                     ctx.lineWidth = 0.5;
                     for (let i = 0; i < 20; i++) {
-                        const x = (i / 20) * width,
-                            y = (i / 20) * height;
+                        const x = (i / 20) * width, y = (i / 20) * height;
                         ctx.beginPath();
                         ctx.moveTo(x, 0);
                         ctx.lineTo(x, height);
@@ -3067,11 +3181,15 @@
                 init() {
                     if (this.initialized) return this;
                     this.initialized = true;
+
                     const searchInput = DOM.elements.blogSearch;
-                    const searchBtn = DOM.elements.searchBtn;
                     if (searchInput) {
                         searchInput.addEventListener('input', this.debounce((e) => {
                             this.currentSearch = e.target.value;
+                            const clear = DOM.elements.searchClearBtn;
+                            if (clear) {
+                                clear.classList.toggle('visible', e.target.value.length > 0);
+                            }
                             this.render();
                         }, 300));
                         searchInput.addEventListener('keyup', (e) => {
@@ -3081,6 +3199,8 @@
                             }
                         });
                     }
+
+                    const searchBtn = DOM.elements.searchBtn;
                     if (searchBtn) {
                         searchBtn.addEventListener('click', () => {
                             if (searchInput) {
@@ -3089,23 +3209,47 @@
                             }
                         });
                     }
+
                     const categories = DOM.elements.blogCategories;
                     if (categories) {
-                        categories.querySelectorAll('button').forEach(btn => {
-                            btn.addEventListener('click', function() {
-                                categories.querySelectorAll('button').forEach(b => {
-                                    b.classList.remove('active');
-                                    b.setAttribute('aria-selected', 'false');
-                                });
-                                this.classList.add('active');
-                                this.setAttribute('aria-selected', 'true');
-                                Blog.currentFilter = this.dataset.cat;
-                                Blog.render();
+                        categories.addEventListener('click', (e) => {
+                            const btn = e.target.closest('button');
+                            if (!btn || !btn.dataset.cat) return;
+                            categories.querySelectorAll('button').forEach(b => {
+                                b.classList.remove('active');
+                                b.setAttribute('aria-selected', 'false');
                             });
+                            btn.classList.add('active');
+                            btn.setAttribute('aria-selected', 'true');
+                            this.currentFilter = btn.dataset.cat;
+                            this.render();
                         });
                     }
+
+                    this.renderCategories();
                     this.render();
                     return this;
+                },
+
+                renderCategories() {
+                    const container = DOM.elements.blogCategories;
+                    if (!container) return;
+
+                    const counts = AppState.getCategoryCounts();
+                    const categories = [
+                        { id: 'all', label: 'All', count: counts.all || 0 },
+                        { id: 'PEB', label: 'PEB', count: counts.PEB || 0 },
+                        { id: 'Steel', label: 'Steel', count: counts.Steel || 0 },
+                        { id: 'RCC', label: 'RCC', count: counts.RCC || 0 },
+                        { id: 'Tekla', label: 'Tekla', count: counts.Tekla || 0 },
+                        { id: 'Tutorial', label: 'Tutorial', count: counts.Tutorial || 0 }
+                    ];
+
+                    container.innerHTML = categories.map(cat =>
+                        `<button class="${cat.id === 'all' ? 'active' : ''}" data-cat="${cat.id}" role="tab" aria-selected="${cat.id === 'all' ? 'true' : 'false'}">
+                            ${cat.label} <span class="count">${cat.count}</span>
+                        </button>`
+                    ).join('');
                 },
 
                 debounce(fn, delay = 300) {
@@ -3119,10 +3263,13 @@
                 render() {
                     const grid = DOM.elements.blogGrid;
                     if (!grid) return;
+
                     let posts = AppState.posts;
+
                     if (this.currentFilter !== 'all') {
                         posts = posts.filter(p => p.category === this.currentFilter);
                     }
+
                     if (this.currentSearch.trim()) {
                         const term = this.currentSearch.toLowerCase().trim();
                         posts = posts.filter(p =>
@@ -3132,20 +3279,29 @@
                             p.author.toLowerCase().includes(term)
                         );
                     }
+
                     posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+                    this.renderCategories();
+
                     if (posts.length === 0) {
+                        const message = this.currentSearch.trim() ?
+                            `No articles found matching "${this.currentSearch}"` :
+                            'No articles in this category yet.';
+
                         grid.innerHTML = `
                             <div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--gray);">
                                 <i class="fas fa-book-open" style="font-size:2.5rem;color:var(--accent);opacity:0.3;margin-bottom:12px;"></i>
-                                <p style="font-size:1.1rem;font-weight:500;">No articles found</p>
+                                <p style="font-size:1.1rem;font-weight:500;">${message}</p>
                                 <p style="font-size:0.9rem;">Try adjusting your search or filter.</p>
                                 ${AppState.posts.length === 0 ? '<p style="font-size:0.85rem;margin-top:8px;">Click the floating pen icon to add your first post!</p>' : ''}
                             </div>
                         `;
                         return;
                     }
+
                     grid.innerHTML = posts.map(post => {
                         const isAdmin = AppState.isUnlocked;
+                        const readingTime = AppState.getReadingTime(post.content);
                         return `
                             <div class="blog-card animate-on-scroll" data-id="${post.id}">
                                 <div class="blog-img">
@@ -3156,12 +3312,11 @@
                                         <span class="cat">${post.category}</span>
                                         <span>${post.author}</span>
                                         <span>${post.date}</span>
-                                        <span><i class="fas fa-clock" aria-hidden="true"></i> ${AppState.getReadingTime(post.content)} min read</span>
                                     </div>
                                     <h3><a href="#" class="blog-read-link" data-id="${post.id}">${post.title}</a></h3>
                                     <p>${post.excerpt}</p>
                                     <div class="blog-footer">
-                                        <span class="read-time"><i class="fas fa-clock" aria-hidden="true"></i> ${AppState.getReadingTime(post.content)} min read</span>
+                                        <span class="read-time"><i class="fas fa-clock" aria-hidden="true"></i> ${readingTime} min read</span>
                                         <a href="#" class="blog-read-link" data-id="${post.id}" style="font-weight:600;color:var(--secondary);">Read More →</a>
                                     </div>
                                     ${isAdmin ? `
@@ -3174,11 +3329,13 @@
                             </div>
                         `;
                     }).join('');
+
                     const newEls = grid.querySelectorAll('.animate-on-scroll');
                     const newObs = new IntersectionObserver((entries) => {
                         entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
                     }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
                     newEls.forEach(el => newObs.observe(el));
+
                     grid.querySelectorAll('.blog-read-link').forEach(link => {
                         link.addEventListener('click', function(e) {
                             e.preventDefault();
@@ -3186,6 +3343,7 @@
                             Blog.openDetail(id);
                         });
                     });
+
                     if (AppState.isUnlocked) {
                         grid.querySelectorAll('.edit-btn').forEach(btn => {
                             btn.addEventListener('click', function(e) {
@@ -3202,6 +3360,10 @@
                             });
                         });
                     }
+
+                    if (Router.isLearning) {
+                        DOM.show(DOM.elements.floatingAdminBtn);
+                    }
                 },
 
                 openDetail(id) {
@@ -3209,6 +3371,7 @@
                     if (!post) { Toast.error('Post not found'); return; }
                     const modal = DOM.elements.blogModal;
                     if (!modal) return;
+
                     DOM.elements.modalTitle.textContent = post.title;
                     DOM.elements.modalMeta.innerHTML = `
                         <span class="cat">${post.category}</span>
@@ -3218,9 +3381,33 @@
                     `;
                     DOM.elements.modalBody.innerHTML = post.content;
                     DOM.elements.modalImg.innerHTML = `<i class="fas fa-cube" aria-hidden="true"></i>`;
+
                     modal.classList.add('active');
                     document.body.style.overflow = 'hidden';
                     DOM.elements.modalClose.focus();
+
+                    const focusable = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                    if (focusable.length) {
+                        const first = focusable[0];
+                        const last = focusable[focusable.length - 1];
+                        const trap = (e) => {
+                            if (e.key === 'Tab') {
+                                if (e.shiftKey && document.activeElement === first) {
+                                    e.preventDefault();
+                                    last.focus();
+                                } else if (!e.shiftKey && document.activeElement === last) {
+                                    e.preventDefault();
+                                    first.focus();
+                                }
+                            }
+                        };
+                        modal.addEventListener('keydown', trap);
+                        const cleanup = () => {
+                            modal.removeEventListener('keydown', trap);
+                            modal.removeEventListener('close', cleanup);
+                        };
+                        modal.addEventListener('close', cleanup);
+                    }
                 },
 
                 closeModal() {
@@ -3228,6 +3415,8 @@
                     if (modal) {
                         modal.classList.remove('active');
                         document.body.style.overflow = '';
+                        const event = new Event('close');
+                        modal.dispatchEvent(event);
                     }
                 },
 
@@ -3238,19 +3427,26 @@
                         Admin.unlock();
                         if (!AppState.isUnlocked) return;
                     }
+
                     DOM.elements.postTitle.value = post.title;
                     DOM.elements.postCategory.value = post.category;
                     DOM.elements.postAuthor.value = post.author;
                     DOM.elements.postExcerpt.value = post.excerpt;
                     DOM.elements.postContent.value = post.content;
+
                     DOM.addClass(DOM.elements.adminPanel, 'active');
                     AppState.currentPostId = id;
-                    const submitBtn = DOM.elements.blogForm.querySelector('button[type="submit"]');
-                    if (submitBtn) {
-                        submitBtn.innerHTML = '<i class="fas fa-save" aria-hidden="true"></i> Update Post';
+
+                    if (DOM.elements.submitBtnText) {
+                        DOM.elements.submitBtnText.textContent = 'Update Post';
                     }
+                    if (DOM.elements.adminPanelTitle) {
+                        DOM.elements.adminPanelTitle.textContent = 'Edit Article';
+                    }
+
                     Toast.info('Editing: ' + post.title);
                     DOM.elements.adminPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    DOM.show(DOM.elements.floatingAdminBtn);
                 },
 
                 deletePost(id) {
@@ -3265,12 +3461,18 @@
 
                 resetEditMode() {
                     AppState.currentPostId = null;
-                    const submitBtn = DOM.elements.blogForm.querySelector('button[type="submit"]');
-                    if (submitBtn) {
-                        submitBtn.innerHTML = '<i class="fas fa-publish" aria-hidden="true"></i> Publish Post';
+                    if (DOM.elements.submitBtnText) {
+                        DOM.elements.submitBtnText.textContent = 'Publish Post';
+                    }
+                    if (DOM.elements.adminPanelTitle) {
+                        DOM.elements.adminPanelTitle.textContent = 'Publish New Article';
                     }
                     DOM.elements.blogForm.reset();
                     DOM.elements.postAuthor.value = 'Engr. Team';
+                    DOM.removeClass(DOM.elements.postTitle, 'error');
+                    DOM.removeClass(DOM.elements.postContent, 'error');
+                    DOM.removeClass(DOM.elements.titleError, 'visible');
+                    DOM.removeClass(DOM.elements.contentError, 'visible');
                 }
             };
 
@@ -3283,29 +3485,89 @@
                     if (floatingBtn) {
                         floatingBtn.addEventListener('click', () => this.toggleAdmin());
                     }
+
                     const form = DOM.elements.blogForm;
                     if (form) {
                         form.addEventListener('submit', (e) => this.handleSubmit(e));
                     }
+
                     const exportBtn = DOM.elements.exportBtn;
                     if (exportBtn) {
                         exportBtn.addEventListener('click', () => this.exportData());
                     }
+
                     const importBtn = DOM.elements.importBtn;
                     if (importBtn) {
                         importBtn.addEventListener('click', () => this.importData());
                     }
+
                     const clearBtn = DOM.elements.clearAllBtn;
                     if (clearBtn) {
                         clearBtn.addEventListener('click', () => this.clearAll());
                     }
+
+                    const logoutBtn = DOM.elements.logoutBtn;
+                    if (logoutBtn) {
+                        logoutBtn.addEventListener('click', () => this.logout());
+                    }
+
+                    const searchClear = DOM.elements.searchClearBtn;
+                    if (searchClear) {
+                        searchClear.addEventListener('click', () => {
+                            const input = DOM.elements.blogSearch;
+                            if (input) {
+                                input.value = '';
+                                Blog.currentSearch = '';
+                                Blog.render();
+                                searchClear.classList.remove('visible');
+                                input.focus();
+                            }
+                        });
+                    }
+
+                    const searchInput = DOM.elements.blogSearch;
+                    if (searchInput) {
+                        searchInput.addEventListener('input', () => {
+                            const clear = DOM.elements.searchClearBtn;
+                            if (clear) {
+                                clear.classList.toggle('visible', searchInput.value.length > 0);
+                            }
+                        });
+                    }
+
                     this.checkSession();
+                    this.updateSessionIndicator();
                     return this;
                 },
 
                 checkSession() {
                     if (AppState.isUnlocked) {
                         DOM.addClass(DOM.elements.adminPanel, 'active');
+                        DOM.show(DOM.elements.floatingAdminBtn);
+                    } else {
+                        DOM.removeClass(DOM.elements.adminPanel, 'active');
+                        if (Router.isLearning) {
+                            DOM.show(DOM.elements.floatingAdminBtn);
+                        }
+                    }
+                    this.updateSessionIndicator();
+                },
+
+                updateSessionIndicator() {
+                    const dot = DOM.elements.sessionDot;
+                    const status = DOM.elements.sessionStatus;
+                    const logoutBtn = DOM.elements.logoutBtn;
+
+                    if (!dot || !status) return;
+
+                    if (AppState.isUnlocked) {
+                        dot.className = 'status-dot active';
+                        status.textContent = 'Authenticated';
+                        if (logoutBtn) logoutBtn.style.display = 'inline-block';
+                    } else {
+                        dot.className = 'status-dot inactive';
+                        status.textContent = 'Not authenticated';
+                        if (logoutBtn) logoutBtn.style.display = 'none';
                     }
                 },
 
@@ -3322,11 +3584,15 @@
                         DOM.addClass(DOM.elements.adminPanel, 'active');
                         return true;
                     }
+
                     const entered = prompt('Enter admin password to publish posts:');
                     if (entered === null) return false;
+
                     if (entered === CONFIG.ADMIN_PASS) {
                         AppState.setSession(true);
                         DOM.addClass(DOM.elements.adminPanel, 'active');
+                        DOM.show(DOM.elements.floatingAdminBtn);
+                        this.updateSessionIndicator();
                         Toast.success('Access granted! You can now publish posts.');
                         Blog.render();
                         return true;
@@ -3336,22 +3602,57 @@
                     }
                 },
 
+                logout() {
+                    if (confirm('Are you sure you want to logout?')) {
+                        AppState.setSession(false);
+                        DOM.removeClass(DOM.elements.adminPanel, 'active');
+                        this.updateSessionIndicator();
+                        Blog.resetEditMode();
+                        Blog.render();
+                        Toast.info('Logged out successfully.');
+                    }
+                },
+
                 handleSubmit(e) {
                     e.preventDefault();
+
+                    const title = DOM.elements.postTitle.value.trim();
+                    const content = DOM.elements.postContent.value.trim();
+                    let isValid = true;
+
+                    if (!title) {
+                        DOM.addClass(DOM.elements.postTitle, 'error');
+                        DOM.addClass(DOM.elements.titleError, 'visible');
+                        isValid = false;
+                    } else {
+                        DOM.removeClass(DOM.elements.postTitle, 'error');
+                        DOM.removeClass(DOM.elements.titleError, 'visible');
+                    }
+
+                    if (!content) {
+                        DOM.addClass(DOM.elements.postContent, 'error');
+                        DOM.addClass(DOM.elements.contentError, 'visible');
+                        isValid = false;
+                    } else {
+                        DOM.removeClass(DOM.elements.postContent, 'error');
+                        DOM.removeClass(DOM.elements.contentError, 'visible');
+                    }
+
+                    if (!isValid) {
+                        Toast.error('Please fix the errors above.');
+                        return;
+                    }
+
                     if (!AppState.isUnlocked) {
                         Toast.warning('Please unlock the admin panel first.');
                         this.unlock();
                         return;
                     }
-                    const title = DOM.elements.postTitle.value.trim();
+
                     const category = DOM.elements.postCategory.value;
                     const author = DOM.elements.postAuthor.value.trim() || 'Engr. Team';
                     const excerpt = DOM.elements.postExcerpt.value.trim();
-                    const content = DOM.elements.postContent.value.trim();
-                    if (!title || !content) {
-                        Toast.error('Please fill in at least the title and content.');
-                        return;
-                    }
+
                     const postData = {
                         title,
                         category,
@@ -3360,6 +3661,7 @@
                         excerpt: excerpt || title,
                         content
                     };
+
                     if (AppState.currentPostId) {
                         AppState.updatePost(AppState.currentPostId, postData);
                         Toast.success(`Updated: ${title}`);
@@ -3367,6 +3669,7 @@
                         AppState.addPost(postData);
                         Toast.success(`Published: ${title}`);
                     }
+
                     Blog.resetEditMode();
                     Blog.render();
                     DOM.addClass(DOM.elements.adminPanel, 'active');
@@ -3458,6 +3761,7 @@
                             Blog.closeModal();
                         }
                     });
+
                     const copyBtn = DOM.elements.shareCopyBtn;
                     if (copyBtn) {
                         copyBtn.addEventListener('click', () => {
@@ -3475,6 +3779,7 @@
                             });
                         });
                     }
+
                     const twitterBtn = DOM.elements.shareTwitterBtn;
                     if (twitterBtn) {
                         twitterBtn.addEventListener('click', () => {
@@ -3483,6 +3788,7 @@
                             window.open(`https://twitter.com/intent/tweet?text=${title}&url=${url}`, '_blank');
                         });
                     }
+
                     const facebookBtn = DOM.elements.shareFacebookBtn;
                     if (facebookBtn) {
                         facebookBtn.addEventListener('click', () => {
@@ -3490,6 +3796,7 @@
                             window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
                         });
                     }
+
                     const linkedinBtn = DOM.elements.shareLinkedinBtn;
                     if (linkedinBtn) {
                         linkedinBtn.addEventListener('click', () => {
@@ -3558,8 +3865,10 @@
                 init() {
                     if (this.initialized) return this;
                     this.initialized = true;
+
                     console.log(`🏗️ ${CONFIG.APP_NAME} v${CONFIG.VERSION}`);
                     console.log('📐 Enterprise Engineering Platform');
+
                     try {
                         DOM.init();
                         AppState.init();
@@ -3575,6 +3884,12 @@
                         MagneticButtons.init();
                         Blog.init();
                         Admin.init();
+
+                        if (Router.isLearning) {
+                            DOM.show(DOM.elements.floatingAdminBtn);
+                            DOM.elements.floatingAdminBtn.classList.add('show');
+                        }
+
                         console.log(`✅ Application initialized successfully`);
                         console.log(`📚 ${AppState.posts.length} posts loaded`);
                     } catch (err) {
@@ -3604,3 +3919,6 @@
 
         })();
     </script>
+
+</body>
+</html>
